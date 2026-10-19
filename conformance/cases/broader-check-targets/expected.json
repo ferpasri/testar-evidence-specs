@@ -1,0 +1,201 @@
+{
+    "status": "accepted",
+    "counts": {
+        "events": 14,
+        "runs": 1,
+        "observations": 2,
+        "actions": 1,
+        "executions": 1,
+        "checks": 6,
+        "artifact_references": 0,
+        "concrete_states": 2
+    },
+    "runs": [
+        {
+            "id": "example:broader-check-targets:run:1",
+            "status": "finished"
+        }
+    ],
+    "observations": [
+        {
+            "id": "example:broader-check-targets:observation:1",
+            "run": "example:broader-check-targets:run:1",
+            "sequence": 1,
+            "concrete_state": "example:broader-check-targets:snapshot:1",
+            "capture": "complete",
+            "candidate_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "candidates": [
+                {
+                    "action": "example:broader-check-targets:activate",
+                    "target": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:broader-check-targets:observation:2",
+            "run": "example:broader-check-targets:run:1",
+            "sequence": 2,
+            "concrete_state": "example:broader-check-targets:snapshot:2",
+            "capture": "complete",
+            "candidate_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "candidates": [
+                {
+                    "action": "example:broader-check-targets:activate",
+                    "target": "next"
+                }
+            ],
+            "artifact_ids": []
+        }
+    ],
+    "actions": [
+        {
+            "id": "example:broader-check-targets:activate",
+            "kind": "activate"
+        }
+    ],
+    "executions": [
+        {
+            "execution": {
+                "id": "example:broader-check-targets:execution:1",
+                "run": "example:broader-check-targets:run:1",
+                "source": "example:broader-check-targets:observation:1",
+                "action": "example:broader-check-targets:activate",
+                "target": "next",
+                "parameters": {}
+            },
+            "status": "observed",
+            "result": "example:broader-check-targets:observation:2",
+            "error": null
+        }
+    ],
+    "checks": [
+        {
+            "run": "example:broader-check-targets:run:1",
+            "name": "Run actions completed",
+            "rule": {
+                "id": "example:actions-complete",
+                "version": "1"
+            },
+            "target": {
+                "kind": "run"
+            },
+            "status": "passed",
+            "actual": {
+                "kind": "value",
+                "value": {
+                    "completed": 1
+                }
+            },
+            "details": {}
+        },
+        {
+            "run": "example:broader-check-targets:run:1",
+            "name": "Observation satisfies readiness condition",
+            "rule": {
+                "id": "example:ready",
+                "version": "1"
+            },
+            "target": {
+                "kind": "observation",
+                "observation": "example:broader-check-targets:observation:2"
+            },
+            "status": "unknown",
+            "actual": {
+                "kind": "unknown"
+            },
+            "details": {
+                "reason": "Readiness evaluator had insufficient information"
+            }
+        },
+        {
+            "run": "example:broader-check-targets:run:1",
+            "name": "State title identifies Step 2",
+            "rule": {
+                "id": "example:equals",
+                "version": "1"
+            },
+            "target": {
+                "kind": "state_property",
+                "observation": "example:broader-check-targets:observation:2",
+                "property": "ui.title"
+            },
+            "status": "passed",
+            "expected": "Step 2",
+            "actual": {
+                "kind": "value",
+                "value": "Step 2"
+            },
+            "details": {}
+        },
+        {
+            "run": "example:broader-check-targets:run:1",
+            "name": "Widget appearance satisfies condition",
+            "rule": {
+                "id": "example:appearance",
+                "version": "1"
+            },
+            "target": {
+                "kind": "widget",
+                "observation": "example:broader-check-targets:observation:2",
+                "widget": "status"
+            },
+            "status": "error",
+            "actual": {
+                "kind": "unknown"
+            },
+            "details": {
+                "reason": "Appearance evaluator encountered an error"
+            }
+        },
+        {
+            "run": "example:broader-check-targets:run:1",
+            "name": "Action has a resulting observation",
+            "rule": {
+                "id": "example:has-result",
+                "version": "1"
+            },
+            "target": {
+                "kind": "execution",
+                "execution": "example:broader-check-targets:execution:1"
+            },
+            "status": "passed",
+            "actual": {
+                "kind": "value",
+                "value": "example:broader-check-targets:observation:2"
+            },
+            "details": {}
+        },
+        {
+            "run": "example:broader-check-targets:run:1",
+            "name": "Sequence evaluation awaits completion",
+            "rule": {
+                "id": "example:sequence-condition",
+                "version": "1"
+            },
+            "target": {
+                "kind": "sequence",
+                "from_observation": "example:broader-check-targets:observation:1",
+                "to_observation": "example:broader-check-targets:observation:2"
+            },
+            "status": "pending",
+            "details": {
+                "reason": "Evaluation is pending"
+            }
+        }
+    ],
+    "concrete_states": [
+        "example:broader-check-targets:snapshot:1",
+        "example:broader-check-targets:snapshot:2"
+    ]
+}

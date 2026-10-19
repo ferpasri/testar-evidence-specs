@@ -6,7 +6,7 @@
 | --- | --- |
 | Specifications | Define generic evidence, data formats, rules, and shared test cases. |
 | Language implementations | Provide an API to record, validate, store, read, and query concrete execution traces. |
-| Tool-specific adapters | Translate tool-specific UI observations, actions, checks, and screenshots into generic records. |
+| Tool-specific adapters | Translate tool-specific UI observations, actions, check results, and screenshots into generic records. |
 | Optional abstraction components | Decide which observations, widgets, or actions should be grouped for a particular purpose. |
 | Viewers and analysis tools | Display concrete traces or derived models and follow their links back to evidence. |
 
@@ -41,6 +41,14 @@ A tool may capture only part of a UI. The saved evidence explains what was captu
 Individual properties can also be unknown. If an adapter cannot read whether a button is enabled, it leaves that information unknown rather than recording `false`. A later reader must be able to distinguish "not captured" from "captured and disabled."
 
 Properties can preserve useful details from a particular tool. A name such as `toolone.fingerprint` or `tooltwo.selector` starts with a prefix identifying its source; this is a **namespace**. It helps consumers recognize the property and avoids confusing similarly named values from different tools. These are examples of optional extra properties: another adapter does not have to provide them to produce valid generic evidence.
+
+## Captured properties and evaluations
+
+The adapter records captured data and check results separately. An observation can contain many widget properties while test oracles evaluate only a few of them. Each check result for a property evaluation identifies its observation, widget when applicable, property, rule, status, and any reported reading.
+
+A test oracle applied across several widgets produces separate target-level results. This lets a consumer follow the evidence for each evaluation. Evaluations can also target a whole observation, an action execution, a run, or a sequence of observations. Their scope is preserved as recorded.
+
+The [check result format](check-evaluations.md) distinguishes an established absent property from a null value or unavailable information. Implementations validate references and preserve these distinctions; adapters supply check results from evaluations actually performed by their testing tools' test oracles.
 
 ## Concrete traces and optional abstraction
 

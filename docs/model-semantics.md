@@ -11,7 +11,7 @@
 | Action definition | A recorded description of an operation that can be referenced by candidates and executions. |
 | Candidate action | An action the tool generated or considered at an observation, optionally linked to a widget. |
 | Action execution | One selected action occurrence, with its source observation, target, actual parameters, and submission/result information. |
-| Check | A recorded evaluation, such as whether an assertion passed or failed. |
+| Check result | The recorded outcome and evidence from an evaluation, identifying its rule, concrete target, status, and any reported reading. |
 | Artifact | Evidence stored as bytes, such as a screenshot, and referenced by an observation. |
 
 A concrete execution link connects a source observation to the result of an action. It records an occurrence, rather than claiming that either screen is equivalent to another screen.
@@ -43,16 +43,22 @@ Rejected or interrupted executions preserve what happened without inventing a re
 
 Concrete recording does not require an abstract-state identifier or an abstraction policy. Those belong to optional derived views. A view records its own identity, policy/version/configuration, input scope, and supporting evidence references so different interpretations can coexist.
 
-Repeated executions can support one derived transition. A derived view may contain cycles and several outcomes for the same source/action. Changing a grouping policy does not overwrite observations, executed parameters, screenshots, or checks. The generic recorder does not decide that equal URLs or images mean equivalent states.
+Repeated executions can support one derived transition. A derived view may contain cycles and several outcomes for the same source/action. Changing a grouping policy does not overwrite observations, executed parameters, screenshots, or check results. The generic recorder does not decide that equal URLs or images mean equivalent states.
 
-## Checks and screenshots
+## Check results and screenshots
 
-Observed behavior and checked behavior are distinct. Passed, failed, pending, unknown, and error evaluations retain their scopes. Missing checks do not imply success; a recorded action/result can exist without an assertion verifying it.
+Captured properties describe observations. A test oracle performs an evaluation by applying a rule to a target. A check result records its outcome and supporting evidence, identifying the target and a passed, failed, pending, unknown, or error status.
+
+A test oracle applied to several widgets produces a separate evaluation for each widget/property target. Reported readings distinguish a JSON value, established absence, and unknown information. An explicit null remains a JSON value. A property with no matching check result has no recorded evaluation. Results for broader scopes retain those scopes rather than establishing property-by-property coverage.
+
+[Evaluations and check results](check-evaluations.md) defines the terminology, record fields, target forms, reference rules, and reading representations.
 
 The adapter captures screenshots and supplies them to the implementation. Stored references identify their relative paths, media type, and SHA-256 hashes, which readers can use to check that the bytes are unchanged. Several observations may reference the same image. Moving JSONL alone does not preserve the image bytes.
 
 ## Local data and replay
 
 The local data layout uses `manifest.json`, `evidence.jsonl`, and `artifacts/`. The manifest identifies the format version and evidence collection. JSONL contains versioned events with stable identifiers. Optional derived views refer back to that evidence without making grouping a condition of recording.
+
+The current format uses `schema_version: n` in the manifest and every event envelope. This number identifies the data format, while release tags identify published versions of the specifications and shared test data.
 
 Reprocessing an identical event should not duplicate records. Conflicting content for an existing event identifier should be rejected. File locks and internal graph representations are implementation details rather than shared model data.

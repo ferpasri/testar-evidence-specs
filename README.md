@@ -15,12 +15,15 @@ testar-state-model-specs
 
 A tool-specific adapter translates its tool's UI data into generic records. A language implementation validates, stores, and reads those records. Every visit remains a separate observation, even when the same screen is visited again.
 
+Captured properties and recorded evaluations are separate evidence. A check result records the outcome and evidence from a test oracle's evaluation: the rule, target, status, and any reported reading. Property targets identify the particular observation and widget, so consumers can see which properties have recorded evaluations.
+
 Recording a trace does not require deciding which screens should count as equivalent. An optional abstraction component can group observations later, or while a test is running. Different testing objectives can produce different models from the same saved evidence. A viewer can display concrete traces, derived models, or both.
 
 ## Documents
 
 - [Architecture](docs/testar_state_model_architecture.md): responsibilities, capture limits, and data flow.
 - [Model semantics](docs/model-semantics.md): records, concrete execution links, and optional derived views.
+- [Evaluations and check results](docs/check-evaluations.md): terminology, targets, rules, outcomes, and reported readings.
 - [Conformance](conformance/README.md): shared inputs and expected results.
 - [TODO](TODO.md): specification, fixture, and implementation work still required.
 

@@ -1,0 +1,103 @@
+{
+    "status": "accepted",
+    "counts": {
+        "events": 6,
+        "runs": 1,
+        "observations": 1,
+        "actions": 0,
+        "executions": 0,
+        "checks": 3,
+        "artifact_references": 0,
+        "concrete_states": 1
+    },
+    "runs": [
+        {
+            "id": "example:widget-property-sweep:run:1",
+            "status": "finished"
+        }
+    ],
+    "observations": [
+        {
+            "id": "example:widget-property-sweep:observation:1",
+            "run": "example:widget-property-sweep:run:1",
+            "sequence": 1,
+            "concrete_state": "example:widget-property-sweep:snapshot:1",
+            "capture": "complete",
+            "candidate_scope": "unknown",
+            "widget_ids": [
+                "image-logo",
+                "image-banner",
+                "image-help",
+                "caption"
+            ],
+            "candidates": [],
+            "artifact_ids": []
+        }
+    ],
+    "actions": [],
+    "executions": [],
+    "checks": [
+        {
+            "run": "example:widget-property-sweep:run:1",
+            "name": "Image alternative text is nonblank",
+            "rule": {
+                "id": "example:nonblank-alt",
+                "version": "1"
+            },
+            "target": {
+                "kind": "widget_property",
+                "observation": "example:widget-property-sweep:observation:1",
+                "widget": "image-logo",
+                "property": "ui.alt"
+            },
+            "status": "passed",
+            "actual": {
+                "kind": "value",
+                "value": "Company"
+            },
+            "details": {}
+        },
+        {
+            "run": "example:widget-property-sweep:run:1",
+            "name": "Image alternative text is nonblank",
+            "rule": {
+                "id": "example:nonblank-alt",
+                "version": "1"
+            },
+            "target": {
+                "kind": "widget_property",
+                "observation": "example:widget-property-sweep:observation:1",
+                "widget": "image-banner",
+                "property": "ui.alt"
+            },
+            "status": "failed",
+            "actual": {
+                "kind": "value",
+                "value": ""
+            },
+            "details": {}
+        },
+        {
+            "run": "example:widget-property-sweep:run:1",
+            "name": "Image alternative text is nonblank",
+            "rule": {
+                "id": "example:nonblank-alt",
+                "version": "1"
+            },
+            "target": {
+                "kind": "widget_property",
+                "observation": "example:widget-property-sweep:observation:1",
+                "widget": "image-help",
+                "property": "ui.alt"
+            },
+            "status": "failed",
+            "actual": {
+                "kind": "absent"
+            },
+            "details": {}
+        }
+    ],
+    "concrete_states": [
+        "example:widget-property-sweep:snapshot:1"
+    ]
+}

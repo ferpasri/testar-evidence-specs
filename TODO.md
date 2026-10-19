@@ -2,54 +2,46 @@
 
 ## Specification status
 
-The shared contract is under development. Schema version 1 identifies the current experimental encoding, not a stable specification release. The available initial-observation case covers its documented behavior; full conformance requires the additional cases and runner listed below.
+The working contract and shared cases use schema version 2, including explicit check targets, rules, and reported readings. The public v0.1.0 prerelease contains the earlier schema-version-1 baseline. A new prerelease is needed to distribute these changes to implementation tests.
 
 ## Foundation
 
 - [x] Describe specifications -> language implementations -> generic data.
 - [x] Define tool-adapter responsibilities and separate consumers from generation.
-- [x] Organize cases by behavior and provide an initial-observation case.
+- [x] Define concrete recording independently of optional abstraction.
+- [x] Explain capture limits, unknown values, and source-prefixed properties.
+- [x] Define evaluation targets, rules, outcomes, and absent/null/unknown readings.
+- [x] Provide shared cases for targeted checks, a widget-property sweep, reading distinctions, broader scopes, and invalid target references.
 
-## Concrete evidence and optional abstraction
+## Implementation alignment and release
 
-- [x] Explain capture limits, unknown values, and source-prefixed properties with plain examples.
-- [x] Separate concrete traces from optional derived views in the architecture and concepts.
-- [ ] Define a concrete-only encoding: recording must not require abstract-state identifiers or an abstraction policy in its manifest.
-- [ ] Define optional derived-view records: view identity, policy/version/configuration, input scope, and supporting evidence references.
-- [x] Make the initial-observation inputs and expected results concrete-only: remove abstraction configuration, abstract-state identifiers, and derived graph expectations.
-- [ ] Specify forward action/result links and repeated visits as distinct observations, with no automatic reverse links or state merging.
-- [ ] Specify capture completeness/limits and missing/unknown property values, including namespaced extension properties.
-- [ ] Extend concrete-only case coverage and add separate optional derived-view cases; keep grouping-algorithm quality tests with the abstraction component.
-
-## Implementation alignment
-
-- [ ] Align the Rust reader with the revised concrete-only case before claiming conformance. Its earlier experimental schema-1 representation requires the abstraction fields removed from this case. Set release/version and migration rules before publishing a stable format.
-
-- [ ] Update the Rust recorder/domain/store after the shared format is defined: remove mandatory abstraction configuration and abstract-state identifiers from concrete recording.
-- [ ] Update Rust queries, adapters, and tests to consume concrete traces and optional derived views separately.
-- [ ] Document compatibility/migration for existing schema-1 evidence without losing original records or screenshots.
+- [ ] Review and publish the updated schema-version-2 prerelease.
+- [ ] Align language implementations and adapters with the evaluation fields and reference validation.
+- [ ] Extend implementation conformance runners for rejected cases and accepted-prefix comparisons.
+- [ ] Run reader and producer cases against implementations and exchange their generated evidence.
+- [ ] Establish stable release/versioning and migration rules before publishing a stable format.
 
 ## Shared contract
 
-- [ ] Review and publish a versioned specification release with compatibility guarantees.
 - [ ] Finalize minimum concepts and required versus optional capabilities.
-- [ ] Specify manifest/event fields and publish JSON Schemas.
-- [ ] Specify identities, abstraction metadata, canonical encoding, and hash vectors.
-- [ ] Specify event ordering, lifecycle, concurrency, and reference validation.
+- [ ] Publish JSON Schemas for manifests and events, including check-target variants.
+- [ ] Specify full event ordering, lifecycle, concurrency, and reference validation.
 - [ ] Specify replay/idempotency, errors, version compatibility, and incomplete files.
 - [ ] Specify artifact paths/integrity, properties, numbers, and extension rules.
+- [ ] Extend normalized expected results as additional record kinds and error cases are defined.
 
-## Conformance
+## Additional conformance cases
 
-- [ ] Define normalized expected results and the runner input/output contract.
-- [ ] Add completed/repeated transitions, self-loops, and multiple outcomes.
-- [ ] Add rejected/incomplete execution and explicit check-status cases.
-- [ ] Add widget hierarchy, candidate binding, and capture-scope cases.
-- [ ] Add replay/conflict, invalid references/versions, and corrupted/missing artifacts.
-- [ ] Run cases against implementations and exchange cross-language producer output.
+- [ ] Add repeated visits, self-loops, and multiple outcomes.
+- [ ] Add rejected/incomplete action execution and repeated-event cases.
+- [ ] Add widget hierarchy, candidate binding, capture-limit, and property-availability cases.
+- [ ] Add invalid property target shapes, execution references, and sequence endpoints.
+- [ ] Add replay conflicts, invalid versions, and corrupted/missing artifacts.
 
-## Later capabilities
+## Optional derived views and later capabilities
 
+- [ ] Define derived-view identity, policy/version/configuration, input scope, and supporting evidence references.
+- [ ] Add derived-view cases and keep grouping-algorithm quality tests with abstraction components.
 - [ ] Specify query/export and abstraction rebuilding when consumers require them.
 - [ ] Define service/viewer integration separately from the core data contract.
 - [ ] Define matching/merging before accepting cross-source equivalence claims.

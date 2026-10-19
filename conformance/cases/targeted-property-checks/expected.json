@@ -1,0 +1,436 @@
+{
+    "status": "accepted",
+    "counts": {
+        "events": 46,
+        "runs": 1,
+        "observations": 11,
+        "actions": 1,
+        "executions": 10,
+        "checks": 2,
+        "artifact_references": 0,
+        "concrete_states": 11
+    },
+    "runs": [
+        {
+            "id": "example:targeted-property-checks:run:1",
+            "status": "finished"
+        }
+    ],
+    "observations": [
+        {
+            "id": "example:targeted-property-checks:observation:1",
+            "run": "example:targeted-property-checks:run:1",
+            "sequence": 1,
+            "concrete_state": "example:targeted-property-checks:snapshot:1",
+            "capture": "complete",
+            "candidate_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "candidates": [
+                {
+                    "action": "example:targeted-property-checks:activate",
+                    "target": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:10",
+            "run": "example:targeted-property-checks:run:1",
+            "sequence": 10,
+            "concrete_state": "example:targeted-property-checks:snapshot:10",
+            "capture": "complete",
+            "candidate_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "candidates": [
+                {
+                    "action": "example:targeted-property-checks:activate",
+                    "target": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:11",
+            "run": "example:targeted-property-checks:run:1",
+            "sequence": 11,
+            "concrete_state": "example:targeted-property-checks:snapshot:11",
+            "capture": "complete",
+            "candidate_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "candidates": [
+                {
+                    "action": "example:targeted-property-checks:activate",
+                    "target": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:2",
+            "run": "example:targeted-property-checks:run:1",
+            "sequence": 2,
+            "concrete_state": "example:targeted-property-checks:snapshot:2",
+            "capture": "complete",
+            "candidate_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "candidates": [
+                {
+                    "action": "example:targeted-property-checks:activate",
+                    "target": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:3",
+            "run": "example:targeted-property-checks:run:1",
+            "sequence": 3,
+            "concrete_state": "example:targeted-property-checks:snapshot:3",
+            "capture": "complete",
+            "candidate_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "candidates": [
+                {
+                    "action": "example:targeted-property-checks:activate",
+                    "target": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:4",
+            "run": "example:targeted-property-checks:run:1",
+            "sequence": 4,
+            "concrete_state": "example:targeted-property-checks:snapshot:4",
+            "capture": "complete",
+            "candidate_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "candidates": [
+                {
+                    "action": "example:targeted-property-checks:activate",
+                    "target": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:5",
+            "run": "example:targeted-property-checks:run:1",
+            "sequence": 5,
+            "concrete_state": "example:targeted-property-checks:snapshot:5",
+            "capture": "complete",
+            "candidate_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "candidates": [
+                {
+                    "action": "example:targeted-property-checks:activate",
+                    "target": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:6",
+            "run": "example:targeted-property-checks:run:1",
+            "sequence": 6,
+            "concrete_state": "example:targeted-property-checks:snapshot:6",
+            "capture": "complete",
+            "candidate_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "candidates": [
+                {
+                    "action": "example:targeted-property-checks:activate",
+                    "target": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:7",
+            "run": "example:targeted-property-checks:run:1",
+            "sequence": 7,
+            "concrete_state": "example:targeted-property-checks:snapshot:7",
+            "capture": "complete",
+            "candidate_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "candidates": [
+                {
+                    "action": "example:targeted-property-checks:activate",
+                    "target": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:8",
+            "run": "example:targeted-property-checks:run:1",
+            "sequence": 8,
+            "concrete_state": "example:targeted-property-checks:snapshot:8",
+            "capture": "complete",
+            "candidate_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "candidates": [
+                {
+                    "action": "example:targeted-property-checks:activate",
+                    "target": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:9",
+            "run": "example:targeted-property-checks:run:1",
+            "sequence": 9,
+            "concrete_state": "example:targeted-property-checks:snapshot:9",
+            "capture": "complete",
+            "candidate_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "candidates": [
+                {
+                    "action": "example:targeted-property-checks:activate",
+                    "target": "next"
+                }
+            ],
+            "artifact_ids": []
+        }
+    ],
+    "actions": [
+        {
+            "id": "example:targeted-property-checks:activate",
+            "kind": "activate"
+        }
+    ],
+    "executions": [
+        {
+            "execution": {
+                "id": "example:targeted-property-checks:execution:1",
+                "run": "example:targeted-property-checks:run:1",
+                "source": "example:targeted-property-checks:observation:1",
+                "action": "example:targeted-property-checks:activate",
+                "target": "next",
+                "parameters": {}
+            },
+            "status": "observed",
+            "result": "example:targeted-property-checks:observation:2",
+            "error": null
+        },
+        {
+            "execution": {
+                "id": "example:targeted-property-checks:execution:2",
+                "run": "example:targeted-property-checks:run:1",
+                "source": "example:targeted-property-checks:observation:2",
+                "action": "example:targeted-property-checks:activate",
+                "target": "next",
+                "parameters": {}
+            },
+            "status": "observed",
+            "result": "example:targeted-property-checks:observation:3",
+            "error": null
+        },
+        {
+            "execution": {
+                "id": "example:targeted-property-checks:execution:3",
+                "run": "example:targeted-property-checks:run:1",
+                "source": "example:targeted-property-checks:observation:3",
+                "action": "example:targeted-property-checks:activate",
+                "target": "next",
+                "parameters": {}
+            },
+            "status": "observed",
+            "result": "example:targeted-property-checks:observation:4",
+            "error": null
+        },
+        {
+            "execution": {
+                "id": "example:targeted-property-checks:execution:4",
+                "run": "example:targeted-property-checks:run:1",
+                "source": "example:targeted-property-checks:observation:4",
+                "action": "example:targeted-property-checks:activate",
+                "target": "next",
+                "parameters": {}
+            },
+            "status": "observed",
+            "result": "example:targeted-property-checks:observation:5",
+            "error": null
+        },
+        {
+            "execution": {
+                "id": "example:targeted-property-checks:execution:5",
+                "run": "example:targeted-property-checks:run:1",
+                "source": "example:targeted-property-checks:observation:5",
+                "action": "example:targeted-property-checks:activate",
+                "target": "next",
+                "parameters": {}
+            },
+            "status": "observed",
+            "result": "example:targeted-property-checks:observation:6",
+            "error": null
+        },
+        {
+            "execution": {
+                "id": "example:targeted-property-checks:execution:6",
+                "run": "example:targeted-property-checks:run:1",
+                "source": "example:targeted-property-checks:observation:6",
+                "action": "example:targeted-property-checks:activate",
+                "target": "next",
+                "parameters": {}
+            },
+            "status": "observed",
+            "result": "example:targeted-property-checks:observation:7",
+            "error": null
+        },
+        {
+            "execution": {
+                "id": "example:targeted-property-checks:execution:7",
+                "run": "example:targeted-property-checks:run:1",
+                "source": "example:targeted-property-checks:observation:7",
+                "action": "example:targeted-property-checks:activate",
+                "target": "next",
+                "parameters": {}
+            },
+            "status": "observed",
+            "result": "example:targeted-property-checks:observation:8",
+            "error": null
+        },
+        {
+            "execution": {
+                "id": "example:targeted-property-checks:execution:8",
+                "run": "example:targeted-property-checks:run:1",
+                "source": "example:targeted-property-checks:observation:8",
+                "action": "example:targeted-property-checks:activate",
+                "target": "next",
+                "parameters": {}
+            },
+            "status": "observed",
+            "result": "example:targeted-property-checks:observation:9",
+            "error": null
+        },
+        {
+            "execution": {
+                "id": "example:targeted-property-checks:execution:9",
+                "run": "example:targeted-property-checks:run:1",
+                "source": "example:targeted-property-checks:observation:9",
+                "action": "example:targeted-property-checks:activate",
+                "target": "next",
+                "parameters": {}
+            },
+            "status": "observed",
+            "result": "example:targeted-property-checks:observation:10",
+            "error": null
+        },
+        {
+            "execution": {
+                "id": "example:targeted-property-checks:execution:10",
+                "run": "example:targeted-property-checks:run:1",
+                "source": "example:targeted-property-checks:observation:10",
+                "action": "example:targeted-property-checks:activate",
+                "target": "next",
+                "parameters": {}
+            },
+            "status": "observed",
+            "result": "example:targeted-property-checks:observation:11",
+            "error": null
+        }
+    ],
+    "checks": [
+        {
+            "run": "example:targeted-property-checks:run:1",
+            "name": "Status text is Ready",
+            "rule": {
+                "id": "example:equals",
+                "version": "1"
+            },
+            "target": {
+                "kind": "widget_property",
+                "observation": "example:targeted-property-checks:observation:5",
+                "widget": "status",
+                "property": "ui.text"
+            },
+            "status": "passed",
+            "expected": "Ready",
+            "actual": {
+                "kind": "value",
+                "value": "Ready"
+            },
+            "details": {}
+        },
+        {
+            "run": "example:targeted-property-checks:run:1",
+            "name": "Status is visible",
+            "rule": {
+                "id": "example:equals",
+                "version": "1"
+            },
+            "target": {
+                "kind": "widget_property",
+                "observation": "example:targeted-property-checks:observation:11",
+                "widget": "status",
+                "property": "ui.visible"
+            },
+            "status": "failed",
+            "expected": true,
+            "actual": {
+                "kind": "value",
+                "value": false
+            },
+            "details": {}
+        }
+    ],
+    "concrete_states": [
+        "example:targeted-property-checks:snapshot:1",
+        "example:targeted-property-checks:snapshot:10",
+        "example:targeted-property-checks:snapshot:11",
+        "example:targeted-property-checks:snapshot:2",
+        "example:targeted-property-checks:snapshot:3",
+        "example:targeted-property-checks:snapshot:4",
+        "example:targeted-property-checks:snapshot:5",
+        "example:targeted-property-checks:snapshot:6",
+        "example:targeted-property-checks:snapshot:7",
+        "example:targeted-property-checks:snapshot:8",
+        "example:targeted-property-checks:snapshot:9"
+    ]
+}

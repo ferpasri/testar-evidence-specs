@@ -1,0 +1,52 @@
+{
+    "status": "accepted",
+    "counts": {
+        "events": 3,
+        "runs": 1,
+        "observations": 1,
+        "actions": 1,
+        "executions": 0,
+        "checks": 0,
+        "artifact_references": 1,
+        "concrete_states": 1
+    },
+    "runs": [
+        {
+            "id": "example:run:1",
+            "status": "running"
+        }
+    ],
+    "observations": [
+        {
+            "id": "example:observation:1",
+            "run": "example:run:1",
+            "sequence": 1,
+            "concrete_state": "example:snapshot:1",
+            "capture": "filtered",
+            "candidate_scope": "generated",
+            "widget_ids": [
+                "login"
+            ],
+            "candidates": [
+                {
+                    "action": "example:activate",
+                    "target": "login"
+                }
+            ],
+            "artifact_ids": [
+                "c2153f77e11087fcb078ae38527fa83bef29791e3700e30cc87fec4405a66d0f"
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "id": "example:activate",
+            "kind": "activate"
+        }
+    ],
+    "executions": [],
+    "checks": [],
+    "concrete_states": [
+        "example:snapshot:1"
+    ]
+}

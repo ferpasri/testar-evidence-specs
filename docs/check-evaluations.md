@@ -32,7 +32,7 @@ A `checked` event stores a check result in its `data` field. The event envelope'
 
 The `rule` ID identifies the condition checked by the test oracle. Its version distinguishes revisions when available, and its parameters preserve any supplied configuration. The test oracle performs the evaluation, the adapter supplies its result, and the state-model implementation validates and preserves that evidence. The check result's `name` explains the condition to a reader.
 
-A `passed` result means the condition checked by the test oracle was satisfied. A `failed` result means that condition was not satisfied. An `error` result means the test oracle encountered a problem while performing the evaluation. `unknown` means the oracle could not determine an outcome, and `pending` means evaluation is awaiting completion. Each check result has its own event ID. Further reported results use their own event IDs.
+A `passed` result means the condition checked by the test oracle was satisfied. A `failed` result means that condition was not satisfied. An `error` result means the test oracle encountered a problem while performing the evaluation. `unknown` means the oracle could not determine an outcome, and `pending` means the evaluation had no definite result when it was recorded. Finishing a run preserves the reported statuses. A pending evaluation can therefore remain pending in a finished run. Each check result has its own event ID. Further reported results use their own event IDs.
 
 ## Evaluation targets
 

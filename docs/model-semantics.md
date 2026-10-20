@@ -24,6 +24,24 @@ Complete, filtered, and unavailable capture have different meanings, explained i
 
 Extra properties can use a source prefix, such as `toolone.fingerprint` or `tooltwo.selector`. The prefix tells a consumer where the property comes from. Consumers can preserve unfamiliar properties without needing to interpret them; another producer can omit them.
 
+## Discovered actions and exploration
+
+An observation retains the candidate actions reported by its producer, including those never selected. Each candidate identifies an action definition and, when supplied, a widget at that observation.
+
+The observation's `candidate_scope` describes that list:
+
+| Value | Meaning |
+| --- | --- |
+| `generated` | The producer reports actions from its action-generation stage. |
+| `eligible` | The producer reports actions it considers eligible under its selection rules. |
+| `unknown` | The scope of the reported candidate list is unknown or was not supplied. |
+
+For example, a tool can report ten candidates and execute one. The evidence keeps all ten candidate bindings and records the selected execution separately. An empty candidate list with unknown scope leaves the available actions unknown.
+
+Consumers can identify candidates with no recorded selection from that observation. They can also distinguish selection, accepted submission, and a resulting observation. These answer different exploration questions.
+
+Candidate lists describe what the tool reported. They do not establish every possible action in the application. Deciding whether a candidate was explored at another visit requires a policy for matching observations and actions.
+
 ## Action execution and trace direction
 
 An initial observation has no preceding action execution. Selecting an action records its source and, when known, its candidate/target binding. Submission records whether the tool accepted the action; acceptance alone does not establish successful behavior in the application.

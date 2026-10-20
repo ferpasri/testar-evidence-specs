@@ -15,9 +15,13 @@ testar-state-model-specs
 
 A tool-specific adapter translates its tool's UI data into generic records. A language implementation validates, stores, and reads those records. Every visit remains a separate observation, even when the same screen is visited again.
 
+Observations retain discovered candidate actions, including those never selected. Executions identify the selections and their recorded outcomes. Candidate scope explains which action list the tool reported; consumers can use it when interpreting exploration coverage.
+
 Captured properties and recorded evaluations are separate evidence. A check result records the outcome and evidence from a test oracle's evaluation: the rule, target, status, and any reported reading. Property targets identify the particular observation and widget, so consumers can see which properties have recorded evaluations.
 
 Recording a trace does not require deciding which screens should count as equivalent. An optional abstraction component can group observations later, or while a test is running. Different testing objectives can produce different models from the same saved evidence. A viewer can display concrete traces, derived models, or both.
+
+Releases use `0.X.Y`. The `0.X` series is shared with language implementations and related state-model projects; each project can advance its patch version `Y` independently. Release tags identify published specifications and cases, while `schema_version` identifies the evidence format.
 
 ## Documents
 

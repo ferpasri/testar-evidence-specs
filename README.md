@@ -26,6 +26,7 @@ Releases use `0.X.Y`. The `0.X` series is shared with language implementations a
 ## Documents
 
 - [Architecture](docs/testar_state_model_architecture.md): responsibilities, capture limits, and data flow.
+- [Adapter gaps and considerations](docs/adapter_gaps_and_considerations.md): integration gaps, possible solutions, and implementer responsibilities.
 - [Model semantics](docs/model-semantics.md): records, concrete execution links, and optional derived views.
 - [Evaluations and check results](docs/check-evaluations.md): terminology, targets, rules, outcomes, and reported readings.
 - [Conformance](conformance/README.md): shared inputs and expected results.

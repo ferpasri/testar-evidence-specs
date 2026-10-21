@@ -1,0 +1,241 @@
+{
+    "status": "accepted",
+    "counts": {
+        "events": 22,
+        "runs": 1,
+        "observations": 4,
+        "actions": 3,
+        "executions": 5,
+        "checks": 0,
+        "artifact_references": 0,
+        "concrete_states": 4
+    },
+    "runs": [
+        {
+            "id": "example:scripted-action-trace:run:1",
+            "status": "finished"
+        }
+    ],
+    "observations": [
+        {
+            "id": "example:scripted-action-trace:observation:1",
+            "run": "example:scripted-action-trace:run:1",
+            "sequence": 1,
+            "concrete_state": "example:scripted-action-trace:snapshot:1",
+            "capture": "filtered",
+            "candidate_scope": "unknown",
+            "widget_ids": [
+                "sign-in",
+                "account",
+                "passcode",
+                "submit"
+            ],
+            "candidates": [
+                {
+                    "action": "example:scripted-action-trace:text-entry",
+                    "target": "account"
+                },
+                {
+                    "action": "example:scripted-action-trace:text-entry",
+                    "target": "passcode"
+                },
+                {
+                    "action": "example:scripted-action-trace:activate",
+                    "target": "submit"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:scripted-action-trace:observation:2",
+            "run": "example:scripted-action-trace:run:1",
+            "sequence": 2,
+            "concrete_state": "example:scripted-action-trace:snapshot:2",
+            "capture": "filtered",
+            "candidate_scope": "unknown",
+            "widget_ids": [
+                "sign-in",
+                "account",
+                "passcode",
+                "submit"
+            ],
+            "candidates": [
+                {
+                    "action": "example:scripted-action-trace:text-entry",
+                    "target": "account"
+                },
+                {
+                    "action": "example:scripted-action-trace:text-entry",
+                    "target": "passcode"
+                },
+                {
+                    "action": "example:scripted-action-trace:activate",
+                    "target": "submit"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:scripted-action-trace:observation:3",
+            "run": "example:scripted-action-trace:run:1",
+            "sequence": 3,
+            "concrete_state": "example:scripted-action-trace:snapshot:3",
+            "capture": "filtered",
+            "candidate_scope": "unknown",
+            "widget_ids": [
+                "sign-in",
+                "account",
+                "passcode",
+                "submit"
+            ],
+            "candidates": [
+                {
+                    "action": "example:scripted-action-trace:text-entry",
+                    "target": "account"
+                },
+                {
+                    "action": "example:scripted-action-trace:text-entry",
+                    "target": "passcode"
+                },
+                {
+                    "action": "example:scripted-action-trace:activate",
+                    "target": "submit"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:scripted-action-trace:observation:4",
+            "run": "example:scripted-action-trace:run:1",
+            "sequence": 4,
+            "concrete_state": "example:scripted-action-trace:snapshot:4",
+            "capture": "filtered",
+            "candidate_scope": "unknown",
+            "widget_ids": [
+                "welcome",
+                "continue"
+            ],
+            "candidates": [
+                {
+                    "action": "example:scripted-action-trace:activate",
+                    "target": "continue"
+                },
+                {
+                    "action": "example:scripted-action-trace:refresh",
+                    "target": null
+                }
+            ],
+            "artifact_ids": []
+        }
+    ],
+    "actions": [
+        {
+            "id": "example:scripted-action-trace:activate",
+            "kind": "activate"
+        },
+        {
+            "id": "example:scripted-action-trace:refresh",
+            "kind": "refresh"
+        },
+        {
+            "id": "example:scripted-action-trace:text-entry",
+            "kind": "text_entry"
+        }
+    ],
+    "executions": [
+        {
+            "execution": {
+                "id": "example:scripted-action-trace:execution:1",
+                "run": "example:scripted-action-trace:run:1",
+                "source": "example:scripted-action-trace:observation:1",
+                "action": "example:scripted-action-trace:text-entry",
+                "target": "account",
+                "parameters": {
+                    "value": "sample-user",
+                    "replace": true,
+                    "delay_ms": 25,
+                    "origin": "scripted",
+                    "phase": "setup"
+                }
+            },
+            "status": "observed",
+            "result": "example:scripted-action-trace:observation:2",
+            "error": null
+        },
+        {
+            "execution": {
+                "id": "example:scripted-action-trace:execution:2",
+                "run": "example:scripted-action-trace:run:1",
+                "source": "example:scripted-action-trace:observation:2",
+                "action": "example:scripted-action-trace:text-entry",
+                "target": "passcode",
+                "parameters": {
+                    "value": "synthetic-passcode",
+                    "replace": true,
+                    "origin": "scripted",
+                    "phase": "setup"
+                }
+            },
+            "status": "observed",
+            "result": "example:scripted-action-trace:observation:3",
+            "error": null
+        },
+        {
+            "execution": {
+                "id": "example:scripted-action-trace:execution:3",
+                "run": "example:scripted-action-trace:run:1",
+                "source": "example:scripted-action-trace:observation:3",
+                "action": "example:scripted-action-trace:activate",
+                "target": "submit",
+                "parameters": {
+                    "button": "primary",
+                    "origin": "scripted",
+                    "phase": "setup"
+                }
+            },
+            "status": "observed",
+            "result": "example:scripted-action-trace:observation:4",
+            "error": null
+        },
+        {
+            "execution": {
+                "id": "example:scripted-action-trace:execution:4",
+                "run": "example:scripted-action-trace:run:1",
+                "source": "example:scripted-action-trace:observation:4",
+                "action": "example:scripted-action-trace:activate",
+                "target": "continue",
+                "parameters": {
+                    "button": "primary",
+                    "origin": "scripted",
+                    "phase": "test"
+                }
+            },
+            "status": "rejected",
+            "result": null,
+            "error": "Target became unavailable before dispatch"
+        },
+        {
+            "execution": {
+                "id": "example:scripted-action-trace:execution:5",
+                "run": "example:scripted-action-trace:run:1",
+                "source": "example:scripted-action-trace:observation:4",
+                "action": "example:scripted-action-trace:refresh",
+                "target": null,
+                "parameters": {
+                    "origin": "scripted",
+                    "phase": "test"
+                }
+            },
+            "status": "incomplete",
+            "result": null,
+            "error": null
+        }
+    ],
+    "checks": [],
+    "concrete_states": [
+        "example:scripted-action-trace:snapshot:1",
+        "example:scripted-action-trace:snapshot:2",
+        "example:scripted-action-trace:snapshot:3",
+        "example:scripted-action-trace:snapshot:4"
+    ]
+}

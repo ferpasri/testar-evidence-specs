@@ -1,0 +1,480 @@
+{
+    "status": "accepted",
+    "counts": {
+        "events": 28,
+        "runs": 4,
+        "observations": 8,
+        "actions": 0,
+        "executions": 0,
+        "checks": 12,
+        "artifact_references": 0,
+        "concrete_states": 8
+    },
+    "runs": [
+        {
+            "id": "example:temporal-evaluations:run:deadline",
+            "status": "finished"
+        },
+        {
+            "id": "example:temporal-evaluations:run:interrupted",
+            "status": "finished"
+        },
+        {
+            "id": "example:temporal-evaluations:run:normal",
+            "status": "finished"
+        },
+        {
+            "id": "example:temporal-evaluations:run:tool-failure",
+            "status": "finished"
+        }
+    ],
+    "observations": [
+        {
+            "id": "example:temporal-evaluations:deadline:observation:1",
+            "run": "example:temporal-evaluations:run:deadline",
+            "sequence": 1,
+            "concrete_state": "example:temporal-evaluations:deadline:snapshot:1",
+            "capture": "complete",
+            "candidate_scope": "unknown",
+            "widget_ids": [],
+            "candidates": [],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:temporal-evaluations:deadline:observation:2",
+            "run": "example:temporal-evaluations:run:deadline",
+            "sequence": 2,
+            "concrete_state": "example:temporal-evaluations:deadline:snapshot:2",
+            "capture": "complete",
+            "candidate_scope": "unknown",
+            "widget_ids": [],
+            "candidates": [],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:temporal-evaluations:interrupted:observation:1",
+            "run": "example:temporal-evaluations:run:interrupted",
+            "sequence": 1,
+            "concrete_state": "example:temporal-evaluations:interrupted:snapshot:1",
+            "capture": "complete",
+            "candidate_scope": "unknown",
+            "widget_ids": [],
+            "candidates": [],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:temporal-evaluations:interrupted:observation:2",
+            "run": "example:temporal-evaluations:run:interrupted",
+            "sequence": 2,
+            "concrete_state": "example:temporal-evaluations:interrupted:snapshot:2",
+            "capture": "complete",
+            "candidate_scope": "unknown",
+            "widget_ids": [],
+            "candidates": [],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:temporal-evaluations:normal:observation:1",
+            "run": "example:temporal-evaluations:run:normal",
+            "sequence": 1,
+            "concrete_state": "example:temporal-evaluations:normal:snapshot:1",
+            "capture": "complete",
+            "candidate_scope": "unknown",
+            "widget_ids": [],
+            "candidates": [],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:temporal-evaluations:normal:observation:2",
+            "run": "example:temporal-evaluations:run:normal",
+            "sequence": 2,
+            "concrete_state": "example:temporal-evaluations:normal:snapshot:2",
+            "capture": "complete",
+            "candidate_scope": "unknown",
+            "widget_ids": [],
+            "candidates": [],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:temporal-evaluations:tool-failure:observation:1",
+            "run": "example:temporal-evaluations:run:tool-failure",
+            "sequence": 1,
+            "concrete_state": "example:temporal-evaluations:tool-failure:snapshot:1",
+            "capture": "complete",
+            "candidate_scope": "unknown",
+            "widget_ids": [],
+            "candidates": [],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:temporal-evaluations:tool-failure:observation:2",
+            "run": "example:temporal-evaluations:run:tool-failure",
+            "sequence": 2,
+            "concrete_state": "example:temporal-evaluations:tool-failure:snapshot:2",
+            "capture": "complete",
+            "candidate_scope": "unknown",
+            "widget_ids": [],
+            "candidates": [],
+            "artifact_ids": []
+        }
+    ],
+    "actions": [],
+    "executions": [],
+    "checks": [
+        {
+            "run": "example:temporal-evaluations:run:normal",
+            "name": "A warning never appears",
+            "rule": {
+                "id": "example:warning-never-occurs",
+                "version": "1",
+                "parameters": {
+                    "property": "app.warning",
+                    "condition": "always_false",
+                    "horizon": "open_ended"
+                }
+            },
+            "target": {
+                "kind": "run"
+            },
+            "status": "pending",
+            "details": {
+                "evidence.assessment": {
+                    "phase": "during_run",
+                    "semantics": "open_ended"
+                }
+            },
+            "actual": {
+                "kind": "value",
+                "value": {
+                    "recorded_observations": 1,
+                    "violations_observed": 0
+                }
+            }
+        },
+        {
+            "run": "example:temporal-evaluations:run:normal",
+            "name": "A warning never appears",
+            "rule": {
+                "id": "example:warning-never-occurs",
+                "version": "1",
+                "parameters": {
+                    "property": "app.warning",
+                    "condition": "always_false",
+                    "horizon": "open_ended"
+                }
+            },
+            "target": {
+                "kind": "run"
+            },
+            "status": "pending",
+            "details": {
+                "evidence.assessment": {
+                    "phase": "end_of_run",
+                    "semantics": "open_ended",
+                    "termination_reason": "normal completion"
+                }
+            }
+        },
+        {
+            "run": "example:temporal-evaluations:run:normal",
+            "name": "No warning at each recorded observation in the interval",
+            "rule": {
+                "id": "example:no-warning-in-recorded-interval",
+                "version": "1",
+                "parameters": {
+                    "property": "app.warning",
+                    "condition": "false_at_every_recorded_observation",
+                    "required_reading_type": "boolean",
+                    "unavailable_reading": "unknown"
+                }
+            },
+            "target": {
+                "kind": "sequence",
+                "from_observation": "example:temporal-evaluations:normal:observation:1",
+                "to_observation": "example:temporal-evaluations:normal:observation:2"
+            },
+            "status": "passed",
+            "actual": {
+                "kind": "value",
+                "value": {
+                    "evaluated_observations": 2,
+                    "violations_observed": 0
+                }
+            },
+            "details": {
+                "evidence.assessment": {
+                    "phase": "end_of_run",
+                    "semantics": "recorded_interval",
+                    "termination_reason": "normal completion"
+                }
+            }
+        },
+        {
+            "run": "example:temporal-evaluations:run:deadline",
+            "name": "A warning never appears",
+            "rule": {
+                "id": "example:warning-never-occurs",
+                "version": "1",
+                "parameters": {
+                    "property": "app.warning",
+                    "condition": "always_false",
+                    "horizon": "open_ended"
+                }
+            },
+            "target": {
+                "kind": "run"
+            },
+            "status": "pending",
+            "details": {
+                "evidence.assessment": {
+                    "phase": "during_run",
+                    "semantics": "open_ended"
+                }
+            },
+            "actual": {
+                "kind": "value",
+                "value": {
+                    "recorded_observations": 1,
+                    "violations_observed": 0
+                }
+            }
+        },
+        {
+            "run": "example:temporal-evaluations:run:deadline",
+            "name": "A warning never appears",
+            "rule": {
+                "id": "example:warning-never-occurs",
+                "version": "1",
+                "parameters": {
+                    "property": "app.warning",
+                    "condition": "always_false",
+                    "horizon": "open_ended"
+                }
+            },
+            "target": {
+                "kind": "run"
+            },
+            "status": "pending",
+            "details": {
+                "evidence.assessment": {
+                    "phase": "end_of_run",
+                    "semantics": "open_ended",
+                    "termination_reason": "execution deadline reached"
+                }
+            }
+        },
+        {
+            "run": "example:temporal-evaluations:run:deadline",
+            "name": "No warning at each recorded observation in the interval",
+            "rule": {
+                "id": "example:no-warning-in-recorded-interval",
+                "version": "1",
+                "parameters": {
+                    "property": "app.warning",
+                    "condition": "false_at_every_recorded_observation",
+                    "required_reading_type": "boolean",
+                    "unavailable_reading": "unknown"
+                }
+            },
+            "target": {
+                "kind": "sequence",
+                "from_observation": "example:temporal-evaluations:deadline:observation:1",
+                "to_observation": "example:temporal-evaluations:deadline:observation:2"
+            },
+            "status": "unknown",
+            "actual": {
+                "kind": "unknown"
+            },
+            "details": {
+                "evidence.assessment": {
+                    "phase": "end_of_run",
+                    "semantics": "recorded_interval",
+                    "termination_reason": "execution deadline reached"
+                },
+                "reason": "Warning status was unavailable at the second observation"
+            }
+        },
+        {
+            "run": "example:temporal-evaluations:run:interrupted",
+            "name": "A warning never appears",
+            "rule": {
+                "id": "example:warning-never-occurs",
+                "version": "1",
+                "parameters": {
+                    "property": "app.warning",
+                    "condition": "always_false",
+                    "horizon": "open_ended"
+                }
+            },
+            "target": {
+                "kind": "run"
+            },
+            "status": "pending",
+            "details": {
+                "evidence.assessment": {
+                    "phase": "during_run",
+                    "semantics": "open_ended"
+                }
+            },
+            "actual": {
+                "kind": "value",
+                "value": {
+                    "recorded_observations": 1,
+                    "violations_observed": 0
+                }
+            }
+        },
+        {
+            "run": "example:temporal-evaluations:run:interrupted",
+            "name": "A warning never appears",
+            "rule": {
+                "id": "example:warning-never-occurs",
+                "version": "1",
+                "parameters": {
+                    "property": "app.warning",
+                    "condition": "always_false",
+                    "horizon": "open_ended"
+                }
+            },
+            "target": {
+                "kind": "run"
+            },
+            "status": "failed",
+            "details": {
+                "evidence.assessment": {
+                    "phase": "during_run",
+                    "semantics": "open_ended"
+                }
+            },
+            "actual": {
+                "kind": "value",
+                "value": {
+                    "violating_observation": "example:temporal-evaluations:interrupted:observation:2",
+                    "warning": true
+                }
+            }
+        },
+        {
+            "run": "example:temporal-evaluations:run:interrupted",
+            "name": "A warning never appears",
+            "rule": {
+                "id": "example:warning-never-occurs",
+                "version": "1",
+                "parameters": {
+                    "property": "app.warning",
+                    "condition": "always_false",
+                    "horizon": "open_ended"
+                }
+            },
+            "target": {
+                "kind": "run"
+            },
+            "status": "failed",
+            "details": {
+                "evidence.assessment": {
+                    "phase": "end_of_run",
+                    "semantics": "open_ended",
+                    "termination_reason": "user interruption"
+                }
+            },
+            "actual": {
+                "kind": "value",
+                "value": {
+                    "violating_observation": "example:temporal-evaluations:interrupted:observation:2",
+                    "warning": true
+                }
+            }
+        },
+        {
+            "run": "example:temporal-evaluations:run:tool-failure",
+            "name": "A warning never appears",
+            "rule": {
+                "id": "example:warning-never-occurs",
+                "version": "1",
+                "parameters": {
+                    "property": "app.warning",
+                    "condition": "always_false",
+                    "horizon": "open_ended"
+                }
+            },
+            "target": {
+                "kind": "run"
+            },
+            "status": "pending",
+            "details": {
+                "evidence.assessment": {
+                    "phase": "during_run",
+                    "semantics": "open_ended"
+                }
+            },
+            "actual": {
+                "kind": "value",
+                "value": {
+                    "recorded_observations": 1,
+                    "violations_observed": 0
+                }
+            }
+        },
+        {
+            "run": "example:temporal-evaluations:run:tool-failure",
+            "name": "A warning never appears",
+            "rule": {
+                "id": "example:warning-never-occurs",
+                "version": "1",
+                "parameters": {
+                    "property": "app.warning",
+                    "condition": "always_false",
+                    "horizon": "open_ended"
+                }
+            },
+            "target": {
+                "kind": "run"
+            },
+            "status": "error",
+            "details": {
+                "evidence.assessment": {
+                    "phase": "during_run",
+                    "semantics": "open_ended"
+                },
+                "reason": "Warning evaluator could not read its configuration"
+            },
+            "actual": {
+                "kind": "unknown"
+            }
+        },
+        {
+            "run": "example:temporal-evaluations:run:tool-failure",
+            "name": "A warning never appears",
+            "rule": {
+                "id": "example:warning-never-occurs",
+                "version": "1",
+                "parameters": {
+                    "property": "app.warning",
+                    "condition": "always_false",
+                    "horizon": "open_ended"
+                }
+            },
+            "target": {
+                "kind": "run"
+            },
+            "status": "pending",
+            "details": {
+                "evidence.assessment": {
+                    "phase": "end_of_run",
+                    "semantics": "open_ended",
+                    "termination_reason": "tool failure: application connection lost"
+                }
+            }
+        }
+    ],
+    "concrete_states": [
+        "example:temporal-evaluations:deadline:snapshot:1",
+        "example:temporal-evaluations:deadline:snapshot:2",
+        "example:temporal-evaluations:interrupted:snapshot:1",
+        "example:temporal-evaluations:interrupted:snapshot:2",
+        "example:temporal-evaluations:normal:snapshot:1",
+        "example:temporal-evaluations:normal:snapshot:2",
+        "example:temporal-evaluations:tool-failure:snapshot:1",
+        "example:temporal-evaluations:tool-failure:snapshot:2"
+    ]
+}

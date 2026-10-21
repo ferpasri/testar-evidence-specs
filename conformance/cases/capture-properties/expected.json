@@ -1,0 +1,109 @@
+{
+    "status": "accepted",
+    "counts": {
+        "events": 7,
+        "runs": 1,
+        "observations": 3,
+        "actions": 0,
+        "executions": 0,
+        "checks": 2,
+        "artifact_references": 0,
+        "concrete_states": 3
+    },
+    "runs": [
+        {
+            "id": "example:capture-properties:run:1",
+            "status": "finished"
+        }
+    ],
+    "observations": [
+        {
+            "id": "example:capture-properties:observation:1",
+            "run": "example:capture-properties:run:1",
+            "sequence": 1,
+            "concrete_state": "example:capture-properties:snapshot:1",
+            "capture": "complete",
+            "candidate_scope": "unknown",
+            "widget_ids": [
+                "window",
+                "image-help"
+            ],
+            "candidates": [],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:capture-properties:observation:2",
+            "run": "example:capture-properties:run:1",
+            "sequence": 2,
+            "concrete_state": "example:capture-properties:snapshot:2",
+            "capture": "filtered",
+            "candidate_scope": "unknown",
+            "widget_ids": [
+                "window",
+                "image-help"
+            ],
+            "candidates": [],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:capture-properties:observation:3",
+            "run": "example:capture-properties:run:1",
+            "sequence": 3,
+            "concrete_state": "example:capture-properties:snapshot:3",
+            "capture": "unavailable",
+            "candidate_scope": "unknown",
+            "widget_ids": [],
+            "candidates": [],
+            "artifact_ids": []
+        }
+    ],
+    "actions": [],
+    "executions": [],
+    "checks": [
+        {
+            "run": "example:capture-properties:run:1",
+            "name": "Alternative-text property is present",
+            "rule": {
+                "id": "example:alt-present",
+                "version": "1"
+            },
+            "target": {
+                "kind": "widget_property",
+                "observation": "example:capture-properties:observation:2",
+                "widget": "image-help",
+                "property": "ui.alt"
+            },
+            "status": "passed",
+            "actual": {
+                "kind": "value",
+                "value": ""
+            },
+            "details": {}
+        },
+        {
+            "run": "example:capture-properties:run:1",
+            "name": "Application address is available",
+            "rule": {
+                "id": "example:address-available",
+                "version": "1"
+            },
+            "target": {
+                "kind": "state_property",
+                "observation": "example:capture-properties:observation:3",
+                "property": "ui.url"
+            },
+            "status": "unknown",
+            "actual": {
+                "kind": "unknown"
+            },
+            "details": {
+                "reason": "The test oracle could not establish the address value or presence"
+            }
+        }
+    ],
+    "concrete_states": [
+        "example:capture-properties:snapshot:1",
+        "example:capture-properties:snapshot:2",
+        "example:capture-properties:snapshot:3"
+    ]
+}

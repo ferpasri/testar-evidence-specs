@@ -1,0 +1,117 @@
+{
+    "status": "accepted",
+    "counts": {
+        "events": 10,
+        "runs": 1,
+        "observations": 2,
+        "actions": 3,
+        "executions": 1,
+        "checks": 0,
+        "artifact_references": 0,
+        "concrete_states": 2
+    },
+    "runs": [
+        {
+            "id": "example:discovered-action-selection:run:1",
+            "status": "finished"
+        }
+    ],
+    "observations": [
+        {
+            "id": "example:discovered-action-selection:observation:1",
+            "run": "example:discovered-action-selection:run:1",
+            "sequence": 1,
+            "concrete_state": "example:discovered-action-selection:snapshot:1",
+            "capture": "filtered",
+            "candidate_scope": "generated",
+            "widget_ids": [
+                "panel",
+                "query",
+                "continue",
+                "help"
+            ],
+            "candidates": [
+                {
+                    "action": "example:discovered-action-selection:activate",
+                    "target": "continue"
+                },
+                {
+                    "action": "example:discovered-action-selection:activate",
+                    "target": "help"
+                },
+                {
+                    "action": "example:discovered-action-selection:text-entry",
+                    "target": "query"
+                },
+                {
+                    "action": "example:discovered-action-selection:refresh",
+                    "target": null
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:discovered-action-selection:observation:2",
+            "run": "example:discovered-action-selection:run:1",
+            "sequence": 2,
+            "concrete_state": "example:discovered-action-selection:snapshot:2",
+            "capture": "filtered",
+            "candidate_scope": "eligible",
+            "widget_ids": [
+                "panel",
+                "query",
+                "help",
+                "status"
+            ],
+            "candidates": [
+                {
+                    "action": "example:discovered-action-selection:activate",
+                    "target": "help"
+                },
+                {
+                    "action": "example:discovered-action-selection:text-entry",
+                    "target": "query"
+                },
+                {
+                    "action": "example:discovered-action-selection:refresh",
+                    "target": null
+                }
+            ],
+            "artifact_ids": []
+        }
+    ],
+    "actions": [
+        {
+            "id": "example:discovered-action-selection:activate",
+            "kind": "activate"
+        },
+        {
+            "id": "example:discovered-action-selection:refresh",
+            "kind": "refresh"
+        },
+        {
+            "id": "example:discovered-action-selection:text-entry",
+            "kind": "text_entry"
+        }
+    ],
+    "executions": [
+        {
+            "execution": {
+                "id": "example:discovered-action-selection:execution:1",
+                "run": "example:discovered-action-selection:run:1",
+                "source": "example:discovered-action-selection:observation:1",
+                "action": "example:discovered-action-selection:activate",
+                "target": "continue",
+                "parameters": {}
+            },
+            "status": "observed",
+            "result": "example:discovered-action-selection:observation:2",
+            "error": null
+        }
+    ],
+    "checks": [],
+    "concrete_states": [
+        "example:discovered-action-selection:snapshot:1",
+        "example:discovered-action-selection:snapshot:2"
+    ]
+}

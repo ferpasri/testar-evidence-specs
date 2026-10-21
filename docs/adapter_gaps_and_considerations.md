@@ -35,7 +35,7 @@ An exploratory tool might discover five actions on a page and select one. The ad
 
 **Integration approach:** Connect recording to shared methods through which actions are executed. Start recording before the interactions that should appear in the trace.
 
-**Work for implementers:** Find the execution paths used by the tool and its extensions. Connect missing paths, decide how detailed action recording should be, and test rejected actions, retries, and interrupted runs.
+**Work for implementers:** Find the execution paths used by the tool and its extensions. Connect missing paths, decide how detailed action recording should be, and test actions rejected by the tool's execution mechanism, retries, and interrupted runs.
 
 ## Choosing which properties to save
 
@@ -43,7 +43,7 @@ A widget can have text, a role, an enabled flag, and additional tool-specific pr
 
 ```json
 {
-    "source.title": "Search",
+    "source.label": "Search",
     "source.attributes": {
         "placeholder": "Search products",
         "maxlength": "40"
@@ -57,7 +57,11 @@ A widget can have text, a role, an enabled flag, and additional tool-specific pr
 
 "All properties" needs a clear boundary. Capturing every property exposed by the tool still depends on what that tool collected from the application. A complete widget capture means complete within its stated area, such as the current document.
 
-**Work for implementers:** Review the properties the tool exposes, implement the conversions, and check that useful data is retained. Document the capture rules and revisit them when the tool changes.
+Where available, use the [common state-property names](model-semantics.md#common-descriptive-properties) for the captured full address and page, screen, or window title. Read the state title from the page, screen, or window's title information. For widgets, preserve the actual source property: visible text, an accessible name, and a title attribute are different properties. A tool property called `Title` is not enough to establish that it contains an actual widget title.
+
+Use the [capture conventions](capture-evidence.md) to describe the captured area, widget and property selection, limits, known omissions, and duplicated aliases. Preserve nested values, and use an addressable property key when an oracle reports an evaluation of one particular value.
+
+**Work for implementers:** Check the meaning of each source property before assigning a common name. Document where its value comes from and any conversion. Keep the original names and values, and leave unavailable properties unknown. Review these mappings when the source tool changes.
 
 ## Recording what test oracles evaluated
 
@@ -77,6 +81,8 @@ Both successful and failed evaluations matter. Capturing a widget property does 
 **Work for implementers:** Connect the shared reporting mechanism and update oracle code or assertion helpers where details are missing. This initial work cannot always be automated: the adapter cannot reliably reconstruct evaluations from message text.
 
 A property missing from saved data may have been excluded during capture. Record absence when the oracle established absence. Preserve unknown or pending results as reported, including when the run ends.
+
+Temporal oracles report a condition over several visits. Preserve that scope, the rule's interpretation of time, and any end-of-run assessment described in the [evaluation contract](check-evaluations.md). Producing those assessments belongs to the testing tool and its oracle; the adapter translates the reports they supply.
 
 ## Keeping observations and screenshots together
 

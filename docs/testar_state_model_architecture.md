@@ -34,11 +34,15 @@ The library records each observation and action execution without automatically 
 
 A tool may capture only part of a UI. The saved evidence explains what was captured:
 
-- **Complete:** all widgets within the stated capture area were collected.
+- **Complete:** all widgets available from the capture source within the stated area were retained, without a known filter or limit cutting off the tree.
 - **Filtered:** only a selected portion was collected, such as interactive widgets or the first 2,000 elements. The adapter records the filter or limit and whether information was cut off when known.
 - **Unavailable:** the tool could not capture widget data. This is different from successfully capturing an empty screen.
 
+The `capture` field describes which widgets were collected. A tool can retain every available widget while saving only some of its properties, such as text and role. The [capture conventions](capture-evidence.md) describe the area, selection, limits, and known omissions using ordinary property values.
+
 Individual properties can also be unknown. If an adapter cannot read whether a button is enabled, it leaves that information unknown rather than recording `false`. A later reader must be able to distinguish "not captured" from "captured and disabled."
+
+Property names retain the meaning of the values supplied by the application or source API. A common name is used when that meaning has been verified. Page titles, widget title attributes, visible text, and accessible names remain distinct, as explained in [captured property meanings](model-semantics.md#common-descriptive-properties).
 
 Properties can preserve useful details from a particular tool. A name such as `toolone.fingerprint` or `tooltwo.selector` starts with a prefix identifying its source; this is a **namespace**. It helps consumers recognize the property and avoids confusing similarly named values from different tools. These are examples of optional extra properties: another adapter does not have to provide them to produce valid generic evidence.
 
@@ -46,7 +50,9 @@ Properties can preserve useful details from a particular tool. A name such as `t
 
 The adapter records captured data and check results separately. An observation can contain many widget properties while test oracles evaluate only a few of them. Each check result for a property evaluation identifies its observation, widget when applicable, property, rule, status, and any reported reading.
 
-A test oracle applied across several widgets produces separate target-level results. This lets a consumer follow the evidence for each evaluation. Evaluations can also target a whole observation, an action execution, a run, or a sequence of observations. Their scope is preserved as recorded.
+A test oracle applied across several widgets produces separate target-level results. This lets a consumer follow the evidence for each evaluation. Evaluations can also concern a whole observation, an action execution, a run, or several observations. Each result identifies which of these was evaluated.
+
+A condition evaluated over several visits names the run or the observations it concerns. The rule explains whether it concerns the recorded interval or remains open to later observations. Run termination records why execution stopped; check results retain the outcomes reported by the test oracle.
 
 The [check result format](check-evaluations.md) distinguishes an established absent property from a null value or unavailable information. Implementations validate references and preserve these distinctions; adapters supply check results from evaluations actually performed by their testing tools' test oracles.
 

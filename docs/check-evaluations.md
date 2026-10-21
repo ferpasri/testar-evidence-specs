@@ -52,7 +52,7 @@ Each target contains its kind and the fields listed for that form. Every referen
 
 A property is a nonblank key in the relevant properties map. For example, `ui.alt` is one complete property name. Its presence in the map is something a test oracle can check, so the target may name an absent property.
 
-These targets describe the scope of an evaluation. A run or observation target identifies that broader scope; property targets identify particular property occurrences. An evaluation concerning the absence of a widget targets the observation and describes the searched-for condition in its rule parameters.
+The target says what the test oracle evaluated. A run or observation target names the whole run or visit; a property target names one property at one visit. An evaluation concerning the absence of a widget targets the observation and describes the searched-for condition in its rule parameters.
 
 ## Reported readings
 
@@ -68,9 +68,51 @@ A property missing from captured data may have been omitted by the capture proce
 
 Reported readings describe the evaluation. The snapshot preserves its captured properties separately. Differences between those two remain available as evidence.
 
+## Conditions evaluated over time
+
+An evaluation can concern one captured moment, an action and its result, or several observations in a run. Checking whether an image has an alternative-text property concerns that image at one observation. Checking whether a submitted request eventually produces a response concerns events over time. The rule describes the condition and its timing; the target identifies the recorded scope.
+
+An open-ended condition such as "a warning never appears" remains `pending` while no violation has been observed. Ending the run does not prove that the condition will always hold. An observed violation can establish a `failed` result.
+
+A rule can instead explicitly ask whether a condition held at every recorded observation within a specified interval. That finite question can produce `passed` when all required readings satisfy it. Its rule ID, version, parameters, and sequence target make that meaning clear. A successful assessment of recorded observations describes those observations; it does not establish what happened between captures.
+
+### Assessment context
+
+For temporal results, the adapter can supply this optional object in `details["evidence.assessment"]`:
+
+| Field | Meaning |
+| --- | --- |
+| `phase` | `during_run` for a report made while the run is active, or `end_of_run` for a report made after it finishes. |
+| `semantics` | `open_ended` for an unbounded condition, or `recorded_interval` for a condition explicitly bounded to recorded observations. |
+| `termination_reason` | Optional when `phase` is `end_of_run`: the exact `reason` string from that run's `run_finished` event. |
+
+When this object is supplied, `phase` and `semantics` are required. The rule defines the temporal meaning and any timing parameters. This context describes the reported assessment; it does not select or execute an evaluation algorithm.
+
+For example, an open-ended condition can remain pending after normal completion:
+
+```json
+{
+    "evidence.assessment": {
+        "phase": "end_of_run",
+        "semantics": "open_ended",
+        "termination_reason": "normal completion"
+    }
+}
+```
+
+Normal completion, a deadline, an interruption, and a tool failure can end observation for different reasons. The adapter preserves the supplied reason and the outcome actually reported by the test oracle. A run ending because of a tool failure does not itself establish that an application condition failed. An `error` check result means the evaluator encountered a problem.
+
+### Reports at the end of a run
+
+A test oracle can report results while execution is running and after it finishes. The adapter appends each report as a separate `checked` event with its own event ID. Earlier results remain unchanged, including any `pending` results.
+
+The rule identity, its parameters, and the target identify the condition and recorded scope being assessed. A sequence target names its first and last observations; a run target names the enclosing run through the result's `run` field. A result recorded after `run_finished` can refer to existing records in that run. The target keeps naming those records even when later observations exist. Its position in the event file records the order in which reports were supplied.
+
+Every recorded result contributes to the evaluation count, including reports for a repeated rule and target. To count different evaluated properties, use their observation, widget when applicable, and property key. A run-level temporal result does not establish that individual widget properties were evaluated.
+
 ## Reading evaluation coverage
 
-A property target is identified by its observation, optional widget, and property name. Evaluating the same widget property on a later visit is another target occurrence. Test oracles can check several conditions on one target, so evaluation counts and distinct evaluated-property counts answer different questions.
+A property result identifies the observation, the widget when applicable, and the property name. Evaluating that property on a later visit concerns another captured moment. Test oracles can check several conditions on one target, so evaluation counts and distinct evaluated-property counts answer different questions.
 
 When a test oracle evaluates a property on several widgets, the adapter emits one `checked` event per widget/property evaluation. The records share the rule ID and retain their individual targets, readings, and outcomes.
 

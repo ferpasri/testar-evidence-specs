@@ -5,6 +5,8 @@
 - [x] Publish the evaluation contract and shared cases in release v0.2.0.
 - [x] Align current language implementations with evaluation fields and reference validation.
 - [x] Verify reader and producer conformance, including rejected cases and accepted prefixes.
+- [ ] Publish the capture conventions, temporal assessments, and expanded shared cases as v0.2.1.
+- [ ] Align language libraries, adapters, and consumers with the expanded shared cases and conventions.
 - [ ] Automate cross-implementation exchange of generated evidence, including artifacts and evaluation results.
 - [ ] Establish stable release/versioning and migration rules before publishing a stable format.
 
@@ -28,12 +30,20 @@
 - [ ] Define consistent parser expectations for unknown fields, duplicate keys, numeric ranges, and resource limits.
 - [ ] Extend normalized expected results as additional record kinds and error cases are defined.
 
+## Capture and evaluation evidence
+
+- [x] Describe widget and property capture separately, including nested values, aliases, limits, and known omissions.
+- [x] Clarify temporal assessments and property evaluations, distinguishing open-ended conditions from assessments of a recorded interval.
+- [x] Define reported assessments at completion, deadline, interruption, and failure, with shared examples preserving original statuses and scope.
+- [ ] Define correlation between separately reported results when producers need an evolving evaluation lifecycle.
+- [ ] Verify cross-tool coverage comparisons using the documented capture descriptions and original evaluation targets.
+
 ## Additional conformance cases
 
-- [ ] Add several discovered candidates with only one executed, retaining the unselected bindings.
-- [ ] Add repeated visits, self-loops, and multiple outcomes.
-- [ ] Add rejected/incomplete action execution and repeated-event cases.
-- [ ] Add widget hierarchy, candidate binding, capture-limit, and property-availability cases.
+- [x] Add several discovered candidates with only one executed, retaining the unselected bindings.
+- [x] Add scripted action steps, repeated visits, rejected submissions, and incomplete executions.
+- [x] Add widget hierarchy, candidate binding, capture-limit, and property-availability cases.
+- [ ] Add self-loops, multiple outcomes, and repeated-event cases.
 - [ ] Add invalid property target shapes, execution references, and sequence endpoints.
 - [ ] Add replay conflicts, invalid versions, and corrupted/missing artifacts.
 

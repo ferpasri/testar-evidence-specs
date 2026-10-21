@@ -15,11 +15,11 @@ cases/<behavior>/
 
 The manifest, events, and referenced artifacts are inputs. `expected.json` describes the records or error expected after processing them. It is test metadata; model producers do not generate that file.
 
-The input format is described in [Model semantics](../docs/model-semantics.md#local-data-and-replay). [Evaluations and check results](../docs/check-evaluations.md) defines the terminology, record fields, and target forms. Concrete recording preserves each observation and execution occurrence.
+The input format is described in [Model semantics](../docs/model-semantics.md#local-data-and-replay). [Evaluations and check results](../docs/check-evaluations.md) defines the terminology, record fields, and target forms. Each observation and each performed action keeps its own record.
 
 ## Comparing accepted cases
 
-A reader processes events in order and compares its normalized result with `expected.json`. A producer uses its API to record equivalent evidence, reopens it, and performs the same comparison. Both preserve the input properties, evaluation fields, and artifact bytes. JSON object-key order and whitespace are insignificant.
+A reader processes events in order, builds the summary described below, and compares it with `expected.json`. A producer uses its API to record equivalent evidence, reopens it, and performs the same comparison. Both preserve the input properties, evaluation fields, and artifact bytes. JSON object-key order and whitespace are insignificant. Numeric values retain their exact JSON meaning.
 
 Accepted results contain:
 
@@ -31,6 +31,8 @@ Accepted results contain:
 - `executions`: the selected execution under `execution`, its lifecycle `status`, result observation ID or null under `result`, and submission error or null under `error`.
 - `checks`: complete check result records from `checked` event payloads, including rule, target, status, and supplied readings/expectations.
 - `concrete_states`: snapshot IDs.
+
+The summary checks record IDs, links, execution statuses, and complete check results. In addition, compare the complete accepted run, action, observation, and execution payloads with their inputs, including state and widget properties, parent links, capture descriptions, aliases, omissions, and parameters. Verify each run's recorded ending reason and each referenced artifact's bytes. These comparisons apply after reopening or replaying the saved data as well as after recording it.
 
 Runs, observations, actions, and snapshot IDs are sorted by string identifier. Executions follow selection order; check results follow event order. Widget, candidate, and artifact lists preserve their recorded order. The `checks` count includes every recorded check result, regardless of status or repeated rules and targets. A run's finished status retains its recorded ending reason in the original evidence.
 
@@ -49,5 +51,9 @@ Reader tests stop at the first invalid event. Producer tests submit that record 
 - [Widget property sweep](cases/widget-property-sweep/README.md): one rule evaluated separately for three image widgets.
 - [Property reading kinds](cases/property-reading-kinds/README.md): established absence, explicit null, and unknown information.
 - [Broader evaluation targets](cases/broader-check-targets/README.md): run, observation, state property, widget, execution, and sequence targets, including check results arriving after the run finishes.
+- [Capture and properties](cases/capture-properties/README.md): complete, filtered, and unavailable trees; nested values, aliases, omissions, and precise evaluations.
+- [Discovered action selection](cases/discovered-action-selection/README.md): several candidate bindings, one completed selection, and retained unselected actions.
+- [Scripted action trace](cases/scripted-action-trace/README.md): form steps, repeated visits, execution parameters, a rejected submission, and an interrupted execution.
+- [Temporal evaluations](cases/temporal-evaluations/README.md): ongoing conditions, recorded-interval assessments, and results at different run endings.
 - [Check result with an unknown widget](cases/invalid-check-widget/README.md): a target widget outside the captured observation.
 - [Check result with an observation from another run](cases/invalid-check-observation-run/README.md): a target observation belonging to another run.

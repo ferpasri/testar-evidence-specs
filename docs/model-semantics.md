@@ -1,4 +1,4 @@
-# Generic Model Semantics
+# Recorded evidence and its meaning
 
 ## Recorded evidence
 
@@ -24,6 +24,29 @@ Complete, filtered, and unavailable capture have different meanings, explained i
 
 Extra properties can use a source prefix, such as `toolone.fingerprint` or `tooltwo.selector`. The prefix tells a consumer where the property comes from. Consumers can preserve unfamiliar properties without needing to interpret them; another producer can omit them.
 
+A tool can capture every available widget while saving only some of each widget's properties. For example, a size limit can exclude one widget's long description while retaining that widget's role and text. [Capture and properties](capture-evidence.md) defines optional descriptions of those choices, known omissions, nested values, and aliases.
+
+## Common descriptive properties
+
+Adapters can use these optional state-property names when the information is available:
+
+| Property | Meaning |
+| --- | --- |
+| `ui.url` | The full address captured for the current page, including its path parameters, query, and fragment. |
+| `ui.title` | The page, screen, or window title captured from the application. |
+
+These conventions use captured strings. A page can have an empty title; keeping `""` preserves that information. When the title or address is unavailable, the adapter describes that capture limit rather than inventing a value. Desktop and other applications can supply a title without a URL.
+
+Read a page title from the application's document-title information and a page address from its current-address information. Preserve the returned values, including empty strings.
+
+Widget properties need their own definitions. An HTML `title` attribute, visible text, and an accessible name describe different things. A tool's property named `Title` may represent any of these. Keep its original name and document what it contains.
+
+A common property name must describe a concrete property or API value that the source actually provides. The adapter verifies that meaning before adding the common name. A widget title is recorded when an actual title property is available; text or an accessible name is not substituted for a missing title. The state-level `ui.title` convention above describes a page, screen, or window title; it does not define a generic widget title.
+
+Adapters preserve captured facts and use documented conversions for their JSON representation. Capture descriptions, generated identifiers, and alias mappings describe the recording itself. Decisions such as which widget is most important or which screens are equivalent belong in separately identified analysis results.
+
+Keep the source-specific properties alongside these common names when available. Consumers can use the common names across producers while retaining the original descriptions. A consumer may normalize addresses or titles for a derived comparison; the recorded values remain unchanged.
+
 ## Discovered actions and exploration
 
 An observation retains the candidate actions reported by its producer, including those never selected. Each candidate identifies an action definition and, when supplied, a widget at that observation.
@@ -44,11 +67,19 @@ Candidate lists describe what the tool reported. They do not establish every pos
 
 ## Action execution and trace direction
 
-An initial observation has no preceding action execution. Selecting an action records its source and, when known, its candidate/target binding. Submission records whether the tool accepted the action; acceptance alone does not establish successful behavior in the application.
+An initial observation has no preceding action execution. Selecting an action records its source and, when known, its candidate/target binding. Submission records whether the testing tool's runner, driver, or execution wrapper accepted the action. The application's response is recorded in the resulting observation.
 
 When an accepted execution is linked to a resulting observation, the trace records a forward link between those two occurrences. Separate runs do not get implicit links, and returning to the same page does not reuse an earlier observation.
 
-Rejected or interrupted executions preserve what happened without inventing a result. Keeping two identical screenshots as one stored file is permitted; this storage optimization does not merge their observations or establish state equivalence.
+A scripted helper records the steps that the testing tool reports. Separate username entry, password entry, and submission can each have their own source observation, execution, and result. If the tool reports one compound action, that action has one recorded execution with its supplied parameters. A further capture without a reported action remains a separate observation.
+
+A rejected submission means the testing tool reports that it could not accept or execute the action, for example because the target widget disappeared. Any reported error is saved. No observation is attached as the completed result of that rejected execution; later captures can still be saved as separate observations.
+
+If a click is executed and the application then displays "Incorrect password", the click has a resulting observation containing that response. This is an application response to an executed action.
+
+Finishing a run marks outstanding selected or accepted executions incomplete. Completed executions retain the result observation actually reported.
+
+Keeping two identical screenshots as one stored file is permitted; this storage optimization does not merge their observations or establish state equivalence.
 
 ## Optional derived views
 
@@ -67,9 +98,11 @@ Repeated executions can support one derived transition. A derived view may conta
 
 Captured properties describe observations. A test oracle performs an evaluation by applying a rule to a target. A check result records its outcome and supporting evidence, identifying the target and a passed, failed, pending, unknown, or error status.
 
-A test oracle applied to several widgets produces a separate evaluation for each widget/property target. Reported readings distinguish a JSON value, established absence, and unknown information. An explicit null remains a JSON value. A property with no matching check result has no recorded evaluation. Results for broader scopes retain those scopes rather than establishing property-by-property coverage.
+A test oracle applied to several widgets produces a separate evaluation for each widget/property target. Reported readings distinguish a JSON value, established absence, and unknown information. An explicit null remains a JSON value. A property with no matching check result has no recorded evaluation. A result about a whole page or run describes that page or run. Individual property coverage comes from results naming the particular properties.
 
-[Evaluations and check results](check-evaluations.md) defines the terminology, record fields, target forms, reference rules, and reading representations.
+Temporal evaluations describe conditions over a sequence of visits. An end-of-run report records the oracle's assessment and the interval it concerns. An open-ended condition can remain pending after execution stops. Each reported result remains a separate record.
+
+[Evaluations and check results](check-evaluations.md) defines the terminology, record fields, target forms, reference rules, readings, and temporal assessments.
 
 The adapter captures screenshots and supplies them to the implementation. Stored references identify their relative paths, media type, and SHA-256 hashes, which readers can use to check that the bytes are unchanged. Several observations may reference the same image. Moving JSONL alone does not preserve the image bytes.
 

@@ -17,6 +17,43 @@ The manifest, events, and referenced artifacts are inputs. `expected.json` descr
 
 The input format is described in [Model semantics](../docs/model-semantics.md#local-data-and-replay). [Evaluations and check results](../docs/check-evaluations.md) defines the terminology, record fields, and target forms. Each observation and each performed action keeps its own record.
 
+## Input trace, reconstructed model, and expected result
+
+`evidence.jsonl` is the input trace: one JSON event per line. It represents evidence that an adapter could record during a test execution. The shared cases supply controlled examples so every implementation receives the same input.
+
+For example, a trace can describe this sequence. This is a readable illustration; the file itself contains JSON events:
+
+```text
+Run started
+Observation 1 captured, including widgets and properties
+Click action defined and selected in observation 1
+Action submission accepted
+Observation 2 captured
+Action result connects the click to observation 2
+Test-oracle evaluation targets a property in observation 2
+Run finished
+```
+
+The three parts have different roles:
+
+| Part | Meaning |
+| --- | --- |
+| Input trace | `manifest.json`, `evidence.jsonl`, and referenced artifacts supplied by the case. |
+| Reconstructed model | The library's in-memory interpretation of those events: observations, widgets, properties, actions, execution links, and evaluations. Each library can use its own internal classes. |
+| Expected result | `expected.json`: the summary that tests should obtain from the model, or the expected error and previously accepted records for an invalid trace. |
+
+```text
+Input trace -> library reads events -> reconstructed model
+                                             |
+                                      test builds a summary
+                                             |
+                                      compare with expected.json
+```
+
+The reconstructed model is not an abstract or merged model. It preserves the concrete records and their original links. `expected.json` is a test expectation, not another execution trace or a normal library output file. Tests also compare full accepted event contents and artifact bytes, because the summary alone does not contain every captured value.
+
+Reader tests open the supplied trace. Producer tests decode the supplied events, submit them through the implementation's recording API, and reopen the generated files. Both check against the same expectations. Using the same cases in different languages checks agreement on those examples; directly reading one implementation's output with another implementation is a separate interoperability test.
+
 ## Comparing accepted cases
 
 A reader processes events in order, builds the summary described below, and compares it with `expected.json`. A producer uses its API to record equivalent evidence, reopens it, and performs the same comparison. Both preserve the input properties, evaluation fields, and artifact bytes. JSON object-key order and whitespace are insignificant. Numeric values retain their exact JSON meaning.

@@ -13,7 +13,7 @@ testar-evidence-specs
         Generic concrete traces
 ```
 
-A tool-specific adapter translates its tool's UI data into generic records. A language implementation validates, stores, and reads those records. Every visit remains a separate observation, even when the same screen is visited again.
+A tool-specific adapter translates its tool's UI data into generic records. A language implementation validates, stores, and reads those records. Every visit remains a separate observation, even when the same screen is visited again. Each completed action connects its before and resulting observations, forming a state-action-state execution trace.
 
 Observations retain discovered candidate actions, including those never selected. Executions identify the selections and their recorded outcomes. `candidate_scope` says whether the tool supplied generated actions, actions eligible for selection, or a list whose origin is unknown.
 

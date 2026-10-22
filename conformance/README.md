@@ -77,7 +77,7 @@ Runs, observations, actions, and snapshot IDs are sorted by string identifier. E
 
 A rejected result has `status: "rejected"`, an `error`, and an `accepted_prefix`. The prefix is the accepted-case summary immediately before the rejected event; that event changes neither the accepted event count nor the model records.
 
-The error identifies a generic `code`, the rejected envelope's ID under `event`, and the invalid field path under `field`. The check-target cases use `invalid_check_target` for a missing referenced widget or an observation belonging to another run. Implementations may normalize their own error types to these values; error-message wording is unrestricted.
+The error identifies a generic `code`, the rejected event's ID under `event`, and the invalid field path under `field`. The check-target cases use `invalid_check_target` for a missing referenced widget or an observation belonging to another run. Implementations may normalize their own error types to these values; error-message wording is unrestricted.
 
 Reader tests stop at the first invalid event. Producer tests submit that record through the API, confirm rejection, and verify the prefix remains intact. Reopening the successfully recorded prefix produces the same accepted result.
 

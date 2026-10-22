@@ -65,11 +65,11 @@ Consumers can identify candidates with no recorded selection from that observati
 
 Candidate lists describe what the tool reported. They do not establish every possible action in the application. Deciding whether a candidate was explored at another visit requires a policy for matching observations and actions.
 
-## Action execution and trace direction
+## State-action-state execution traces
 
 An initial observation has no preceding action execution. Selecting an action records its source and, when known, its candidate/target binding. Submission records whether the testing tool's runner, driver, or execution wrapper accepted the action. The application's response is recorded in the resulting observation.
 
-When an accepted execution is linked to a resulting observation, the trace records a forward link between those two occurrences. Separate runs do not get implicit links, and returning to the same page does not reuse an earlier observation.
+Each completed action connects the observation before the action to its resulting observation, forming a state-action-state execution trace. Separate runs do not get implicit links, and returning to the same page does not reuse an earlier observation.
 
 A scripted helper records the steps that the testing tool reports. Separate username entry, password entry, and submission can each have their own source observation, execution, and result. If the tool reports one compound action, that action has one recorded execution with its supplied parameters. A further capture without a reported action remains a separate observation.
 
@@ -110,6 +110,10 @@ The adapter captures screenshots and supplies them to the implementation. Stored
 
 The local data layout uses `manifest.json`, `evidence.jsonl`, and `artifacts/`. The manifest identifies the format version and evidence collection. JSONL contains versioned events with stable identifiers. Optional derived views refer back to that evidence without making grouping a condition of recording.
 
-The current format uses `schema_version: n` in the manifest and every event envelope. This number identifies the data format, while release tags identify published versions of the specifications and shared test data.
+The current format uses `schema_version: n` in the manifest and every evidence event. This number identifies the data format, while release tags identify published versions of the specifications and shared test data.
+
+Examples and adapters can create trace directories named `<sut>_<objective>_trace-<timestamp>`, for example `parabank_denied-loan_trace-2026-10-22_15-30-12-123`. Use labels supplied by the caller and a documented local or UTC time convention. Make labels safe for filenames and keep the original descriptions in recording metadata when supplied. Reserve the directory before writing; add a suffix such as `-2` when a name already exists. A sequence number can also be included. Explicit output paths remain caller choices. Readers use the manifest and event identities, so directory names do not define trace identity or state equivalence.
+
+An evidence event carries its identity, format version, event kind, and reported data. Implementations can use the name `EvidenceEvent` for that structure; this naming does not change the JSON fields.
 
 Reprocessing an identical event should not duplicate records. Conflicting content for an existing event identifier should be rejected. File locks and internal graph representations are implementation details rather than shared model data.

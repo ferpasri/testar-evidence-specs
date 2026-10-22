@@ -10,6 +10,8 @@
 | Optional abstraction components | Decide which observations, widgets, or actions should be grouped for a particular purpose. |
 | Viewers and analysis tools | Display concrete traces or derived models and follow their links back to evidence. |
 
+A language implementation primarily validates and saves the records supplied by adapters. It keeps enough earlier information to check references and action order. Reading saved traces and simple lookup methods support inspection and continued recording; building a derived model is a separate responsibility.
+
 A language implementation follows a version of the specifications. It does not need to contact this repository while a test runs. APIs can look different in Rust and Java while recording data with the same meaning.
 
 ## Recording flow
@@ -64,7 +66,7 @@ A concrete trace follows the order of an execution:
 Observation 1 -> Action execution -> Observation 2 -> Action execution -> Observation 3
 ```
 
-The links point forward through recorded occurrences. Pressing Back can return to a previously seen screen, but that visit is still a new observation. The recorder does not add an automatic reverse link or merge the two visits. Action outcomes refer to the observation actually obtained after execution; an interrupted action can remain without a resulting observation.
+Each completed action connects its before and resulting observations to form a state-action-state execution trace. Pressing Back can return to a previously seen screen, but that visit is still a new observation. The recorder does not add an automatic reverse link or merge the two visits. Action outcomes refer to the observation actually obtained after execution; an interrupted action can remain without a resulting observation.
 
 Abstraction means choosing which differences matter. A navigation test might ignore a changing clock; a test of that clock must preserve its changes. The right grouping therefore depends on the application being tested, its domain, the testing objective, and the purpose of the evidence.
 

@@ -1,12 +1,12 @@
-# TESTAR State Model Specifications
+# TESTAR Evidence Specifications
 
 This repository defines how testing tools record GUI execution evidence in a shared format. An observation records what a tool captured at one moment; an execution trace connects observations through the actions performed between them.
 
 ```text
-testar-state-model-specs
+testar-evidence-specs
     |
-    +-- testar-state-model-rust
-    +-- testar-state-model-java
+    +-- testar-evidence-rust
+    +-- testar-evidence-java
     +-- other language implementations
                 |
                 v

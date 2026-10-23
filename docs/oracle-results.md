@@ -1,6 +1,6 @@
 # Oracle results
 
-A test oracle determines whether a condition holds. One application is an oracle evaluation. Its recorded outcome and supporting evidence form an oracle result. For example, a loan-status oracle expects `Denied`; applying it after a particular loan request produces a result for that captured moment.
+A test oracle determines whether a condition holds. Running a test oracle once against a particular target is an oracle evaluation. Its recorded outcome and supporting evidence form an oracle result. For example, a loan-status oracle expects `Denied`; applying it after a particular loan request produces a result for that captured moment.
 
 ## Result fields
 
@@ -17,7 +17,7 @@ The `oracle_result_recorded` event has the following data fields:
 | `expected_value` | Optional JSON expectation, including an explicitly supplied null. |
 | `observed_value` | Optional value, established absence, or unknown information obtained by the oracle. |
 | `oracle_severity` | Optional source-defined importance: required nonblank `label` and optional finite numeric `value`. |
-| `details` | Required property map for explanations and supporting information; can be empty. |
+| `oracle_details` | Required property map for explanations and supporting information; can be empty. |
 
 Passed means the condition was satisfied; failed means it was not. Pending means no definite result when reported; unknown means the oracle could not determine one; error means an evaluation problem. Each report is retained separately, including pending results after a history ends.
 
@@ -25,9 +25,9 @@ Severity is independent of status. A missing alternative-text condition can be f
 
 ## Oracle targets
 
-Each target has a `kind` and only the additional fields listed here:
+The `target_type` field identifies what the oracle evaluated. The table lists the additional fields needed to identify that target.
 
-| Kind | Additional fields | Meaning |
+| Target type | Additional fields | Meaning |
 | --- | --- | --- |
 | `test_run` | None | The result's whole test run; omit `test_sequence`. |
 | `test_sequence` | None | The result's whole test sequence. |
@@ -42,11 +42,13 @@ Referenced records already exist and belong to the result's test sequence or run
 
 ## Observed values
 
+The `value_status` field distinguishes a reported value, established absence, and unknown information. It does not describe the JSON data type of the value itself.
+
 | Representation | Meaning |
 | --- | --- |
-| `{"kind":"value","value":null}` | A reported JSON value; this example is explicit null. |
-| `{"kind":"absent"}` | The oracle established that the property was absent. |
-| `{"kind":"unknown"}` | The oracle could not establish its value or presence. |
+| `{"value_status":"value","value":null}` | A reported JSON value; this example is explicit null. |
+| `{"value_status":"absent"}` | The oracle established that the property was absent. |
+| `{"value_status":"unknown"}` | The oracle could not establish its value or presence. |
 
 Omitting `observed_value` means none was supplied. Missing captured data alone does not establish application-level absence. Oracle readings and state capture can happen at different moments; retain both without replacing one with the other.
 
@@ -61,15 +63,15 @@ The oracle checks whether an image has alternative text. It establishes absence 
     "name": "Alternative-text property is present",
     "oracle": {"id": "example:alt-present", "version": "1"},
     "oracle_target": {
-        "kind": "widget_property",
+        "target_type": "widget_property",
         "observation": "example:observation:1",
         "widget": "image-help",
         "property": "ui.alt"
     },
     "oracle_status": "failed",
-    "observed_value": {"kind": "absent"},
+    "observed_value": {"value_status": "absent"},
     "oracle_severity": {"label": "warning", "value": 0.4},
-    "details": {}
+    "oracle_details": {}
 }
 ```
 
@@ -77,7 +79,7 @@ The oracle checks whether an image has alternative text. It establishes absence 
 
 An oracle can evaluate one moment, an action execution, a range of observations, a whole sequence, or a whole run. An open-ended condition such as a warning never appearing can remain pending when testing stops. A condition explicitly bounded to recorded observations can pass if all required readings satisfy it. Neither establishes what happened between captures.
 
-Optional `details["evidence.assessment"]` describes temporal context:
+Optional `oracle_details["evidence.assessment"]` describes temporal context:
 
 | Field | Meaning |
 | --- | --- |

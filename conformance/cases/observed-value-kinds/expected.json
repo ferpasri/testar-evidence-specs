@@ -49,7 +49,7 @@
     "oracle_results": [
         {
             "name": "Alternative-text property is present",
-            "details": {},
+            "oracle_details": {},
             "test_run": "example:property-reading-kinds:run:1:test-run",
             "test_sequence": "example:property-reading-kinds:run:1",
             "oracle": {
@@ -58,10 +58,10 @@
             },
             "oracle_status": "failed",
             "observed_value": {
-                "kind": "absent"
+                "value_status": "absent"
             },
             "oracle_target": {
-                "kind": "widget_property",
+                "target_type": "widget_property",
                 "observation": "example:property-reading-kinds:observation:1",
                 "widget": "image-missing",
                 "property": "ui.alt"
@@ -69,7 +69,7 @@
         },
         {
             "name": "Alternative-text property is present",
-            "details": {},
+            "oracle_details": {},
             "test_run": "example:property-reading-kinds:run:1:test-run",
             "test_sequence": "example:property-reading-kinds:run:1",
             "oracle": {
@@ -78,11 +78,11 @@
             },
             "oracle_status": "passed",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": null
             },
             "oracle_target": {
-                "kind": "widget_property",
+                "target_type": "widget_property",
                 "observation": "example:property-reading-kinds:observation:1",
                 "widget": "image-null",
                 "property": "ui.alt"
@@ -90,7 +90,7 @@
         },
         {
             "name": "Alternative-text property is present",
-            "details": {
+            "oracle_details": {
                 "reason": "Property presence could not be established"
             },
             "test_run": "example:property-reading-kinds:run:1:test-run",
@@ -101,10 +101,10 @@
             },
             "oracle_status": "unknown",
             "observed_value": {
-                "kind": "unknown"
+                "value_status": "unknown"
             },
             "oracle_target": {
-                "kind": "widget_property",
+                "target_type": "widget_property",
                 "observation": "example:property-reading-kinds:observation:1",
                 "widget": "image-unavailable",
                 "property": "ui.alt"
@@ -112,7 +112,7 @@
         },
         {
             "name": "Alternative text equals the expected JSON null",
-            "details": {},
+            "oracle_details": {},
             "test_run": "example:property-reading-kinds:run:1:test-run",
             "test_sequence": "example:property-reading-kinds:run:1",
             "oracle": {
@@ -125,11 +125,11 @@
             "oracle_status": "passed",
             "expected_value": null,
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": null
             },
             "oracle_target": {
-                "kind": "widget_property",
+                "target_type": "widget_property",
                 "observation": "example:property-reading-kinds:observation:1",
                 "widget": "image-null",
                 "property": "ui.alt"

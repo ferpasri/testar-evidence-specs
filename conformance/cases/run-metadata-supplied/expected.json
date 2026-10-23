@@ -80,11 +80,11 @@
     "action_descriptions": [
         {
             "id": "example:run-metadata-supplied:apply",
-            "kind": "activate"
+            "action_type": "activate"
         },
         {
             "id": "example:run-metadata-supplied:open",
-            "kind": "activate"
+            "action_type": "activate"
         }
     ],
     "action_executions": [

@@ -141,15 +141,15 @@
     "action_descriptions": [
         {
             "id": "example:scripted-action-trace:activate",
-            "kind": "activate"
+            "action_type": "activate"
         },
         {
             "id": "example:scripted-action-trace:refresh",
-            "kind": "refresh"
+            "action_type": "refresh"
         },
         {
             "id": "example:scripted-action-trace:text-entry",
-            "kind": "text_entry"
+            "action_type": "text_entry"
         }
     ],
     "action_executions": [

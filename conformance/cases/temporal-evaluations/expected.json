@@ -152,7 +152,7 @@
     "oracle_results": [
         {
             "name": "A warning never appears",
-            "details": {
+            "oracle_details": {
                 "evidence.assessment": {
                     "phase": "during_sequence",
                     "semantics": "open_ended"
@@ -171,19 +171,19 @@
             },
             "oracle_status": "pending",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": {
                     "recorded_observations": 1,
                     "violations_observed": 0
                 }
             },
             "oracle_target": {
-                "kind": "test_sequence"
+                "target_type": "test_sequence"
             }
         },
         {
             "name": "A warning never appears",
-            "details": {
+            "oracle_details": {
                 "evidence.assessment": {
                     "phase": "end_of_sequence",
                     "semantics": "open_ended",
@@ -203,12 +203,12 @@
             },
             "oracle_status": "pending",
             "oracle_target": {
-                "kind": "test_sequence"
+                "target_type": "test_sequence"
             }
         },
         {
             "name": "No warning at each recorded observation in the interval",
-            "details": {
+            "oracle_details": {
                 "evidence.assessment": {
                     "phase": "end_of_sequence",
                     "semantics": "recorded_interval",
@@ -229,21 +229,21 @@
             },
             "oracle_status": "passed",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": {
                     "evaluated_observations": 2,
                     "violations_observed": 0
                 }
             },
             "oracle_target": {
-                "kind": "observation_range",
+                "target_type": "observation_range",
                 "first_observation": "example:temporal-evaluations:normal:observation:1",
                 "last_observation": "example:temporal-evaluations:normal:observation:2"
             }
         },
         {
             "name": "A warning never appears",
-            "details": {
+            "oracle_details": {
                 "evidence.assessment": {
                     "phase": "during_sequence",
                     "semantics": "open_ended"
@@ -262,19 +262,19 @@
             },
             "oracle_status": "pending",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": {
                     "recorded_observations": 1,
                     "violations_observed": 0
                 }
             },
             "oracle_target": {
-                "kind": "test_sequence"
+                "target_type": "test_sequence"
             }
         },
         {
             "name": "A warning never appears",
-            "details": {
+            "oracle_details": {
                 "evidence.assessment": {
                     "phase": "end_of_sequence",
                     "semantics": "open_ended",
@@ -294,12 +294,12 @@
             },
             "oracle_status": "pending",
             "oracle_target": {
-                "kind": "test_sequence"
+                "target_type": "test_sequence"
             }
         },
         {
             "name": "No warning at each recorded observation in the interval",
-            "details": {
+            "oracle_details": {
                 "evidence.assessment": {
                     "phase": "end_of_sequence",
                     "semantics": "recorded_interval",
@@ -321,17 +321,17 @@
             },
             "oracle_status": "unknown",
             "observed_value": {
-                "kind": "unknown"
+                "value_status": "unknown"
             },
             "oracle_target": {
-                "kind": "observation_range",
+                "target_type": "observation_range",
                 "first_observation": "example:temporal-evaluations:deadline:observation:1",
                 "last_observation": "example:temporal-evaluations:deadline:observation:2"
             }
         },
         {
             "name": "A warning never appears",
-            "details": {
+            "oracle_details": {
                 "evidence.assessment": {
                     "phase": "during_sequence",
                     "semantics": "open_ended"
@@ -350,19 +350,19 @@
             },
             "oracle_status": "pending",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": {
                     "recorded_observations": 1,
                     "violations_observed": 0
                 }
             },
             "oracle_target": {
-                "kind": "test_sequence"
+                "target_type": "test_sequence"
             }
         },
         {
             "name": "A warning never appears",
-            "details": {
+            "oracle_details": {
                 "evidence.assessment": {
                     "phase": "during_sequence",
                     "semantics": "open_ended"
@@ -381,19 +381,19 @@
             },
             "oracle_status": "failed",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": {
                     "violating_observation": "example:temporal-evaluations:interrupted:observation:2",
                     "warning": true
                 }
             },
             "oracle_target": {
-                "kind": "test_sequence"
+                "target_type": "test_sequence"
             }
         },
         {
             "name": "A warning never appears",
-            "details": {
+            "oracle_details": {
                 "evidence.assessment": {
                     "phase": "end_of_sequence",
                     "semantics": "open_ended",
@@ -413,19 +413,19 @@
             },
             "oracle_status": "failed",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": {
                     "violating_observation": "example:temporal-evaluations:interrupted:observation:2",
                     "warning": true
                 }
             },
             "oracle_target": {
-                "kind": "test_sequence"
+                "target_type": "test_sequence"
             }
         },
         {
             "name": "A warning never appears",
-            "details": {
+            "oracle_details": {
                 "evidence.assessment": {
                     "phase": "during_sequence",
                     "semantics": "open_ended"
@@ -444,19 +444,19 @@
             },
             "oracle_status": "pending",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": {
                     "recorded_observations": 1,
                     "violations_observed": 0
                 }
             },
             "oracle_target": {
-                "kind": "test_sequence"
+                "target_type": "test_sequence"
             }
         },
         {
             "name": "A warning never appears",
-            "details": {
+            "oracle_details": {
                 "evidence.assessment": {
                     "phase": "during_sequence",
                     "semantics": "open_ended"
@@ -476,15 +476,15 @@
             },
             "oracle_status": "error",
             "observed_value": {
-                "kind": "unknown"
+                "value_status": "unknown"
             },
             "oracle_target": {
-                "kind": "test_sequence"
+                "target_type": "test_sequence"
             }
         },
         {
             "name": "A warning never appears",
-            "details": {
+            "oracle_details": {
                 "evidence.assessment": {
                     "phase": "end_of_sequence",
                     "semantics": "open_ended",
@@ -504,7 +504,7 @@
             },
             "oracle_status": "pending",
             "oracle_target": {
-                "kind": "test_sequence"
+                "target_type": "test_sequence"
             }
         }
     ],

@@ -17,7 +17,7 @@ The manifest contains `schema_version` and a nonblank `evidence_id` identifying 
     "schema_version": 3,
     "id": "example:event:1",
     "event": {
-        "kind": "test_run_started",
+        "event_type": "test_run_started",
         "data": {
             "id": "example:test-run:1",
             "producer": "example-adapter",
@@ -28,7 +28,7 @@ The manifest contains `schema_version` and a nonblank `evidence_id` identifying 
 }
 ```
 
-The [manifest schema](../schemas/manifest.schema.json) and [Evidence Event schema](../schemas/evidence-event.schema.json) define record shapes. Reference and lifecycle rules below apply in addition to those schemas. Unknown structural fields are rejected; property maps and oracle-result details preserve arbitrary named JSON values.
+The [manifest schema](../schemas/manifest.schema.json) and [Evidence Event schema](../schemas/evidence-event.schema.json) define record shapes. Reference and lifecycle rules below apply in addition to those schemas. Unknown structural fields are rejected; property maps and oracle details preserve arbitrary named JSON values.
 
 Identifiers and property keys are nonblank strings without control characters. Record identifiers distinguish their records within the collection. Observation and sequence indexes and microsecond timestamps are unsigned 64-bit integers. Property numbers retain their JSON precision. Missing, null, empty strings, and unavailable information remain distinguishable.
 
@@ -36,11 +36,11 @@ Identifiers and property keys are nonblank strings without control characters. R
 
 All fields listed below are required except where marked optional. Property maps can be empty. Optional fields are omitted when not supplied; supplying null is allowed only where explicitly stated.
 
-| Event kind | Data fields and meaning |
+| Event type | Data fields and meaning |
 | --- | --- |
 | `test_run_started` | `id`, `producer`, `source_run`, `properties`. Begins one invocation of testing. The source-run string retains the source tool's own identifier. |
 | `test_sequence_started` | `id`, `test_run`, `sequence_index`, `source_sequence`, `properties`. Begins one history within its parent run. Sequence indexes increase in start order within that run and start at 1 or higher. |
-| `action_described` | `id`, `kind`, `properties`. Registers a reusable action description. |
+| `action_described` | `id`, `action_type`, `properties`. Registers a reusable action description. |
 | `observation_recorded` | `id`, `test_sequence`, `observation_index`, `timestamp_micros`, `recorded_state`, `available_action_scope`, `available_actions`, `artifacts`. Indexes increase within the sequence; they can restart in another sequence. |
 | `action_selected` | `id`, `test_sequence`, `source_observation`, `action_description`, `target_widget`, `parameters`. Selects an action/target pair reported at that sequence's latest observation. `target_widget` can be null. Parameters contain the actual execution arguments. |
 | `action_execution_reported` | `action_execution`, `outcome`, `error`. `outcome` is `returned` or `error`. A normal return requires `error: null`; an execution error retains its reported string. |

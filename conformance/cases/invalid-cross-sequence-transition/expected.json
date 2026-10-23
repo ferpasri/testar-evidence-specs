@@ -75,7 +75,7 @@
         "action_descriptions": [
             {
                 "id": "example:invalid-cross-sequence-transition:action",
-                "kind": "activate"
+                "action_type": "activate"
             }
         ],
         "action_executions": [

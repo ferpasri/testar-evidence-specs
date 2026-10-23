@@ -71,10 +71,10 @@
                 "id": "example:multiple-test-sequences:all-sequences"
             },
             "oracle_target": {
-                "kind": "test_run"
+                "target_type": "test_run"
             },
             "oracle_status": "passed",
-            "details": {}
+            "oracle_details": {}
         }
     ],
     "recorded_states": [

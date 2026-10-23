@@ -251,7 +251,7 @@
     "action_descriptions": [
         {
             "id": "example:targeted-property-checks:activate",
-            "kind": "activate"
+            "action_type": "activate"
         }
     ],
     "action_executions": [
@@ -511,7 +511,7 @@
     "oracle_results": [
         {
             "name": "Status text is Ready",
-            "details": {},
+            "oracle_details": {},
             "test_run": "example:targeted-property-checks:run:1:test-run",
             "test_sequence": "example:targeted-property-checks:run:1",
             "oracle": {
@@ -521,11 +521,11 @@
             "oracle_status": "passed",
             "expected_value": "Ready",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": "Ready"
             },
             "oracle_target": {
-                "kind": "widget_property",
+                "target_type": "widget_property",
                 "observation": "example:targeted-property-checks:observation:5",
                 "widget": "status",
                 "property": "ui.text"
@@ -533,7 +533,7 @@
         },
         {
             "name": "Status is visible",
-            "details": {},
+            "oracle_details": {},
             "test_run": "example:targeted-property-checks:run:1:test-run",
             "test_sequence": "example:targeted-property-checks:run:1",
             "oracle": {
@@ -543,11 +543,11 @@
             "oracle_status": "failed",
             "expected_value": true,
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": false
             },
             "oracle_target": {
-                "kind": "widget_property",
+                "target_type": "widget_property",
                 "observation": "example:targeted-property-checks:observation:11",
                 "widget": "status",
                 "property": "ui.visible"

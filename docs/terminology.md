@@ -14,13 +14,13 @@ These terms describe what testing tools record and how consumers can build abstr
 | Recorded state | The application properties, widgets, and capture scope collected by the tool and saved for an observation. | Identical recorded-state data does not make two observations the same occurrence. Recording does not imply every widget or property was captured. |
 | Widget | A captured UI component with properties and an optional parent. | A button or input field. Its identifier alone does not establish identity across observations. |
 | Property | A named captured value. | Page title, text, bounds, or enabled status. A tool using typed tags translates them into named JSON properties while preserving their source meanings. |
-| Action description | A reusable description of an action, including its identity, kind, and descriptive properties. | Typing into a text field. Actual generated input belongs to its execution. |
+| Action description | A reusable description of an action, including its identity, action type, and descriptive properties. | Typing into a text field. Actual generated input belongs to its execution. |
 | Available action | An action the tool reports as available at an observation, optionally linked to a widget. | Typing into Username or activating Login. Availability follows the tool's discovery and filtering rules and does not guarantee successful execution. |
 | Action execution | One selected action occurrence, its actual parameters, reported execution result, and any resulting observation. | Typing `john` into Username on one particular occasion. |
 | Compound action | One tool-level action made up of several operations, recorded as one execution. | Typing into a field and pressing Enter. Its internal operations need not have separate execution records. |
 | Action execution result | What the runner or wrapper reports about the action attempt, including an execution error when one occurs. | A normal return and an execution error are distinct. Neither alone determines whether an application response satisfies an oracle condition. |
 | Recorded transition | An executed action connecting its source observation to its resulting observation. | One state-action-state occurrence. An execution without a resulting observation has no completed recorded transition. |
-| Evidence Event | One reported occurrence in the evidence log, with identity, format version, event kind, and data. | An observation was recorded or an oracle produced a result. |
+| Evidence Event | One reported occurrence in the evidence log, with identity, format version, event type, and data. | An observation was recorded or an oracle produced a result. |
 | Artifact | Stored bytes referenced by the evidence. | A screenshot. Moving the log alone does not move referenced image bytes. |
 
 ## Test oracles
@@ -29,13 +29,14 @@ These terms describe what testing tools record and how consumers can build abstr
 | --- | --- | --- |
 | Oracle condition | What must hold for the check to pass. | The loan-status text must equal `Denied`. |
 | Test oracle | The check that determines whether the oracle condition holds. | Code reading the loan-status text and comparing it with `Denied`. The condition and mechanism can appear together in one assertion. |
-| Oracle evaluation | One application of a test oracle to a target. | Running the check after a particular loan request. Applying it again produces another evaluation. |
+| Oracle evaluation | Running a test oracle once against a particular target. | Running the check after a particular loan request. Applying it again produces another evaluation. |
 | Oracle result | The recorded outcome and supporting evidence from an evaluation. | Passed with expected and observed values both equal to `Denied`. |
 | Oracle target | What the oracle evaluates. | A test run, test sequence, observation, action execution, widget, property, or observation range. A broad target does not establish that every property was checked. |
 | Oracle status | Passed, failed, pending, unknown, or error, as reported by the oracle. | Failed means the condition was not satisfied. Error means the evaluation encountered a problem. |
 | Oracle severity | The optional importance assigned by the source tool or oracle to a finding. | A failed condition can have severity `warning` or `critical`. Preserve source labels and any numeric values without inferring a default severity or universal scale. |
 | Expected value | An optional value used by the oracle to determine whether its condition holds. | `Denied`. An omitted expectation differs from a supplied JSON null. |
 | Observed value | Information obtained by the oracle: a value, established absence, or unknown information. | `Approved`, an attribute established as absent, or a value that could not be obtained. Null is a value, distinct from absence and unknown information. |
+| Oracle details | Explanations and supporting information supplied with an oracle result. | For example, why an observed value could not be obtained, or the reporting phase of a temporal assessment. |
 | Evaluation coverage | Which targets have recorded oracle results and their reported statuses. | A property has no recorded evaluation. This does not prove that no oracle ran; reporting may be incomplete. |
 
 An oracle result identifies its oracle and any supplied version and configuration. A separate object representing the condition is unnecessary when the condition is explained by the result's name and the oracle's documented behavior. The observed value can differ from a separately captured recorded-state property because they can be read at different moments.

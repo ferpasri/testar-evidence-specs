@@ -14,7 +14,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "event_type": {
                             "const": "test_run_started"
                         },
                         "data": {
@@ -22,7 +22,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "event_type",
                         "data"
                     ],
                     "additionalProperties": false
@@ -30,7 +30,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "event_type": {
                             "const": "test_sequence_started"
                         },
                         "data": {
@@ -38,7 +38,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "event_type",
                         "data"
                     ],
                     "additionalProperties": false
@@ -46,7 +46,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "event_type": {
                             "const": "action_described"
                         },
                         "data": {
@@ -54,7 +54,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "event_type",
                         "data"
                     ],
                     "additionalProperties": false
@@ -62,7 +62,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "event_type": {
                             "const": "observation_recorded"
                         },
                         "data": {
@@ -70,7 +70,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "event_type",
                         "data"
                     ],
                     "additionalProperties": false
@@ -78,7 +78,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "event_type": {
                             "const": "action_selected"
                         },
                         "data": {
@@ -86,7 +86,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "event_type",
                         "data"
                     ],
                     "additionalProperties": false
@@ -94,7 +94,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "event_type": {
                             "const": "action_execution_reported"
                         },
                         "data": {
@@ -102,7 +102,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "event_type",
                         "data"
                     ],
                     "additionalProperties": false
@@ -110,7 +110,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "event_type": {
                             "const": "transition_recorded"
                         },
                         "data": {
@@ -118,7 +118,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "event_type",
                         "data"
                     ],
                     "additionalProperties": false
@@ -126,7 +126,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "event_type": {
                             "const": "oracle_result_recorded"
                         },
                         "data": {
@@ -134,7 +134,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "event_type",
                         "data"
                     ],
                     "additionalProperties": false
@@ -142,7 +142,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "event_type": {
                             "const": "test_sequence_finished"
                         },
                         "data": {
@@ -150,7 +150,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "event_type",
                         "data"
                     ],
                     "additionalProperties": false
@@ -158,7 +158,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "event_type": {
                             "const": "test_run_finished"
                         },
                         "data": {
@@ -166,7 +166,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "event_type",
                         "data"
                     ],
                     "additionalProperties": false
@@ -361,13 +361,13 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "value_status": {
                             "const": "value"
                         },
                         "value": {}
                     },
                     "required": [
-                        "kind",
+                        "value_status",
                         "value"
                     ],
                     "additionalProperties": false
@@ -375,24 +375,24 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "value_status": {
                             "const": "absent"
                         }
                     },
                     "required": [
-                        "kind"
+                        "value_status"
                     ],
                     "additionalProperties": false
                 },
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "value_status": {
                             "const": "unknown"
                         }
                     },
                     "required": [
-                        "kind"
+                        "value_status"
                     ],
                     "additionalProperties": false
                 }
@@ -403,31 +403,31 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "target_type": {
                             "const": "test_run"
                         }
                     },
                     "required": [
-                        "kind"
+                        "target_type"
                     ],
                     "additionalProperties": false
                 },
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "target_type": {
                             "const": "test_sequence"
                         }
                     },
                     "required": [
-                        "kind"
+                        "target_type"
                     ],
                     "additionalProperties": false
                 },
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "target_type": {
                             "const": "observation"
                         },
                         "observation": {
@@ -435,7 +435,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "target_type",
                         "observation"
                     ],
                     "additionalProperties": false
@@ -443,7 +443,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "target_type": {
                             "const": "state_property"
                         },
                         "observation": {
@@ -454,7 +454,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "target_type",
                         "observation",
                         "property"
                     ],
@@ -463,7 +463,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "target_type": {
                             "const": "widget"
                         },
                         "observation": {
@@ -474,7 +474,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "target_type",
                         "observation",
                         "widget"
                     ],
@@ -483,7 +483,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "target_type": {
                             "const": "widget_property"
                         },
                         "observation": {
@@ -497,7 +497,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "target_type",
                         "observation",
                         "widget",
                         "property"
@@ -507,7 +507,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "target_type": {
                             "const": "action_execution"
                         },
                         "action_execution": {
@@ -515,7 +515,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "target_type",
                         "action_execution"
                     ],
                     "additionalProperties": false
@@ -523,7 +523,7 @@
                 {
                     "type": "object",
                     "properties": {
-                        "kind": {
+                        "target_type": {
                             "const": "observation_range"
                         },
                         "first_observation": {
@@ -534,7 +534,7 @@
                         }
                     },
                     "required": [
-                        "kind",
+                        "target_type",
                         "first_observation",
                         "last_observation"
                     ],
@@ -602,7 +602,7 @@
                 "id": {
                     "$ref": "#/$defs/identifier"
                 },
-                "kind": {
+                "action_type": {
                     "$ref": "#/$defs/identifier"
                 },
                 "properties": {
@@ -611,7 +611,7 @@
             },
             "required": [
                 "id",
-                "kind",
+                "action_type",
                 "properties"
             ],
             "additionalProperties": false
@@ -781,7 +781,7 @@
                 "oracle_severity": {
                     "$ref": "#/$defs/oracle_severity"
                 },
-                "details": {
+                "oracle_details": {
                     "$ref": "#/$defs/properties"
                 }
             },
@@ -791,7 +791,7 @@
                 "oracle",
                 "oracle_target",
                 "oracle_status",
-                "details"
+                "oracle_details"
             ],
             "additionalProperties": false
         },

@@ -33,7 +33,7 @@ Each accepted result contains `status: accepted` and these fields:
 | `test_runs` | ID and running/finished status, sorted by ID. |
 | `test_sequences` | ID, parent test run, sequence index, and running/finished status, sorted by ID. |
 | `observations` | ID, test sequence, observation index, recorded-state ID, capture scope, available-action scope, widget IDs, available actions, and artifact IDs, sorted by observation ID. Inner lists preserve their recorded order. |
-| `action_descriptions` | ID and kind, sorted by ID. |
+| `action_descriptions` | ID and action type, sorted by ID. |
 | `action_executions` | Selection payload under `action_execution`, reconstructed `status`, nullable `execution_result`, and nullable `resulting_observation`, in selection order. An execution result retains its execution reference, outcome, and error. |
 | `recorded_transitions` | Execution reference, test sequence, source observation, resulting observation, action description, and nullable target widget, in transition-recording order. |
 | `oracle_results` | Complete result payloads, in event order. Retain omitted fields, including severity, as omitted. |

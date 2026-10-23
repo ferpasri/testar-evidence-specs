@@ -51,7 +51,7 @@
     "action_descriptions": [
         {
             "id": "example:activate",
-            "kind": "activate"
+            "action_type": "activate"
         }
     ],
     "action_executions": [],

@@ -53,7 +53,7 @@
                 "id": "example:oracle-severity:oracle"
             },
             "oracle_target": {
-                "kind": "widget_property",
+                "target_type": "widget_property",
                 "observation": "example:oracle-severity:observation:1",
                 "widget": "status",
                 "property": "ui.text"
@@ -61,10 +61,10 @@
             "oracle_status": "failed",
             "expected_value": "Denied",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": "Approved"
             },
-            "details": {}
+            "oracle_details": {}
         },
         {
             "test_run": "example:oracle-severity:test-run",
@@ -74,7 +74,7 @@
                 "id": "example:oracle-severity:oracle"
             },
             "oracle_target": {
-                "kind": "widget_property",
+                "target_type": "widget_property",
                 "observation": "example:oracle-severity:observation:1",
                 "widget": "status",
                 "property": "ui.text"
@@ -82,10 +82,10 @@
             "oracle_status": "failed",
             "expected_value": "Denied",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": "Approved"
             },
-            "details": {},
+            "oracle_details": {},
             "oracle_severity": {
                 "label": "warning"
             }
@@ -98,7 +98,7 @@
                 "id": "example:oracle-severity:oracle"
             },
             "oracle_target": {
-                "kind": "widget_property",
+                "target_type": "widget_property",
                 "observation": "example:oracle-severity:observation:1",
                 "widget": "status",
                 "property": "ui.text"
@@ -106,10 +106,10 @@
             "oracle_status": "failed",
             "expected_value": "Denied",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": "Approved"
             },
-            "details": {},
+            "oracle_details": {},
             "oracle_severity": {
                 "label": "critical",
                 "value": 0.9
@@ -123,7 +123,7 @@
                 "id": "example:oracle-severity:oracle"
             },
             "oracle_target": {
-                "kind": "widget_property",
+                "target_type": "widget_property",
                 "observation": "example:oracle-severity:observation:1",
                 "widget": "status",
                 "property": "ui.text"
@@ -131,10 +131,10 @@
             "oracle_status": "failed",
             "expected_value": "Denied",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": "Approved"
             },
-            "details": {},
+            "oracle_details": {},
             "oracle_severity": {
                 "label": "Priority équipe",
                 "value": 25

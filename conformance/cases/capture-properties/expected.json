@@ -73,7 +73,7 @@
     "oracle_results": [
         {
             "name": "Alternative-text property is present",
-            "details": {},
+            "oracle_details": {},
             "test_run": "example:capture-properties:run:1:test-run",
             "test_sequence": "example:capture-properties:run:1",
             "oracle": {
@@ -82,11 +82,11 @@
             },
             "oracle_status": "passed",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": ""
             },
             "oracle_target": {
-                "kind": "widget_property",
+                "target_type": "widget_property",
                 "observation": "example:capture-properties:observation:2",
                 "widget": "image-help",
                 "property": "ui.alt"
@@ -94,7 +94,7 @@
         },
         {
             "name": "Application address is available",
-            "details": {
+            "oracle_details": {
                 "reason": "The test oracle could not establish the address value or presence"
             },
             "test_run": "example:capture-properties:run:1:test-run",
@@ -105,10 +105,10 @@
             },
             "oracle_status": "unknown",
             "observed_value": {
-                "kind": "unknown"
+                "value_status": "unknown"
             },
             "oracle_target": {
-                "kind": "state_property",
+                "target_type": "state_property",
                 "observation": "example:capture-properties:observation:3",
                 "property": "ui.url"
             }

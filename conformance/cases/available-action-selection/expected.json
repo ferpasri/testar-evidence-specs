@@ -93,15 +93,15 @@
     "action_descriptions": [
         {
             "id": "example:discovered-action-selection:activate",
-            "kind": "activate"
+            "action_type": "activate"
         },
         {
             "id": "example:discovered-action-selection:refresh",
-            "kind": "refresh"
+            "action_type": "refresh"
         },
         {
             "id": "example:discovered-action-selection:text-entry",
-            "kind": "text_entry"
+            "action_type": "text_entry"
         }
     ],
     "action_executions": [

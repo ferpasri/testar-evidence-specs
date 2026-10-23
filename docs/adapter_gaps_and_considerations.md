@@ -10,7 +10,7 @@ This guide explains where those gaps can appear, how to reduce them, and what wo
 | --- | --- |
 | Testing tool | Interacts with the application, captures its UI, and runs test oracles. |
 | Adapter | Takes the information reported by the tool and translates it into evidence records. |
-| State-model library | Validates, saves, and reads the supplied records and screenshot files. |
+| Evidence library | Validates, saves, and reads the supplied records and screenshot files. |
 | Dashboard | Shows the recorded evidence and supports analysis of it. |
 
 The specifications define the shared meaning of those records. The library and dashboard depend on the tool and adapter to supply the details needed for analysis.

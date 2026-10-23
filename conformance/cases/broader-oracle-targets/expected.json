@@ -71,7 +71,7 @@
     "action_descriptions": [
         {
             "id": "example:broader-check-targets:activate",
-            "kind": "activate"
+            "action_type": "activate"
         }
     ],
     "action_executions": [
@@ -106,7 +106,7 @@
     "oracle_results": [
         {
             "name": "Run actions completed",
-            "details": {},
+            "oracle_details": {},
             "test_run": "example:broader-check-targets:run:1:test-run",
             "test_sequence": "example:broader-check-targets:run:1",
             "oracle": {
@@ -115,18 +115,18 @@
             },
             "oracle_status": "passed",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": {
                     "completed": 1
                 }
             },
             "oracle_target": {
-                "kind": "test_sequence"
+                "target_type": "test_sequence"
             }
         },
         {
             "name": "Observation satisfies readiness condition",
-            "details": {
+            "oracle_details": {
                 "reason": "Readiness evaluator had insufficient information"
             },
             "test_run": "example:broader-check-targets:run:1:test-run",
@@ -137,16 +137,16 @@
             },
             "oracle_status": "unknown",
             "observed_value": {
-                "kind": "unknown"
+                "value_status": "unknown"
             },
             "oracle_target": {
-                "kind": "observation",
+                "target_type": "observation",
                 "observation": "example:broader-check-targets:observation:2"
             }
         },
         {
             "name": "State title identifies Step 2",
-            "details": {},
+            "oracle_details": {},
             "test_run": "example:broader-check-targets:run:1:test-run",
             "test_sequence": "example:broader-check-targets:run:1",
             "oracle": {
@@ -156,18 +156,18 @@
             "oracle_status": "passed",
             "expected_value": "Step 2",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": "Step 2"
             },
             "oracle_target": {
-                "kind": "state_property",
+                "target_type": "state_property",
                 "observation": "example:broader-check-targets:observation:2",
                 "property": "ui.title"
             }
         },
         {
             "name": "Widget appearance satisfies condition",
-            "details": {
+            "oracle_details": {
                 "reason": "Appearance evaluator encountered an error"
             },
             "test_run": "example:broader-check-targets:run:1:test-run",
@@ -178,17 +178,17 @@
             },
             "oracle_status": "error",
             "observed_value": {
-                "kind": "unknown"
+                "value_status": "unknown"
             },
             "oracle_target": {
-                "kind": "widget",
+                "target_type": "widget",
                 "observation": "example:broader-check-targets:observation:2",
                 "widget": "status"
             }
         },
         {
             "name": "Action has a resulting observation",
-            "details": {},
+            "oracle_details": {},
             "test_run": "example:broader-check-targets:run:1:test-run",
             "test_sequence": "example:broader-check-targets:run:1",
             "oracle": {
@@ -197,17 +197,17 @@
             },
             "oracle_status": "passed",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": "example:broader-check-targets:observation:2"
             },
             "oracle_target": {
-                "kind": "action_execution",
+                "target_type": "action_execution",
                 "action_execution": "example:broader-check-targets:execution:1"
             }
         },
         {
             "name": "Sequence evaluation awaits completion",
-            "details": {
+            "oracle_details": {
                 "reason": "Evaluation is pending"
             },
             "test_run": "example:broader-check-targets:run:1:test-run",
@@ -218,7 +218,7 @@
             },
             "oracle_status": "pending",
             "oracle_target": {
-                "kind": "observation_range",
+                "target_type": "observation_range",
                 "first_observation": "example:broader-check-targets:observation:1",
                 "last_observation": "example:broader-check-targets:observation:2"
             }

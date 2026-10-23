@@ -50,7 +50,7 @@
     "oracle_results": [
         {
             "name": "Image alternative text is nonblank",
-            "details": {},
+            "oracle_details": {},
             "test_run": "example:widget-property-sweep:run:1:test-run",
             "test_sequence": "example:widget-property-sweep:run:1",
             "oracle": {
@@ -59,11 +59,11 @@
             },
             "oracle_status": "passed",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": "Company"
             },
             "oracle_target": {
-                "kind": "widget_property",
+                "target_type": "widget_property",
                 "observation": "example:widget-property-sweep:observation:1",
                 "widget": "image-logo",
                 "property": "ui.alt"
@@ -71,7 +71,7 @@
         },
         {
             "name": "Image alternative text is nonblank",
-            "details": {},
+            "oracle_details": {},
             "test_run": "example:widget-property-sweep:run:1:test-run",
             "test_sequence": "example:widget-property-sweep:run:1",
             "oracle": {
@@ -80,11 +80,11 @@
             },
             "oracle_status": "failed",
             "observed_value": {
-                "kind": "value",
+                "value_status": "value",
                 "value": ""
             },
             "oracle_target": {
-                "kind": "widget_property",
+                "target_type": "widget_property",
                 "observation": "example:widget-property-sweep:observation:1",
                 "widget": "image-banner",
                 "property": "ui.alt"
@@ -92,7 +92,7 @@
         },
         {
             "name": "Image alternative text is nonblank",
-            "details": {},
+            "oracle_details": {},
             "test_run": "example:widget-property-sweep:run:1:test-run",
             "test_sequence": "example:widget-property-sweep:run:1",
             "oracle": {
@@ -101,10 +101,10 @@
             },
             "oracle_status": "failed",
             "observed_value": {
-                "kind": "absent"
+                "value_status": "absent"
             },
             "oracle_target": {
-                "kind": "widget_property",
+                "target_type": "widget_property",
                 "observation": "example:widget-property-sweep:observation:1",
                 "widget": "image-help",
                 "property": "ui.alt"

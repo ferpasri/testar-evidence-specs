@@ -38,6 +38,13 @@
 - [ ] Define correlation between separately reported results when producers need an evolving evaluation lifecycle.
 - [ ] Verify cross-tool coverage comparisons using the documented capture descriptions and original evaluation targets.
 
+## Run metadata alignment
+
+- [x] Define optional run origin and test objective descriptions, with separate adapter identity and version.
+- [ ] Align language libraries, adapter APIs, and examples with the shared run metadata names. Preserve caller descriptions and record known adapter details automatically.
+- [x] Add shared cases with metadata supplied and omitted, descriptive origin labels, and original text preserved. Include one origin that performs both predefined setup and exploratory actions.
+- [ ] Display and filter the optional run descriptions consistently in consumers while retaining producer and run identities.
+
 ## Capture comparison in derived models
 
 - [ ] Define a comparison view for observations grouped by user-selected matching rules. Show which widgets and properties each observation captured and which have recorded evaluation results.

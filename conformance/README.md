@@ -73,6 +73,8 @@ The summary checks record IDs, links, execution statuses, and complete check res
 
 Runs, observations, actions, and snapshot IDs are sorted by string identifier. Executions follow selection order; check results follow event order. Widget, candidate, and artifact lists preserve their recorded order. The `checks` count includes every recorded check result, regardless of status or repeated rules and targets. A run's finished status retains its recorded ending reason in the original evidence.
 
+For the run metadata cases, compare the complete `run_started` payloads as well as the summary. Preserve supplied descriptions exactly, including Unicode and spacing, and preserve omitted keys as omitted. [Run metadata](../docs/run-metadata.md) defines the shared property names.
+
 ## Comparing rejected cases
 
 A rejected result has `status: "rejected"`, an `error`, and an `accepted_prefix`. The prefix is the accepted-case summary immediately before the rejected event; that event changes neither the accepted event count nor the model records.
@@ -84,6 +86,9 @@ Reader tests stop at the first invalid event. Producer tests submit that record 
 ## Cases
 
 - [Initial observation](cases/initial-observation/README.md): one captured widget, candidate, and screenshot.
+- [Supplied run metadata](cases/run-metadata-supplied/README.md): exact descriptions and adapter details across setup and exploration.
+- [Omitted run metadata](cases/run-metadata-omitted/README.md): empty and adapter-only properties without invented defaults.
+- [Flexible origin labels](cases/run-origin-labels/README.md): arbitrary source names and distinct runs sharing a label.
 - [Targeted property evaluations](cases/targeted-property-checks/README.md): ten completed actions and two property evaluations.
 - [Widget property sweep](cases/widget-property-sweep/README.md): one rule evaluated separately for three image widgets.
 - [Property reading kinds](cases/property-reading-kinds/README.md): established absence, explicit null, and unknown information.

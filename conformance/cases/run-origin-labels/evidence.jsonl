@@ -1,0 +1,8 @@
+{"schema_version":2,"id":"example:run-origin-labels:event:1","event":{"kind":"run_started","data":{"id":"example:run-origin-labels:run:1","producer":"example-browser-adapter","source_run":"example:session:1","properties":{"evidence.origin":"Example explorer"}}}}
+{"schema_version":2,"id":"example:run-origin-labels:event:2","event":{"kind":"run_finished","data":{"run":"example:run-origin-labels:run:1","reason":"completed"}}}
+{"schema_version":2,"id":"example:run-origin-labels:event:3","event":{"kind":"run_started","data":{"id":"example:run-origin-labels:run:2","producer":"example-browser-adapter","source_run":"example:session:2","properties":{"evidence.origin":"Loan scenario script / équipe QA"}}}}
+{"schema_version":2,"id":"example:run-origin-labels:event:4","event":{"kind":"run_finished","data":{"run":"example:run-origin-labels:run:2","reason":"completed"}}}
+{"schema_version":2,"id":"example:run-origin-labels:event:5","event":{"kind":"run_started","data":{"id":"example:run-origin-labels:run:3","producer":"example-browser-adapter","source_run":"example:session:3","properties":{"evidence.origin":"Custom CI job #42"}}}}
+{"schema_version":2,"id":"example:run-origin-labels:event:6","event":{"kind":"run_finished","data":{"run":"example:run-origin-labels:run:3","reason":"completed"}}}
+{"schema_version":2,"id":"example:run-origin-labels:event:7","event":{"kind":"run_started","data":{"id":"example:run-origin-labels:run:4","producer":"example-browser-adapter","source_run":"example:session:4","properties":{"evidence.origin":"Example explorer"}}}}
+{"schema_version":2,"id":"example:run-origin-labels:event:8","event":{"kind":"run_finished","data":{"run":"example:run-origin-labels:run:4","reason":"completed"}}}

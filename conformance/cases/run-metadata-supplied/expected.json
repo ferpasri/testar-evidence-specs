@@ -1,0 +1,118 @@
+{
+    "status": "accepted",
+    "counts": {
+        "events": 13,
+        "runs": 1,
+        "observations": 3,
+        "actions": 2,
+        "executions": 2,
+        "checks": 0,
+        "artifact_references": 0,
+        "concrete_states": 3
+    },
+    "runs": [
+        {
+            "id": "example:run-metadata-supplied:run:1",
+            "status": "finished"
+        }
+    ],
+    "observations": [
+        {
+            "id": "example:run-metadata-supplied:observation:1",
+            "run": "example:run-metadata-supplied:run:1",
+            "sequence": 1,
+            "concrete_state": "example:run-metadata-supplied:snapshot:1",
+            "capture": "filtered",
+            "candidate_scope": "unknown",
+            "widget_ids": [
+                "open-loan"
+            ],
+            "candidates": [
+                {
+                    "action": "example:run-metadata-supplied:open",
+                    "target": "open-loan"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:run-metadata-supplied:observation:2",
+            "run": "example:run-metadata-supplied:run:1",
+            "sequence": 2,
+            "concrete_state": "example:run-metadata-supplied:snapshot:2",
+            "capture": "filtered",
+            "candidate_scope": "unknown",
+            "widget_ids": [
+                "apply"
+            ],
+            "candidates": [
+                {
+                    "action": "example:run-metadata-supplied:apply",
+                    "target": "apply"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:run-metadata-supplied:observation:3",
+            "run": "example:run-metadata-supplied:run:1",
+            "sequence": 3,
+            "concrete_state": "example:run-metadata-supplied:snapshot:3",
+            "capture": "filtered",
+            "candidate_scope": "unknown",
+            "widget_ids": [
+                "status"
+            ],
+            "candidates": [],
+            "artifact_ids": []
+        }
+    ],
+    "actions": [
+        {
+            "id": "example:run-metadata-supplied:apply",
+            "kind": "activate"
+        },
+        {
+            "id": "example:run-metadata-supplied:open",
+            "kind": "activate"
+        }
+    ],
+    "executions": [
+        {
+            "execution": {
+                "id": "example:run-metadata-supplied:execution:1",
+                "run": "example:run-metadata-supplied:run:1",
+                "source": "example:run-metadata-supplied:observation:1",
+                "action": "example:run-metadata-supplied:open",
+                "target": "open-loan",
+                "parameters": {
+                    "phase": "setup"
+                }
+            },
+            "status": "observed",
+            "result": "example:run-metadata-supplied:observation:2",
+            "error": null
+        },
+        {
+            "execution": {
+                "id": "example:run-metadata-supplied:execution:2",
+                "run": "example:run-metadata-supplied:run:1",
+                "source": "example:run-metadata-supplied:observation:2",
+                "action": "example:run-metadata-supplied:apply",
+                "target": "apply",
+                "parameters": {
+                    "phase": "exploration"
+                }
+            },
+            "status": "observed",
+            "result": "example:run-metadata-supplied:observation:3",
+            "error": null
+        }
+    ],
+    "checks": [],
+    "concrete_states": [
+        "example:run-metadata-supplied:snapshot:1",
+        "example:run-metadata-supplied:snapshot:2",
+        "example:run-metadata-supplied:snapshot:3"
+    ]
+}

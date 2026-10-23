@@ -1,0 +1,36 @@
+{
+    "status": "accepted",
+    "counts": {
+        "events": 8,
+        "runs": 4,
+        "observations": 0,
+        "actions": 0,
+        "executions": 0,
+        "checks": 0,
+        "artifact_references": 0,
+        "concrete_states": 0
+    },
+    "runs": [
+        {
+            "id": "example:run-origin-labels:run:1",
+            "status": "finished"
+        },
+        {
+            "id": "example:run-origin-labels:run:2",
+            "status": "finished"
+        },
+        {
+            "id": "example:run-origin-labels:run:3",
+            "status": "finished"
+        },
+        {
+            "id": "example:run-origin-labels:run:4",
+            "status": "finished"
+        }
+    ],
+    "observations": [],
+    "actions": [],
+    "executions": [],
+    "checks": [],
+    "concrete_states": []
+}

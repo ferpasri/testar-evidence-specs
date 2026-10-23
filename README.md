@@ -31,6 +31,7 @@ Releases use `0.X.Y`. The `0.X` series is shared with language implementations a
 - [Architecture](docs/testar_state_model_architecture.md): responsibilities, capture limits, and data flow.
 - [Adapter gaps and considerations](docs/adapter_gaps_and_considerations.md): integration gaps, possible solutions, and implementer responsibilities.
 - [Recorded evidence](docs/model-semantics.md): records, action links, captured property meanings, and optional derived views.
+- [Run metadata](docs/run-metadata.md): optional origin, test objective, and adapter descriptions.
 - [Capture and properties](docs/capture-evidence.md): captured areas, property selection, limits, omissions, and aliases.
 - [Evaluations and check results](docs/check-evaluations.md): terminology, targets, rules, outcomes, readings, and temporal assessments.
 - [Conformance](conformance/README.md): shared inputs and expected results.

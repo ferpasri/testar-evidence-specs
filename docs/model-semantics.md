@@ -16,6 +16,8 @@
 
 A concrete execution link connects a source observation to the result of an action. It records an occurrence, rather than claiming that either screen is equivalent to another screen.
 
+A run can include optional descriptions of its origin, test objective, and adapter in its `properties` object. [Run metadata](run-metadata.md) defines the shared property names and their meanings.
+
 ## Identity and capture
 
 Identifiers distinguish records and allow them to reference each other. Producers include enough source/run information to avoid accidental identifier collisions. A widget identifier describes a captured component; it does not automatically match that component to one in another observation.
@@ -112,7 +114,7 @@ The local data layout uses `manifest.json`, `evidence.jsonl`, and `artifacts/`. 
 
 The current format uses `schema_version: n` in the manifest and every evidence event. This number identifies the data format, while release tags identify published versions of the specifications and shared test data.
 
-Examples and adapters can create trace directories named `<sut>_<objective>_trace-<timestamp>`, for example `parabank_denied-loan_trace-2026-10-22_15-30-12-123`. Use labels supplied by the caller and a documented local or UTC time convention. Make labels safe for filenames and keep the original descriptions in recording metadata when supplied. Reserve the directory before writing; add a suffix such as `-2` when a name already exists. A sequence number can also be included. Explicit output paths remain caller choices. Readers use the manifest and event identities, so directory names do not define trace identity or state equivalence.
+Examples and adapters can create trace directories named `<sut>_<test_objective>_trace-<timestamp>`, for example `parabank_denied-loan_trace-2026-10-22_15-30-12-123`. Use labels supplied by the caller and a documented local or UTC time convention. Make labels safe for filenames and keep the original descriptions in recording metadata when supplied. Reserve the directory before writing; add a suffix such as `-2` when a name already exists. A sequence number can also be included. Explicit output paths remain caller choices. Readers use the manifest and event identities, so directory names do not define trace identity or state equivalence.
 
 An evidence event carries its identity, format version, event kind, and reported data. Implementations can use the name `EvidenceEvent` for that structure; this naming does not change the JSON fields.
 

@@ -1,0 +1,28 @@
+{
+    "status": "accepted",
+    "counts": {
+        "events": 4,
+        "runs": 2,
+        "observations": 0,
+        "actions": 0,
+        "executions": 0,
+        "checks": 0,
+        "artifact_references": 0,
+        "concrete_states": 0
+    },
+    "runs": [
+        {
+            "id": "example:run-metadata-omitted:run:1",
+            "status": "finished"
+        },
+        {
+            "id": "example:run-metadata-omitted:run:2",
+            "status": "finished"
+        }
+    ],
+    "observations": [],
+    "actions": [],
+    "executions": [],
+    "checks": [],
+    "concrete_states": []
+}

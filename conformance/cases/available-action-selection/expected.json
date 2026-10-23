@@ -1,0 +1,141 @@
+{
+    "status": "accepted",
+    "counts": {
+        "evidence_events": 12,
+        "test_runs": 1,
+        "test_sequences": 1,
+        "observations": 2,
+        "action_descriptions": 3,
+        "action_executions": 1,
+        "recorded_transitions": 1,
+        "oracle_results": 0,
+        "artifact_references": 0,
+        "recorded_states": 2
+    },
+    "test_runs": [
+        {
+            "id": "example:discovered-action-selection:run:1:test-run",
+            "status": "finished"
+        }
+    ],
+    "test_sequences": [
+        {
+            "id": "example:discovered-action-selection:run:1",
+            "test_run": "example:discovered-action-selection:run:1:test-run",
+            "sequence_index": 1,
+            "status": "finished"
+        }
+    ],
+    "observations": [
+        {
+            "id": "example:discovered-action-selection:observation:1",
+            "test_sequence": "example:discovered-action-selection:run:1",
+            "observation_index": 1,
+            "recorded_state": "example:discovered-action-selection:snapshot:1",
+            "capture": "filtered",
+            "available_action_scope": "generated",
+            "widget_ids": [
+                "panel",
+                "query",
+                "continue",
+                "help"
+            ],
+            "available_actions": [
+                {
+                    "action_description": "example:discovered-action-selection:activate",
+                    "target_widget": "continue"
+                },
+                {
+                    "action_description": "example:discovered-action-selection:activate",
+                    "target_widget": "help"
+                },
+                {
+                    "action_description": "example:discovered-action-selection:text-entry",
+                    "target_widget": "query"
+                },
+                {
+                    "action_description": "example:discovered-action-selection:refresh",
+                    "target_widget": null
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:discovered-action-selection:observation:2",
+            "test_sequence": "example:discovered-action-selection:run:1",
+            "observation_index": 2,
+            "recorded_state": "example:discovered-action-selection:snapshot:2",
+            "capture": "filtered",
+            "available_action_scope": "eligible",
+            "widget_ids": [
+                "panel",
+                "query",
+                "help",
+                "status"
+            ],
+            "available_actions": [
+                {
+                    "action_description": "example:discovered-action-selection:activate",
+                    "target_widget": "help"
+                },
+                {
+                    "action_description": "example:discovered-action-selection:text-entry",
+                    "target_widget": "query"
+                },
+                {
+                    "action_description": "example:discovered-action-selection:refresh",
+                    "target_widget": null
+                }
+            ],
+            "artifact_ids": []
+        }
+    ],
+    "action_descriptions": [
+        {
+            "id": "example:discovered-action-selection:activate",
+            "kind": "activate"
+        },
+        {
+            "id": "example:discovered-action-selection:refresh",
+            "kind": "refresh"
+        },
+        {
+            "id": "example:discovered-action-selection:text-entry",
+            "kind": "text_entry"
+        }
+    ],
+    "action_executions": [
+        {
+            "action_execution": {
+                "id": "example:discovered-action-selection:execution:1",
+                "parameters": {},
+                "test_sequence": "example:discovered-action-selection:run:1",
+                "source_observation": "example:discovered-action-selection:observation:1",
+                "action_description": "example:discovered-action-selection:activate",
+                "target_widget": "continue"
+            },
+            "status": "completed",
+            "execution_result": {
+                "action_execution": "example:discovered-action-selection:execution:1",
+                "outcome": "returned",
+                "error": null
+            },
+            "resulting_observation": "example:discovered-action-selection:observation:2"
+        }
+    ],
+    "recorded_transitions": [
+        {
+            "action_execution": "example:discovered-action-selection:execution:1",
+            "test_sequence": "example:discovered-action-selection:run:1",
+            "source_observation": "example:discovered-action-selection:observation:1",
+            "resulting_observation": "example:discovered-action-selection:observation:2",
+            "action_description": "example:discovered-action-selection:activate",
+            "target_widget": "continue"
+        }
+    ],
+    "oracle_results": [],
+    "recorded_states": [
+        "example:discovered-action-selection:snapshot:1",
+        "example:discovered-action-selection:snapshot:2"
+    ]
+}

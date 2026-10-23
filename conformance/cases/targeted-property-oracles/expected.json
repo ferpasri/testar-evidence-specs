@@ -1,0 +1,570 @@
+{
+    "status": "accepted",
+    "counts": {
+        "evidence_events": 48,
+        "test_runs": 1,
+        "test_sequences": 1,
+        "observations": 11,
+        "action_descriptions": 1,
+        "action_executions": 10,
+        "recorded_transitions": 10,
+        "oracle_results": 2,
+        "artifact_references": 0,
+        "recorded_states": 11
+    },
+    "test_runs": [
+        {
+            "id": "example:targeted-property-checks:run:1:test-run",
+            "status": "finished"
+        }
+    ],
+    "test_sequences": [
+        {
+            "id": "example:targeted-property-checks:run:1",
+            "test_run": "example:targeted-property-checks:run:1:test-run",
+            "sequence_index": 1,
+            "status": "finished"
+        }
+    ],
+    "observations": [
+        {
+            "id": "example:targeted-property-checks:observation:1",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "observation_index": 1,
+            "recorded_state": "example:targeted-property-checks:snapshot:1",
+            "capture": "complete",
+            "available_action_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "available_actions": [
+                {
+                    "action_description": "example:targeted-property-checks:activate",
+                    "target_widget": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:10",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "observation_index": 10,
+            "recorded_state": "example:targeted-property-checks:snapshot:10",
+            "capture": "complete",
+            "available_action_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "available_actions": [
+                {
+                    "action_description": "example:targeted-property-checks:activate",
+                    "target_widget": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:11",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "observation_index": 11,
+            "recorded_state": "example:targeted-property-checks:snapshot:11",
+            "capture": "complete",
+            "available_action_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "available_actions": [
+                {
+                    "action_description": "example:targeted-property-checks:activate",
+                    "target_widget": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:2",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "observation_index": 2,
+            "recorded_state": "example:targeted-property-checks:snapshot:2",
+            "capture": "complete",
+            "available_action_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "available_actions": [
+                {
+                    "action_description": "example:targeted-property-checks:activate",
+                    "target_widget": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:3",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "observation_index": 3,
+            "recorded_state": "example:targeted-property-checks:snapshot:3",
+            "capture": "complete",
+            "available_action_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "available_actions": [
+                {
+                    "action_description": "example:targeted-property-checks:activate",
+                    "target_widget": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:4",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "observation_index": 4,
+            "recorded_state": "example:targeted-property-checks:snapshot:4",
+            "capture": "complete",
+            "available_action_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "available_actions": [
+                {
+                    "action_description": "example:targeted-property-checks:activate",
+                    "target_widget": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:5",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "observation_index": 5,
+            "recorded_state": "example:targeted-property-checks:snapshot:5",
+            "capture": "complete",
+            "available_action_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "available_actions": [
+                {
+                    "action_description": "example:targeted-property-checks:activate",
+                    "target_widget": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:6",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "observation_index": 6,
+            "recorded_state": "example:targeted-property-checks:snapshot:6",
+            "capture": "complete",
+            "available_action_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "available_actions": [
+                {
+                    "action_description": "example:targeted-property-checks:activate",
+                    "target_widget": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:7",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "observation_index": 7,
+            "recorded_state": "example:targeted-property-checks:snapshot:7",
+            "capture": "complete",
+            "available_action_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "available_actions": [
+                {
+                    "action_description": "example:targeted-property-checks:activate",
+                    "target_widget": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:8",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "observation_index": 8,
+            "recorded_state": "example:targeted-property-checks:snapshot:8",
+            "capture": "complete",
+            "available_action_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "available_actions": [
+                {
+                    "action_description": "example:targeted-property-checks:activate",
+                    "target_widget": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:targeted-property-checks:observation:9",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "observation_index": 9,
+            "recorded_state": "example:targeted-property-checks:snapshot:9",
+            "capture": "complete",
+            "available_action_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "available_actions": [
+                {
+                    "action_description": "example:targeted-property-checks:activate",
+                    "target_widget": "next"
+                }
+            ],
+            "artifact_ids": []
+        }
+    ],
+    "action_descriptions": [
+        {
+            "id": "example:targeted-property-checks:activate",
+            "kind": "activate"
+        }
+    ],
+    "action_executions": [
+        {
+            "action_execution": {
+                "id": "example:targeted-property-checks:execution:1",
+                "parameters": {},
+                "test_sequence": "example:targeted-property-checks:run:1",
+                "source_observation": "example:targeted-property-checks:observation:1",
+                "action_description": "example:targeted-property-checks:activate",
+                "target_widget": "next"
+            },
+            "status": "completed",
+            "execution_result": {
+                "action_execution": "example:targeted-property-checks:execution:1",
+                "outcome": "returned",
+                "error": null
+            },
+            "resulting_observation": "example:targeted-property-checks:observation:2"
+        },
+        {
+            "action_execution": {
+                "id": "example:targeted-property-checks:execution:2",
+                "parameters": {},
+                "test_sequence": "example:targeted-property-checks:run:1",
+                "source_observation": "example:targeted-property-checks:observation:2",
+                "action_description": "example:targeted-property-checks:activate",
+                "target_widget": "next"
+            },
+            "status": "completed",
+            "execution_result": {
+                "action_execution": "example:targeted-property-checks:execution:2",
+                "outcome": "returned",
+                "error": null
+            },
+            "resulting_observation": "example:targeted-property-checks:observation:3"
+        },
+        {
+            "action_execution": {
+                "id": "example:targeted-property-checks:execution:3",
+                "parameters": {},
+                "test_sequence": "example:targeted-property-checks:run:1",
+                "source_observation": "example:targeted-property-checks:observation:3",
+                "action_description": "example:targeted-property-checks:activate",
+                "target_widget": "next"
+            },
+            "status": "completed",
+            "execution_result": {
+                "action_execution": "example:targeted-property-checks:execution:3",
+                "outcome": "returned",
+                "error": null
+            },
+            "resulting_observation": "example:targeted-property-checks:observation:4"
+        },
+        {
+            "action_execution": {
+                "id": "example:targeted-property-checks:execution:4",
+                "parameters": {},
+                "test_sequence": "example:targeted-property-checks:run:1",
+                "source_observation": "example:targeted-property-checks:observation:4",
+                "action_description": "example:targeted-property-checks:activate",
+                "target_widget": "next"
+            },
+            "status": "completed",
+            "execution_result": {
+                "action_execution": "example:targeted-property-checks:execution:4",
+                "outcome": "returned",
+                "error": null
+            },
+            "resulting_observation": "example:targeted-property-checks:observation:5"
+        },
+        {
+            "action_execution": {
+                "id": "example:targeted-property-checks:execution:5",
+                "parameters": {},
+                "test_sequence": "example:targeted-property-checks:run:1",
+                "source_observation": "example:targeted-property-checks:observation:5",
+                "action_description": "example:targeted-property-checks:activate",
+                "target_widget": "next"
+            },
+            "status": "completed",
+            "execution_result": {
+                "action_execution": "example:targeted-property-checks:execution:5",
+                "outcome": "returned",
+                "error": null
+            },
+            "resulting_observation": "example:targeted-property-checks:observation:6"
+        },
+        {
+            "action_execution": {
+                "id": "example:targeted-property-checks:execution:6",
+                "parameters": {},
+                "test_sequence": "example:targeted-property-checks:run:1",
+                "source_observation": "example:targeted-property-checks:observation:6",
+                "action_description": "example:targeted-property-checks:activate",
+                "target_widget": "next"
+            },
+            "status": "completed",
+            "execution_result": {
+                "action_execution": "example:targeted-property-checks:execution:6",
+                "outcome": "returned",
+                "error": null
+            },
+            "resulting_observation": "example:targeted-property-checks:observation:7"
+        },
+        {
+            "action_execution": {
+                "id": "example:targeted-property-checks:execution:7",
+                "parameters": {},
+                "test_sequence": "example:targeted-property-checks:run:1",
+                "source_observation": "example:targeted-property-checks:observation:7",
+                "action_description": "example:targeted-property-checks:activate",
+                "target_widget": "next"
+            },
+            "status": "completed",
+            "execution_result": {
+                "action_execution": "example:targeted-property-checks:execution:7",
+                "outcome": "returned",
+                "error": null
+            },
+            "resulting_observation": "example:targeted-property-checks:observation:8"
+        },
+        {
+            "action_execution": {
+                "id": "example:targeted-property-checks:execution:8",
+                "parameters": {},
+                "test_sequence": "example:targeted-property-checks:run:1",
+                "source_observation": "example:targeted-property-checks:observation:8",
+                "action_description": "example:targeted-property-checks:activate",
+                "target_widget": "next"
+            },
+            "status": "completed",
+            "execution_result": {
+                "action_execution": "example:targeted-property-checks:execution:8",
+                "outcome": "returned",
+                "error": null
+            },
+            "resulting_observation": "example:targeted-property-checks:observation:9"
+        },
+        {
+            "action_execution": {
+                "id": "example:targeted-property-checks:execution:9",
+                "parameters": {},
+                "test_sequence": "example:targeted-property-checks:run:1",
+                "source_observation": "example:targeted-property-checks:observation:9",
+                "action_description": "example:targeted-property-checks:activate",
+                "target_widget": "next"
+            },
+            "status": "completed",
+            "execution_result": {
+                "action_execution": "example:targeted-property-checks:execution:9",
+                "outcome": "returned",
+                "error": null
+            },
+            "resulting_observation": "example:targeted-property-checks:observation:10"
+        },
+        {
+            "action_execution": {
+                "id": "example:targeted-property-checks:execution:10",
+                "parameters": {},
+                "test_sequence": "example:targeted-property-checks:run:1",
+                "source_observation": "example:targeted-property-checks:observation:10",
+                "action_description": "example:targeted-property-checks:activate",
+                "target_widget": "next"
+            },
+            "status": "completed",
+            "execution_result": {
+                "action_execution": "example:targeted-property-checks:execution:10",
+                "outcome": "returned",
+                "error": null
+            },
+            "resulting_observation": "example:targeted-property-checks:observation:11"
+        }
+    ],
+    "recorded_transitions": [
+        {
+            "action_execution": "example:targeted-property-checks:execution:1",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "source_observation": "example:targeted-property-checks:observation:1",
+            "resulting_observation": "example:targeted-property-checks:observation:2",
+            "action_description": "example:targeted-property-checks:activate",
+            "target_widget": "next"
+        },
+        {
+            "action_execution": "example:targeted-property-checks:execution:2",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "source_observation": "example:targeted-property-checks:observation:2",
+            "resulting_observation": "example:targeted-property-checks:observation:3",
+            "action_description": "example:targeted-property-checks:activate",
+            "target_widget": "next"
+        },
+        {
+            "action_execution": "example:targeted-property-checks:execution:3",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "source_observation": "example:targeted-property-checks:observation:3",
+            "resulting_observation": "example:targeted-property-checks:observation:4",
+            "action_description": "example:targeted-property-checks:activate",
+            "target_widget": "next"
+        },
+        {
+            "action_execution": "example:targeted-property-checks:execution:4",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "source_observation": "example:targeted-property-checks:observation:4",
+            "resulting_observation": "example:targeted-property-checks:observation:5",
+            "action_description": "example:targeted-property-checks:activate",
+            "target_widget": "next"
+        },
+        {
+            "action_execution": "example:targeted-property-checks:execution:5",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "source_observation": "example:targeted-property-checks:observation:5",
+            "resulting_observation": "example:targeted-property-checks:observation:6",
+            "action_description": "example:targeted-property-checks:activate",
+            "target_widget": "next"
+        },
+        {
+            "action_execution": "example:targeted-property-checks:execution:6",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "source_observation": "example:targeted-property-checks:observation:6",
+            "resulting_observation": "example:targeted-property-checks:observation:7",
+            "action_description": "example:targeted-property-checks:activate",
+            "target_widget": "next"
+        },
+        {
+            "action_execution": "example:targeted-property-checks:execution:7",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "source_observation": "example:targeted-property-checks:observation:7",
+            "resulting_observation": "example:targeted-property-checks:observation:8",
+            "action_description": "example:targeted-property-checks:activate",
+            "target_widget": "next"
+        },
+        {
+            "action_execution": "example:targeted-property-checks:execution:8",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "source_observation": "example:targeted-property-checks:observation:8",
+            "resulting_observation": "example:targeted-property-checks:observation:9",
+            "action_description": "example:targeted-property-checks:activate",
+            "target_widget": "next"
+        },
+        {
+            "action_execution": "example:targeted-property-checks:execution:9",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "source_observation": "example:targeted-property-checks:observation:9",
+            "resulting_observation": "example:targeted-property-checks:observation:10",
+            "action_description": "example:targeted-property-checks:activate",
+            "target_widget": "next"
+        },
+        {
+            "action_execution": "example:targeted-property-checks:execution:10",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "source_observation": "example:targeted-property-checks:observation:10",
+            "resulting_observation": "example:targeted-property-checks:observation:11",
+            "action_description": "example:targeted-property-checks:activate",
+            "target_widget": "next"
+        }
+    ],
+    "oracle_results": [
+        {
+            "name": "Status text is Ready",
+            "details": {},
+            "test_run": "example:targeted-property-checks:run:1:test-run",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "oracle": {
+                "id": "example:equals",
+                "version": "1"
+            },
+            "oracle_status": "passed",
+            "expected_value": "Ready",
+            "observed_value": {
+                "kind": "value",
+                "value": "Ready"
+            },
+            "oracle_target": {
+                "kind": "widget_property",
+                "observation": "example:targeted-property-checks:observation:5",
+                "widget": "status",
+                "property": "ui.text"
+            }
+        },
+        {
+            "name": "Status is visible",
+            "details": {},
+            "test_run": "example:targeted-property-checks:run:1:test-run",
+            "test_sequence": "example:targeted-property-checks:run:1",
+            "oracle": {
+                "id": "example:equals",
+                "version": "1"
+            },
+            "oracle_status": "failed",
+            "expected_value": true,
+            "observed_value": {
+                "kind": "value",
+                "value": false
+            },
+            "oracle_target": {
+                "kind": "widget_property",
+                "observation": "example:targeted-property-checks:observation:11",
+                "widget": "status",
+                "property": "ui.visible"
+            }
+        }
+    ],
+    "recorded_states": [
+        "example:targeted-property-checks:snapshot:1",
+        "example:targeted-property-checks:snapshot:10",
+        "example:targeted-property-checks:snapshot:11",
+        "example:targeted-property-checks:snapshot:2",
+        "example:targeted-property-checks:snapshot:3",
+        "example:targeted-property-checks:snapshot:4",
+        "example:targeted-property-checks:snapshot:5",
+        "example:targeted-property-checks:snapshot:6",
+        "example:targeted-property-checks:snapshot:7",
+        "example:targeted-property-checks:snapshot:8",
+        "example:targeted-property-checks:snapshot:9"
+    ]
+}

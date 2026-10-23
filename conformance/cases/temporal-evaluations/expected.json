@@ -1,130 +1,166 @@
 {
     "status": "accepted",
     "counts": {
-        "events": 28,
-        "runs": 4,
+        "evidence_events": 36,
+        "test_runs": 4,
+        "test_sequences": 4,
         "observations": 8,
-        "actions": 0,
-        "executions": 0,
-        "checks": 12,
+        "action_descriptions": 0,
+        "action_executions": 0,
+        "recorded_transitions": 0,
+        "oracle_results": 12,
         "artifact_references": 0,
-        "concrete_states": 8
+        "recorded_states": 8
     },
-    "runs": [
+    "test_runs": [
+        {
+            "id": "example:temporal-evaluations:run:deadline:test-run",
+            "status": "finished"
+        },
+        {
+            "id": "example:temporal-evaluations:run:interrupted:test-run",
+            "status": "finished"
+        },
+        {
+            "id": "example:temporal-evaluations:run:normal:test-run",
+            "status": "finished"
+        },
+        {
+            "id": "example:temporal-evaluations:run:tool-failure:test-run",
+            "status": "finished"
+        }
+    ],
+    "test_sequences": [
         {
             "id": "example:temporal-evaluations:run:deadline",
+            "test_run": "example:temporal-evaluations:run:deadline:test-run",
+            "sequence_index": 1,
             "status": "finished"
         },
         {
             "id": "example:temporal-evaluations:run:interrupted",
+            "test_run": "example:temporal-evaluations:run:interrupted:test-run",
+            "sequence_index": 1,
             "status": "finished"
         },
         {
             "id": "example:temporal-evaluations:run:normal",
+            "test_run": "example:temporal-evaluations:run:normal:test-run",
+            "sequence_index": 1,
             "status": "finished"
         },
         {
             "id": "example:temporal-evaluations:run:tool-failure",
+            "test_run": "example:temporal-evaluations:run:tool-failure:test-run",
+            "sequence_index": 1,
             "status": "finished"
         }
     ],
     "observations": [
         {
             "id": "example:temporal-evaluations:deadline:observation:1",
-            "run": "example:temporal-evaluations:run:deadline",
-            "sequence": 1,
-            "concrete_state": "example:temporal-evaluations:deadline:snapshot:1",
+            "test_sequence": "example:temporal-evaluations:run:deadline",
+            "observation_index": 1,
+            "recorded_state": "example:temporal-evaluations:deadline:snapshot:1",
             "capture": "complete",
-            "candidate_scope": "unknown",
+            "available_action_scope": "unknown",
             "widget_ids": [],
-            "candidates": [],
+            "available_actions": [],
             "artifact_ids": []
         },
         {
             "id": "example:temporal-evaluations:deadline:observation:2",
-            "run": "example:temporal-evaluations:run:deadline",
-            "sequence": 2,
-            "concrete_state": "example:temporal-evaluations:deadline:snapshot:2",
+            "test_sequence": "example:temporal-evaluations:run:deadline",
+            "observation_index": 2,
+            "recorded_state": "example:temporal-evaluations:deadline:snapshot:2",
             "capture": "complete",
-            "candidate_scope": "unknown",
+            "available_action_scope": "unknown",
             "widget_ids": [],
-            "candidates": [],
+            "available_actions": [],
             "artifact_ids": []
         },
         {
             "id": "example:temporal-evaluations:interrupted:observation:1",
-            "run": "example:temporal-evaluations:run:interrupted",
-            "sequence": 1,
-            "concrete_state": "example:temporal-evaluations:interrupted:snapshot:1",
+            "test_sequence": "example:temporal-evaluations:run:interrupted",
+            "observation_index": 1,
+            "recorded_state": "example:temporal-evaluations:interrupted:snapshot:1",
             "capture": "complete",
-            "candidate_scope": "unknown",
+            "available_action_scope": "unknown",
             "widget_ids": [],
-            "candidates": [],
+            "available_actions": [],
             "artifact_ids": []
         },
         {
             "id": "example:temporal-evaluations:interrupted:observation:2",
-            "run": "example:temporal-evaluations:run:interrupted",
-            "sequence": 2,
-            "concrete_state": "example:temporal-evaluations:interrupted:snapshot:2",
+            "test_sequence": "example:temporal-evaluations:run:interrupted",
+            "observation_index": 2,
+            "recorded_state": "example:temporal-evaluations:interrupted:snapshot:2",
             "capture": "complete",
-            "candidate_scope": "unknown",
+            "available_action_scope": "unknown",
             "widget_ids": [],
-            "candidates": [],
+            "available_actions": [],
             "artifact_ids": []
         },
         {
             "id": "example:temporal-evaluations:normal:observation:1",
-            "run": "example:temporal-evaluations:run:normal",
-            "sequence": 1,
-            "concrete_state": "example:temporal-evaluations:normal:snapshot:1",
+            "test_sequence": "example:temporal-evaluations:run:normal",
+            "observation_index": 1,
+            "recorded_state": "example:temporal-evaluations:normal:snapshot:1",
             "capture": "complete",
-            "candidate_scope": "unknown",
+            "available_action_scope": "unknown",
             "widget_ids": [],
-            "candidates": [],
+            "available_actions": [],
             "artifact_ids": []
         },
         {
             "id": "example:temporal-evaluations:normal:observation:2",
-            "run": "example:temporal-evaluations:run:normal",
-            "sequence": 2,
-            "concrete_state": "example:temporal-evaluations:normal:snapshot:2",
+            "test_sequence": "example:temporal-evaluations:run:normal",
+            "observation_index": 2,
+            "recorded_state": "example:temporal-evaluations:normal:snapshot:2",
             "capture": "complete",
-            "candidate_scope": "unknown",
+            "available_action_scope": "unknown",
             "widget_ids": [],
-            "candidates": [],
+            "available_actions": [],
             "artifact_ids": []
         },
         {
             "id": "example:temporal-evaluations:tool-failure:observation:1",
-            "run": "example:temporal-evaluations:run:tool-failure",
-            "sequence": 1,
-            "concrete_state": "example:temporal-evaluations:tool-failure:snapshot:1",
+            "test_sequence": "example:temporal-evaluations:run:tool-failure",
+            "observation_index": 1,
+            "recorded_state": "example:temporal-evaluations:tool-failure:snapshot:1",
             "capture": "complete",
-            "candidate_scope": "unknown",
+            "available_action_scope": "unknown",
             "widget_ids": [],
-            "candidates": [],
+            "available_actions": [],
             "artifact_ids": []
         },
         {
             "id": "example:temporal-evaluations:tool-failure:observation:2",
-            "run": "example:temporal-evaluations:run:tool-failure",
-            "sequence": 2,
-            "concrete_state": "example:temporal-evaluations:tool-failure:snapshot:2",
+            "test_sequence": "example:temporal-evaluations:run:tool-failure",
+            "observation_index": 2,
+            "recorded_state": "example:temporal-evaluations:tool-failure:snapshot:2",
             "capture": "complete",
-            "candidate_scope": "unknown",
+            "available_action_scope": "unknown",
             "widget_ids": [],
-            "candidates": [],
+            "available_actions": [],
             "artifact_ids": []
         }
     ],
-    "actions": [],
-    "executions": [],
-    "checks": [
+    "action_descriptions": [],
+    "action_executions": [],
+    "recorded_transitions": [],
+    "oracle_results": [
         {
-            "run": "example:temporal-evaluations:run:normal",
             "name": "A warning never appears",
-            "rule": {
+            "details": {
+                "evidence.assessment": {
+                    "phase": "during_sequence",
+                    "semantics": "open_ended"
+                }
+            },
+            "test_run": "example:temporal-evaluations:run:normal:test-run",
+            "test_sequence": "example:temporal-evaluations:run:normal",
+            "oracle": {
                 "id": "example:warning-never-occurs",
                 "version": "1",
                 "parameters": {
@@ -133,28 +169,30 @@
                     "horizon": "open_ended"
                 }
             },
-            "target": {
-                "kind": "run"
-            },
-            "status": "pending",
-            "details": {
-                "evidence.assessment": {
-                    "phase": "during_run",
-                    "semantics": "open_ended"
-                }
-            },
-            "actual": {
+            "oracle_status": "pending",
+            "observed_value": {
                 "kind": "value",
                 "value": {
                     "recorded_observations": 1,
                     "violations_observed": 0
                 }
+            },
+            "oracle_target": {
+                "kind": "test_sequence"
             }
         },
         {
-            "run": "example:temporal-evaluations:run:normal",
             "name": "A warning never appears",
-            "rule": {
+            "details": {
+                "evidence.assessment": {
+                    "phase": "end_of_sequence",
+                    "semantics": "open_ended",
+                    "termination_reason": "normal completion"
+                }
+            },
+            "test_run": "example:temporal-evaluations:run:normal:test-run",
+            "test_sequence": "example:temporal-evaluations:run:normal",
+            "oracle": {
                 "id": "example:warning-never-occurs",
                 "version": "1",
                 "parameters": {
@@ -163,22 +201,23 @@
                     "horizon": "open_ended"
                 }
             },
-            "target": {
-                "kind": "run"
-            },
-            "status": "pending",
-            "details": {
-                "evidence.assessment": {
-                    "phase": "end_of_run",
-                    "semantics": "open_ended",
-                    "termination_reason": "normal completion"
-                }
+            "oracle_status": "pending",
+            "oracle_target": {
+                "kind": "test_sequence"
             }
         },
         {
-            "run": "example:temporal-evaluations:run:normal",
             "name": "No warning at each recorded observation in the interval",
-            "rule": {
+            "details": {
+                "evidence.assessment": {
+                    "phase": "end_of_sequence",
+                    "semantics": "recorded_interval",
+                    "termination_reason": "normal completion"
+                }
+            },
+            "test_run": "example:temporal-evaluations:run:normal:test-run",
+            "test_sequence": "example:temporal-evaluations:run:normal",
+            "oracle": {
                 "id": "example:no-warning-in-recorded-interval",
                 "version": "1",
                 "parameters": {
@@ -188,31 +227,31 @@
                     "unavailable_reading": "unknown"
                 }
             },
-            "target": {
-                "kind": "sequence",
-                "from_observation": "example:temporal-evaluations:normal:observation:1",
-                "to_observation": "example:temporal-evaluations:normal:observation:2"
-            },
-            "status": "passed",
-            "actual": {
+            "oracle_status": "passed",
+            "observed_value": {
                 "kind": "value",
                 "value": {
                     "evaluated_observations": 2,
                     "violations_observed": 0
                 }
             },
-            "details": {
-                "evidence.assessment": {
-                    "phase": "end_of_run",
-                    "semantics": "recorded_interval",
-                    "termination_reason": "normal completion"
-                }
+            "oracle_target": {
+                "kind": "observation_range",
+                "first_observation": "example:temporal-evaluations:normal:observation:1",
+                "last_observation": "example:temporal-evaluations:normal:observation:2"
             }
         },
         {
-            "run": "example:temporal-evaluations:run:deadline",
             "name": "A warning never appears",
-            "rule": {
+            "details": {
+                "evidence.assessment": {
+                    "phase": "during_sequence",
+                    "semantics": "open_ended"
+                }
+            },
+            "test_run": "example:temporal-evaluations:run:deadline:test-run",
+            "test_sequence": "example:temporal-evaluations:run:deadline",
+            "oracle": {
                 "id": "example:warning-never-occurs",
                 "version": "1",
                 "parameters": {
@@ -221,28 +260,30 @@
                     "horizon": "open_ended"
                 }
             },
-            "target": {
-                "kind": "run"
-            },
-            "status": "pending",
-            "details": {
-                "evidence.assessment": {
-                    "phase": "during_run",
-                    "semantics": "open_ended"
-                }
-            },
-            "actual": {
+            "oracle_status": "pending",
+            "observed_value": {
                 "kind": "value",
                 "value": {
                     "recorded_observations": 1,
                     "violations_observed": 0
                 }
+            },
+            "oracle_target": {
+                "kind": "test_sequence"
             }
         },
         {
-            "run": "example:temporal-evaluations:run:deadline",
             "name": "A warning never appears",
-            "rule": {
+            "details": {
+                "evidence.assessment": {
+                    "phase": "end_of_sequence",
+                    "semantics": "open_ended",
+                    "termination_reason": "execution deadline reached"
+                }
+            },
+            "test_run": "example:temporal-evaluations:run:deadline:test-run",
+            "test_sequence": "example:temporal-evaluations:run:deadline",
+            "oracle": {
                 "id": "example:warning-never-occurs",
                 "version": "1",
                 "parameters": {
@@ -251,22 +292,24 @@
                     "horizon": "open_ended"
                 }
             },
-            "target": {
-                "kind": "run"
-            },
-            "status": "pending",
-            "details": {
-                "evidence.assessment": {
-                    "phase": "end_of_run",
-                    "semantics": "open_ended",
-                    "termination_reason": "execution deadline reached"
-                }
+            "oracle_status": "pending",
+            "oracle_target": {
+                "kind": "test_sequence"
             }
         },
         {
-            "run": "example:temporal-evaluations:run:deadline",
             "name": "No warning at each recorded observation in the interval",
-            "rule": {
+            "details": {
+                "evidence.assessment": {
+                    "phase": "end_of_sequence",
+                    "semantics": "recorded_interval",
+                    "termination_reason": "execution deadline reached"
+                },
+                "reason": "Warning status was unavailable at the second observation"
+            },
+            "test_run": "example:temporal-evaluations:run:deadline:test-run",
+            "test_sequence": "example:temporal-evaluations:run:deadline",
+            "oracle": {
                 "id": "example:no-warning-in-recorded-interval",
                 "version": "1",
                 "parameters": {
@@ -276,28 +319,27 @@
                     "unavailable_reading": "unknown"
                 }
             },
-            "target": {
-                "kind": "sequence",
-                "from_observation": "example:temporal-evaluations:deadline:observation:1",
-                "to_observation": "example:temporal-evaluations:deadline:observation:2"
-            },
-            "status": "unknown",
-            "actual": {
+            "oracle_status": "unknown",
+            "observed_value": {
                 "kind": "unknown"
             },
-            "details": {
-                "evidence.assessment": {
-                    "phase": "end_of_run",
-                    "semantics": "recorded_interval",
-                    "termination_reason": "execution deadline reached"
-                },
-                "reason": "Warning status was unavailable at the second observation"
+            "oracle_target": {
+                "kind": "observation_range",
+                "first_observation": "example:temporal-evaluations:deadline:observation:1",
+                "last_observation": "example:temporal-evaluations:deadline:observation:2"
             }
         },
         {
-            "run": "example:temporal-evaluations:run:interrupted",
             "name": "A warning never appears",
-            "rule": {
+            "details": {
+                "evidence.assessment": {
+                    "phase": "during_sequence",
+                    "semantics": "open_ended"
+                }
+            },
+            "test_run": "example:temporal-evaluations:run:interrupted:test-run",
+            "test_sequence": "example:temporal-evaluations:run:interrupted",
+            "oracle": {
                 "id": "example:warning-never-occurs",
                 "version": "1",
                 "parameters": {
@@ -306,28 +348,29 @@
                     "horizon": "open_ended"
                 }
             },
-            "target": {
-                "kind": "run"
-            },
-            "status": "pending",
-            "details": {
-                "evidence.assessment": {
-                    "phase": "during_run",
-                    "semantics": "open_ended"
-                }
-            },
-            "actual": {
+            "oracle_status": "pending",
+            "observed_value": {
                 "kind": "value",
                 "value": {
                     "recorded_observations": 1,
                     "violations_observed": 0
                 }
+            },
+            "oracle_target": {
+                "kind": "test_sequence"
             }
         },
         {
-            "run": "example:temporal-evaluations:run:interrupted",
             "name": "A warning never appears",
-            "rule": {
+            "details": {
+                "evidence.assessment": {
+                    "phase": "during_sequence",
+                    "semantics": "open_ended"
+                }
+            },
+            "test_run": "example:temporal-evaluations:run:interrupted:test-run",
+            "test_sequence": "example:temporal-evaluations:run:interrupted",
+            "oracle": {
                 "id": "example:warning-never-occurs",
                 "version": "1",
                 "parameters": {
@@ -336,59 +379,61 @@
                     "horizon": "open_ended"
                 }
             },
-            "target": {
-                "kind": "run"
-            },
-            "status": "failed",
-            "details": {
-                "evidence.assessment": {
-                    "phase": "during_run",
-                    "semantics": "open_ended"
-                }
-            },
-            "actual": {
+            "oracle_status": "failed",
+            "observed_value": {
                 "kind": "value",
                 "value": {
                     "violating_observation": "example:temporal-evaluations:interrupted:observation:2",
                     "warning": true
                 }
+            },
+            "oracle_target": {
+                "kind": "test_sequence"
             }
         },
         {
-            "run": "example:temporal-evaluations:run:interrupted",
             "name": "A warning never appears",
-            "rule": {
-                "id": "example:warning-never-occurs",
-                "version": "1",
-                "parameters": {
-                    "property": "app.warning",
-                    "condition": "always_false",
-                    "horizon": "open_ended"
-                }
-            },
-            "target": {
-                "kind": "run"
-            },
-            "status": "failed",
             "details": {
                 "evidence.assessment": {
-                    "phase": "end_of_run",
+                    "phase": "end_of_sequence",
                     "semantics": "open_ended",
                     "termination_reason": "user interruption"
                 }
             },
-            "actual": {
+            "test_run": "example:temporal-evaluations:run:interrupted:test-run",
+            "test_sequence": "example:temporal-evaluations:run:interrupted",
+            "oracle": {
+                "id": "example:warning-never-occurs",
+                "version": "1",
+                "parameters": {
+                    "property": "app.warning",
+                    "condition": "always_false",
+                    "horizon": "open_ended"
+                }
+            },
+            "oracle_status": "failed",
+            "observed_value": {
                 "kind": "value",
                 "value": {
                     "violating_observation": "example:temporal-evaluations:interrupted:observation:2",
                     "warning": true
                 }
+            },
+            "oracle_target": {
+                "kind": "test_sequence"
             }
         },
         {
-            "run": "example:temporal-evaluations:run:tool-failure",
             "name": "A warning never appears",
-            "rule": {
+            "details": {
+                "evidence.assessment": {
+                    "phase": "during_sequence",
+                    "semantics": "open_ended"
+                }
+            },
+            "test_run": "example:temporal-evaluations:run:tool-failure:test-run",
+            "test_sequence": "example:temporal-evaluations:run:tool-failure",
+            "oracle": {
                 "id": "example:warning-never-occurs",
                 "version": "1",
                 "parameters": {
@@ -397,55 +442,30 @@
                     "horizon": "open_ended"
                 }
             },
-            "target": {
-                "kind": "run"
-            },
-            "status": "pending",
-            "details": {
-                "evidence.assessment": {
-                    "phase": "during_run",
-                    "semantics": "open_ended"
-                }
-            },
-            "actual": {
+            "oracle_status": "pending",
+            "observed_value": {
                 "kind": "value",
                 "value": {
                     "recorded_observations": 1,
                     "violations_observed": 0
                 }
+            },
+            "oracle_target": {
+                "kind": "test_sequence"
             }
         },
         {
-            "run": "example:temporal-evaluations:run:tool-failure",
             "name": "A warning never appears",
-            "rule": {
-                "id": "example:warning-never-occurs",
-                "version": "1",
-                "parameters": {
-                    "property": "app.warning",
-                    "condition": "always_false",
-                    "horizon": "open_ended"
-                }
-            },
-            "target": {
-                "kind": "run"
-            },
-            "status": "error",
             "details": {
                 "evidence.assessment": {
-                    "phase": "during_run",
+                    "phase": "during_sequence",
                     "semantics": "open_ended"
                 },
                 "reason": "Warning evaluator could not read its configuration"
             },
-            "actual": {
-                "kind": "unknown"
-            }
-        },
-        {
-            "run": "example:temporal-evaluations:run:tool-failure",
-            "name": "A warning never appears",
-            "rule": {
+            "test_run": "example:temporal-evaluations:run:tool-failure:test-run",
+            "test_sequence": "example:temporal-evaluations:run:tool-failure",
+            "oracle": {
                 "id": "example:warning-never-occurs",
                 "version": "1",
                 "parameters": {
@@ -454,20 +474,41 @@
                     "horizon": "open_ended"
                 }
             },
-            "target": {
-                "kind": "run"
+            "oracle_status": "error",
+            "observed_value": {
+                "kind": "unknown"
             },
-            "status": "pending",
+            "oracle_target": {
+                "kind": "test_sequence"
+            }
+        },
+        {
+            "name": "A warning never appears",
             "details": {
                 "evidence.assessment": {
-                    "phase": "end_of_run",
+                    "phase": "end_of_sequence",
                     "semantics": "open_ended",
                     "termination_reason": "tool failure: application connection lost"
                 }
+            },
+            "test_run": "example:temporal-evaluations:run:tool-failure:test-run",
+            "test_sequence": "example:temporal-evaluations:run:tool-failure",
+            "oracle": {
+                "id": "example:warning-never-occurs",
+                "version": "1",
+                "parameters": {
+                    "property": "app.warning",
+                    "condition": "always_false",
+                    "horizon": "open_ended"
+                }
+            },
+            "oracle_status": "pending",
+            "oracle_target": {
+                "kind": "test_sequence"
             }
         }
     ],
-    "concrete_states": [
+    "recorded_states": [
         "example:temporal-evaluations:deadline:snapshot:1",
         "example:temporal-evaluations:deadline:snapshot:2",
         "example:temporal-evaluations:interrupted:snapshot:1",

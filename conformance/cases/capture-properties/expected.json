@@ -1,107 +1,120 @@
 {
     "status": "accepted",
     "counts": {
-        "events": 7,
-        "runs": 1,
+        "evidence_events": 9,
+        "test_runs": 1,
+        "test_sequences": 1,
         "observations": 3,
-        "actions": 0,
-        "executions": 0,
-        "checks": 2,
+        "action_descriptions": 0,
+        "action_executions": 0,
+        "recorded_transitions": 0,
+        "oracle_results": 2,
         "artifact_references": 0,
-        "concrete_states": 3
+        "recorded_states": 3
     },
-    "runs": [
+    "test_runs": [
+        {
+            "id": "example:capture-properties:run:1:test-run",
+            "status": "finished"
+        }
+    ],
+    "test_sequences": [
         {
             "id": "example:capture-properties:run:1",
+            "test_run": "example:capture-properties:run:1:test-run",
+            "sequence_index": 1,
             "status": "finished"
         }
     ],
     "observations": [
         {
             "id": "example:capture-properties:observation:1",
-            "run": "example:capture-properties:run:1",
-            "sequence": 1,
-            "concrete_state": "example:capture-properties:snapshot:1",
+            "test_sequence": "example:capture-properties:run:1",
+            "observation_index": 1,
+            "recorded_state": "example:capture-properties:snapshot:1",
             "capture": "complete",
-            "candidate_scope": "unknown",
+            "available_action_scope": "unknown",
             "widget_ids": [
                 "window",
                 "image-help"
             ],
-            "candidates": [],
+            "available_actions": [],
             "artifact_ids": []
         },
         {
             "id": "example:capture-properties:observation:2",
-            "run": "example:capture-properties:run:1",
-            "sequence": 2,
-            "concrete_state": "example:capture-properties:snapshot:2",
+            "test_sequence": "example:capture-properties:run:1",
+            "observation_index": 2,
+            "recorded_state": "example:capture-properties:snapshot:2",
             "capture": "filtered",
-            "candidate_scope": "unknown",
+            "available_action_scope": "unknown",
             "widget_ids": [
                 "window",
                 "image-help"
             ],
-            "candidates": [],
+            "available_actions": [],
             "artifact_ids": []
         },
         {
             "id": "example:capture-properties:observation:3",
-            "run": "example:capture-properties:run:1",
-            "sequence": 3,
-            "concrete_state": "example:capture-properties:snapshot:3",
+            "test_sequence": "example:capture-properties:run:1",
+            "observation_index": 3,
+            "recorded_state": "example:capture-properties:snapshot:3",
             "capture": "unavailable",
-            "candidate_scope": "unknown",
+            "available_action_scope": "unknown",
             "widget_ids": [],
-            "candidates": [],
+            "available_actions": [],
             "artifact_ids": []
         }
     ],
-    "actions": [],
-    "executions": [],
-    "checks": [
+    "action_descriptions": [],
+    "action_executions": [],
+    "recorded_transitions": [],
+    "oracle_results": [
         {
-            "run": "example:capture-properties:run:1",
             "name": "Alternative-text property is present",
-            "rule": {
+            "details": {},
+            "test_run": "example:capture-properties:run:1:test-run",
+            "test_sequence": "example:capture-properties:run:1",
+            "oracle": {
                 "id": "example:alt-present",
                 "version": "1"
             },
-            "target": {
+            "oracle_status": "passed",
+            "observed_value": {
+                "kind": "value",
+                "value": ""
+            },
+            "oracle_target": {
                 "kind": "widget_property",
                 "observation": "example:capture-properties:observation:2",
                 "widget": "image-help",
                 "property": "ui.alt"
-            },
-            "status": "passed",
-            "actual": {
-                "kind": "value",
-                "value": ""
-            },
-            "details": {}
+            }
         },
         {
-            "run": "example:capture-properties:run:1",
             "name": "Application address is available",
-            "rule": {
+            "details": {
+                "reason": "The test oracle could not establish the address value or presence"
+            },
+            "test_run": "example:capture-properties:run:1:test-run",
+            "test_sequence": "example:capture-properties:run:1",
+            "oracle": {
                 "id": "example:address-available",
                 "version": "1"
             },
-            "target": {
+            "oracle_status": "unknown",
+            "observed_value": {
+                "kind": "unknown"
+            },
+            "oracle_target": {
                 "kind": "state_property",
                 "observation": "example:capture-properties:observation:3",
                 "property": "ui.url"
-            },
-            "status": "unknown",
-            "actual": {
-                "kind": "unknown"
-            },
-            "details": {
-                "reason": "The test oracle could not establish the address value or presence"
             }
         }
     ],
-    "concrete_states": [
+    "recorded_states": [
         "example:capture-properties:snapshot:1",
         "example:capture-properties:snapshot:2",
         "example:capture-properties:snapshot:3"

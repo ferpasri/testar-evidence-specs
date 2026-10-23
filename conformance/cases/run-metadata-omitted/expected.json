@@ -1,28 +1,45 @@
 {
     "status": "accepted",
     "counts": {
-        "events": 4,
-        "runs": 2,
+        "evidence_events": 8,
+        "test_runs": 2,
+        "test_sequences": 2,
         "observations": 0,
-        "actions": 0,
-        "executions": 0,
-        "checks": 0,
+        "action_descriptions": 0,
+        "action_executions": 0,
+        "recorded_transitions": 0,
+        "oracle_results": 0,
         "artifact_references": 0,
-        "concrete_states": 0
+        "recorded_states": 0
     },
-    "runs": [
+    "test_runs": [
+        {
+            "id": "example:run-metadata-omitted:run:1:test-run",
+            "status": "finished"
+        },
+        {
+            "id": "example:run-metadata-omitted:run:2:test-run",
+            "status": "finished"
+        }
+    ],
+    "test_sequences": [
         {
             "id": "example:run-metadata-omitted:run:1",
+            "test_run": "example:run-metadata-omitted:run:1:test-run",
+            "sequence_index": 1,
             "status": "finished"
         },
         {
             "id": "example:run-metadata-omitted:run:2",
+            "test_run": "example:run-metadata-omitted:run:2:test-run",
+            "sequence_index": 1,
             "status": "finished"
         }
     ],
     "observations": [],
-    "actions": [],
-    "executions": [],
-    "checks": [],
-    "concrete_states": []
+    "action_descriptions": [],
+    "action_executions": [],
+    "recorded_transitions": [],
+    "oracle_results": [],
+    "recorded_states": []
 }

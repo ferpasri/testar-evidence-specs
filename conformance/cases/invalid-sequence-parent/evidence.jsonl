@@ -1,0 +1,2 @@
+{"schema_version":3,"id":"example:invalid-sequence-parent:event:1","event":{"kind":"test_run_started","data":{"id":"example:invalid-sequence-parent:test-run","producer":"generic-fixture","source_run":"example:invalid-sequence-parent:source-run","properties":{}}}}
+{"schema_version":3,"id":"example:invalid-sequence-parent:event:2","event":{"kind":"test_sequence_started","data":{"id":"example:invalid-sequence-parent:sequence:1","test_run":"example:invalid-sequence-parent:missing","sequence_index":1,"source_sequence":"1","properties":{}}}}

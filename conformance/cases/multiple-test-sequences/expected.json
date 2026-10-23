@@ -1,0 +1,83 @@
+{
+    "status": "accepted",
+    "counts": {
+        "evidence_events": 9,
+        "test_runs": 1,
+        "test_sequences": 2,
+        "observations": 2,
+        "action_descriptions": 0,
+        "action_executions": 0,
+        "recorded_transitions": 0,
+        "oracle_results": 1,
+        "artifact_references": 0,
+        "recorded_states": 1
+    },
+    "test_runs": [
+        {
+            "id": "example:multiple-test-sequences:test-run",
+            "status": "finished"
+        }
+    ],
+    "test_sequences": [
+        {
+            "id": "example:multiple-test-sequences:sequence:1",
+            "test_run": "example:multiple-test-sequences:test-run",
+            "sequence_index": 1,
+            "status": "finished"
+        },
+        {
+            "id": "example:multiple-test-sequences:sequence:2",
+            "test_run": "example:multiple-test-sequences:test-run",
+            "sequence_index": 2,
+            "status": "finished"
+        }
+    ],
+    "observations": [
+        {
+            "id": "example:multiple-test-sequences:observation:1",
+            "test_sequence": "example:multiple-test-sequences:sequence:1",
+            "observation_index": 1,
+            "recorded_state": "example:multiple-test-sequences:state:1",
+            "capture": "complete",
+            "available_action_scope": "eligible",
+            "widget_ids": [
+                "status"
+            ],
+            "available_actions": [],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:multiple-test-sequences:second:observation:1",
+            "test_sequence": "example:multiple-test-sequences:sequence:2",
+            "observation_index": 1,
+            "recorded_state": "example:multiple-test-sequences:state:1",
+            "capture": "complete",
+            "available_action_scope": "eligible",
+            "widget_ids": [
+                "status"
+            ],
+            "available_actions": [],
+            "artifact_ids": []
+        }
+    ],
+    "action_descriptions": [],
+    "action_executions": [],
+    "recorded_transitions": [],
+    "oracle_results": [
+        {
+            "test_run": "example:multiple-test-sequences:test-run",
+            "name": "Both sequences completed",
+            "oracle": {
+                "id": "example:multiple-test-sequences:all-sequences"
+            },
+            "oracle_target": {
+                "kind": "test_run"
+            },
+            "oracle_status": "passed",
+            "details": {}
+        }
+    ],
+    "recorded_states": [
+        "example:multiple-test-sequences:state:1"
+    ]
+}

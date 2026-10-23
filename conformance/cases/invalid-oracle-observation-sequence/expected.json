@@ -1,0 +1,83 @@
+{
+    "status": "rejected",
+    "error": {
+        "code": "invalid_oracle_target",
+        "event": "example:invalid-check-observation-run:event:5",
+        "field": "oracle_target.observation"
+    },
+    "accepted_prefix": {
+        "status": "accepted",
+        "counts": {
+            "evidence_events": 6,
+            "test_runs": 2,
+            "test_sequences": 2,
+            "observations": 2,
+            "action_descriptions": 0,
+            "action_executions": 0,
+            "recorded_transitions": 0,
+            "oracle_results": 0,
+            "artifact_references": 0,
+            "recorded_states": 2
+        },
+        "test_runs": [
+            {
+                "id": "example:invalid-check-observation-run:run:1:test-run",
+                "status": "running"
+            },
+            {
+                "id": "example:invalid-check-observation-run:run:2:test-run",
+                "status": "running"
+            }
+        ],
+        "test_sequences": [
+            {
+                "id": "example:invalid-check-observation-run:run:1",
+                "test_run": "example:invalid-check-observation-run:run:1:test-run",
+                "sequence_index": 1,
+                "status": "running"
+            },
+            {
+                "id": "example:invalid-check-observation-run:run:2",
+                "test_run": "example:invalid-check-observation-run:run:2:test-run",
+                "sequence_index": 1,
+                "status": "running"
+            }
+        ],
+        "observations": [
+            {
+                "id": "example:invalid-check-observation-run:observation:1",
+                "test_sequence": "example:invalid-check-observation-run:run:1",
+                "observation_index": 1,
+                "recorded_state": "example:invalid-check-observation-run:snapshot:1",
+                "capture": "complete",
+                "available_action_scope": "unknown",
+                "widget_ids": [
+                    "status"
+                ],
+                "available_actions": [],
+                "artifact_ids": []
+            },
+            {
+                "id": "example:invalid-check-observation-run:observation:2",
+                "test_sequence": "example:invalid-check-observation-run:run:2",
+                "observation_index": 1,
+                "recorded_state": "example:invalid-check-observation-run:snapshot:2",
+                "capture": "complete",
+                "available_action_scope": "unknown",
+                "widget_ids": [
+                    "status"
+                ],
+                "available_actions": [],
+                "artifact_ids": []
+            }
+        ],
+        "action_descriptions": [],
+        "action_executions": [],
+        "recorded_transitions": [],
+        "oracle_results": [],
+        "recorded_states": [
+            "example:invalid-check-observation-run:snapshot:1",
+            "example:invalid-check-observation-run:snapshot:2"
+        ]
+    }
+}

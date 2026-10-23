@@ -1,0 +1,107 @@
+{
+    "status": "rejected",
+    "error": {
+        "code": "invalid_transition",
+        "event": "example:invalid-cross-sequence-transition:event:9",
+        "field": "resulting_observation"
+    },
+    "accepted_prefix": {
+        "status": "accepted",
+        "counts": {
+            "evidence_events": 8,
+            "test_runs": 1,
+            "test_sequences": 2,
+            "observations": 2,
+            "action_descriptions": 1,
+            "action_executions": 1,
+            "recorded_transitions": 0,
+            "oracle_results": 0,
+            "artifact_references": 0,
+            "recorded_states": 2
+        },
+        "test_runs": [
+            {
+                "id": "example:invalid-cross-sequence-transition:test-run",
+                "status": "running"
+            }
+        ],
+        "test_sequences": [
+            {
+                "id": "example:invalid-cross-sequence-transition:sequence:1",
+                "test_run": "example:invalid-cross-sequence-transition:test-run",
+                "sequence_index": 1,
+                "status": "running"
+            },
+            {
+                "id": "example:invalid-cross-sequence-transition:sequence:2",
+                "test_run": "example:invalid-cross-sequence-transition:test-run",
+                "sequence_index": 2,
+                "status": "running"
+            }
+        ],
+        "observations": [
+            {
+                "id": "example:invalid-cross-sequence-transition:observation:1",
+                "test_sequence": "example:invalid-cross-sequence-transition:sequence:1",
+                "observation_index": 1,
+                "recorded_state": "example:invalid-cross-sequence-transition:state:1",
+                "capture": "complete",
+                "available_action_scope": "eligible",
+                "widget_ids": [
+                    "status"
+                ],
+                "available_actions": [
+                    {
+                        "action_description": "example:invalid-cross-sequence-transition:action",
+                        "target_widget": "status"
+                    }
+                ],
+                "artifact_ids": []
+            },
+            {
+                "id": "example:invalid-cross-sequence-transition:second:observation:1",
+                "test_sequence": "example:invalid-cross-sequence-transition:sequence:2",
+                "observation_index": 1,
+                "recorded_state": "example:invalid-cross-sequence-transition:second:state:1",
+                "capture": "complete",
+                "available_action_scope": "eligible",
+                "widget_ids": [
+                    "status"
+                ],
+                "available_actions": [],
+                "artifact_ids": []
+            }
+        ],
+        "action_descriptions": [
+            {
+                "id": "example:invalid-cross-sequence-transition:action",
+                "kind": "activate"
+            }
+        ],
+        "action_executions": [
+            {
+                "action_execution": {
+                    "id": "example:invalid-cross-sequence-transition:execution",
+                    "test_sequence": "example:invalid-cross-sequence-transition:sequence:1",
+                    "source_observation": "example:invalid-cross-sequence-transition:observation:1",
+                    "action_description": "example:invalid-cross-sequence-transition:action",
+                    "target_widget": "status",
+                    "parameters": {}
+                },
+                "status": "awaiting_resulting_observation",
+                "execution_result": {
+                    "action_execution": "example:invalid-cross-sequence-transition:execution",
+                    "outcome": "returned",
+                    "error": null
+                },
+                "resulting_observation": null
+            }
+        ],
+        "recorded_transitions": [],
+        "oracle_results": [],
+        "recorded_states": [
+            "example:invalid-cross-sequence-transition:second:state:1",
+            "example:invalid-cross-sequence-transition:state:1"
+        ]
+    }
+}

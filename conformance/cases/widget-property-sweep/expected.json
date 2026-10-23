@@ -1,103 +1,117 @@
 {
     "status": "accepted",
     "counts": {
-        "events": 6,
-        "runs": 1,
+        "evidence_events": 8,
+        "test_runs": 1,
+        "test_sequences": 1,
         "observations": 1,
-        "actions": 0,
-        "executions": 0,
-        "checks": 3,
+        "action_descriptions": 0,
+        "action_executions": 0,
+        "recorded_transitions": 0,
+        "oracle_results": 3,
         "artifact_references": 0,
-        "concrete_states": 1
+        "recorded_states": 1
     },
-    "runs": [
+    "test_runs": [
+        {
+            "id": "example:widget-property-sweep:run:1:test-run",
+            "status": "finished"
+        }
+    ],
+    "test_sequences": [
         {
             "id": "example:widget-property-sweep:run:1",
+            "test_run": "example:widget-property-sweep:run:1:test-run",
+            "sequence_index": 1,
             "status": "finished"
         }
     ],
     "observations": [
         {
             "id": "example:widget-property-sweep:observation:1",
-            "run": "example:widget-property-sweep:run:1",
-            "sequence": 1,
-            "concrete_state": "example:widget-property-sweep:snapshot:1",
+            "test_sequence": "example:widget-property-sweep:run:1",
+            "observation_index": 1,
+            "recorded_state": "example:widget-property-sweep:snapshot:1",
             "capture": "complete",
-            "candidate_scope": "unknown",
+            "available_action_scope": "unknown",
             "widget_ids": [
                 "image-logo",
                 "image-banner",
                 "image-help",
                 "caption"
             ],
-            "candidates": [],
+            "available_actions": [],
             "artifact_ids": []
         }
     ],
-    "actions": [],
-    "executions": [],
-    "checks": [
+    "action_descriptions": [],
+    "action_executions": [],
+    "recorded_transitions": [],
+    "oracle_results": [
         {
-            "run": "example:widget-property-sweep:run:1",
             "name": "Image alternative text is nonblank",
-            "rule": {
+            "details": {},
+            "test_run": "example:widget-property-sweep:run:1:test-run",
+            "test_sequence": "example:widget-property-sweep:run:1",
+            "oracle": {
                 "id": "example:nonblank-alt",
                 "version": "1"
             },
-            "target": {
+            "oracle_status": "passed",
+            "observed_value": {
+                "kind": "value",
+                "value": "Company"
+            },
+            "oracle_target": {
                 "kind": "widget_property",
                 "observation": "example:widget-property-sweep:observation:1",
                 "widget": "image-logo",
                 "property": "ui.alt"
-            },
-            "status": "passed",
-            "actual": {
-                "kind": "value",
-                "value": "Company"
-            },
-            "details": {}
+            }
         },
         {
-            "run": "example:widget-property-sweep:run:1",
             "name": "Image alternative text is nonblank",
-            "rule": {
+            "details": {},
+            "test_run": "example:widget-property-sweep:run:1:test-run",
+            "test_sequence": "example:widget-property-sweep:run:1",
+            "oracle": {
                 "id": "example:nonblank-alt",
                 "version": "1"
             },
-            "target": {
+            "oracle_status": "failed",
+            "observed_value": {
+                "kind": "value",
+                "value": ""
+            },
+            "oracle_target": {
                 "kind": "widget_property",
                 "observation": "example:widget-property-sweep:observation:1",
                 "widget": "image-banner",
                 "property": "ui.alt"
-            },
-            "status": "failed",
-            "actual": {
-                "kind": "value",
-                "value": ""
-            },
-            "details": {}
+            }
         },
         {
-            "run": "example:widget-property-sweep:run:1",
             "name": "Image alternative text is nonblank",
-            "rule": {
+            "details": {},
+            "test_run": "example:widget-property-sweep:run:1:test-run",
+            "test_sequence": "example:widget-property-sweep:run:1",
+            "oracle": {
                 "id": "example:nonblank-alt",
                 "version": "1"
             },
-            "target": {
+            "oracle_status": "failed",
+            "observed_value": {
+                "kind": "absent"
+            },
+            "oracle_target": {
                 "kind": "widget_property",
                 "observation": "example:widget-property-sweep:observation:1",
                 "widget": "image-help",
                 "property": "ui.alt"
-            },
-            "status": "failed",
-            "actual": {
-                "kind": "absent"
-            },
-            "details": {}
+            }
         }
     ],
-    "concrete_states": [
+    "recorded_states": [
         "example:widget-property-sweep:snapshot:1"
     ]
 }

@@ -1,0 +1,59 @@
+{
+    "status": "rejected",
+    "error": {
+        "code": "invalid_oracle_target",
+        "event": "example:invalid-oracle-sequence:event:4",
+        "field": "test_sequence"
+    },
+    "accepted_prefix": {
+        "status": "accepted",
+        "counts": {
+            "evidence_events": 3,
+            "test_runs": 1,
+            "test_sequences": 1,
+            "observations": 1,
+            "action_descriptions": 0,
+            "action_executions": 0,
+            "recorded_transitions": 0,
+            "oracle_results": 0,
+            "artifact_references": 0,
+            "recorded_states": 1
+        },
+        "test_runs": [
+            {
+                "id": "example:invalid-oracle-sequence:test-run",
+                "status": "running"
+            }
+        ],
+        "test_sequences": [
+            {
+                "id": "example:invalid-oracle-sequence:sequence:1",
+                "test_run": "example:invalid-oracle-sequence:test-run",
+                "sequence_index": 1,
+                "status": "running"
+            }
+        ],
+        "observations": [
+            {
+                "id": "example:invalid-oracle-sequence:observation:1",
+                "test_sequence": "example:invalid-oracle-sequence:sequence:1",
+                "observation_index": 1,
+                "recorded_state": "example:invalid-oracle-sequence:state:1",
+                "capture": "complete",
+                "available_action_scope": "eligible",
+                "widget_ids": [
+                    "status"
+                ],
+                "available_actions": [],
+                "artifact_ids": []
+            }
+        ],
+        "action_descriptions": [],
+        "action_executions": [],
+        "recorded_transitions": [],
+        "oracle_results": [],
+        "recorded_states": [
+            "example:invalid-oracle-sequence:state:1"
+        ]
+    }
+}

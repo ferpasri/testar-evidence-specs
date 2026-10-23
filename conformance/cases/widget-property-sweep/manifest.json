@@ -1,4 +1,4 @@
 {
-    "schema_version": 2,
-    "model": "example:widget-property-sweep"
+    "schema_version": 3,
+    "evidence_id": "example:widget-property-sweep"
 }

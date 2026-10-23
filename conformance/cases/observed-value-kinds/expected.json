@@ -1,0 +1,142 @@
+{
+    "status": "accepted",
+    "counts": {
+        "evidence_events": 9,
+        "test_runs": 1,
+        "test_sequences": 1,
+        "observations": 1,
+        "action_descriptions": 0,
+        "action_executions": 0,
+        "recorded_transitions": 0,
+        "oracle_results": 4,
+        "artifact_references": 0,
+        "recorded_states": 1
+    },
+    "test_runs": [
+        {
+            "id": "example:property-reading-kinds:run:1:test-run",
+            "status": "finished"
+        }
+    ],
+    "test_sequences": [
+        {
+            "id": "example:property-reading-kinds:run:1",
+            "test_run": "example:property-reading-kinds:run:1:test-run",
+            "sequence_index": 1,
+            "status": "finished"
+        }
+    ],
+    "observations": [
+        {
+            "id": "example:property-reading-kinds:observation:1",
+            "test_sequence": "example:property-reading-kinds:run:1",
+            "observation_index": 1,
+            "recorded_state": "example:property-reading-kinds:snapshot:1",
+            "capture": "filtered",
+            "available_action_scope": "unknown",
+            "widget_ids": [
+                "image-missing",
+                "image-null",
+                "image-unavailable"
+            ],
+            "available_actions": [],
+            "artifact_ids": []
+        }
+    ],
+    "action_descriptions": [],
+    "action_executions": [],
+    "recorded_transitions": [],
+    "oracle_results": [
+        {
+            "name": "Alternative-text property is present",
+            "details": {},
+            "test_run": "example:property-reading-kinds:run:1:test-run",
+            "test_sequence": "example:property-reading-kinds:run:1",
+            "oracle": {
+                "id": "example:alt-present",
+                "version": "1"
+            },
+            "oracle_status": "failed",
+            "observed_value": {
+                "kind": "absent"
+            },
+            "oracle_target": {
+                "kind": "widget_property",
+                "observation": "example:property-reading-kinds:observation:1",
+                "widget": "image-missing",
+                "property": "ui.alt"
+            }
+        },
+        {
+            "name": "Alternative-text property is present",
+            "details": {},
+            "test_run": "example:property-reading-kinds:run:1:test-run",
+            "test_sequence": "example:property-reading-kinds:run:1",
+            "oracle": {
+                "id": "example:alt-present",
+                "version": "1"
+            },
+            "oracle_status": "passed",
+            "observed_value": {
+                "kind": "value",
+                "value": null
+            },
+            "oracle_target": {
+                "kind": "widget_property",
+                "observation": "example:property-reading-kinds:observation:1",
+                "widget": "image-null",
+                "property": "ui.alt"
+            }
+        },
+        {
+            "name": "Alternative-text property is present",
+            "details": {
+                "reason": "Property presence could not be established"
+            },
+            "test_run": "example:property-reading-kinds:run:1:test-run",
+            "test_sequence": "example:property-reading-kinds:run:1",
+            "oracle": {
+                "id": "example:alt-present",
+                "version": "1"
+            },
+            "oracle_status": "unknown",
+            "observed_value": {
+                "kind": "unknown"
+            },
+            "oracle_target": {
+                "kind": "widget_property",
+                "observation": "example:property-reading-kinds:observation:1",
+                "widget": "image-unavailable",
+                "property": "ui.alt"
+            }
+        },
+        {
+            "name": "Alternative text equals the expected JSON null",
+            "details": {},
+            "test_run": "example:property-reading-kinds:run:1:test-run",
+            "test_sequence": "example:property-reading-kinds:run:1",
+            "oracle": {
+                "id": "example:equals",
+                "version": "1",
+                "parameters": {
+                    "comparison": "json_value"
+                }
+            },
+            "oracle_status": "passed",
+            "expected_value": null,
+            "observed_value": {
+                "kind": "value",
+                "value": null
+            },
+            "oracle_target": {
+                "kind": "widget_property",
+                "observation": "example:property-reading-kinds:observation:1",
+                "widget": "image-null",
+                "property": "ui.alt"
+            }
+        }
+    ],
+    "recorded_states": [
+        "example:property-reading-kinds:snapshot:1"
+    ]
+}

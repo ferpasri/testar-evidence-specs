@@ -1,0 +1,147 @@
+{
+    "status": "accepted",
+    "counts": {
+        "evidence_events": 9,
+        "test_runs": 1,
+        "test_sequences": 1,
+        "observations": 1,
+        "action_descriptions": 0,
+        "action_executions": 0,
+        "recorded_transitions": 0,
+        "oracle_results": 4,
+        "artifact_references": 0,
+        "recorded_states": 1
+    },
+    "test_runs": [
+        {
+            "id": "example:oracle-severity:test-run",
+            "status": "finished"
+        }
+    ],
+    "test_sequences": [
+        {
+            "id": "example:oracle-severity:sequence:1",
+            "test_run": "example:oracle-severity:test-run",
+            "sequence_index": 1,
+            "status": "finished"
+        }
+    ],
+    "observations": [
+        {
+            "id": "example:oracle-severity:observation:1",
+            "test_sequence": "example:oracle-severity:sequence:1",
+            "observation_index": 1,
+            "recorded_state": "example:oracle-severity:state:1",
+            "capture": "complete",
+            "available_action_scope": "eligible",
+            "widget_ids": [
+                "status"
+            ],
+            "available_actions": [],
+            "artifact_ids": []
+        }
+    ],
+    "action_descriptions": [],
+    "action_executions": [],
+    "recorded_transitions": [],
+    "oracle_results": [
+        {
+            "test_run": "example:oracle-severity:test-run",
+            "test_sequence": "example:oracle-severity:sequence:1",
+            "name": "Loan status is Denied",
+            "oracle": {
+                "id": "example:oracle-severity:oracle"
+            },
+            "oracle_target": {
+                "kind": "widget_property",
+                "observation": "example:oracle-severity:observation:1",
+                "widget": "status",
+                "property": "ui.text"
+            },
+            "oracle_status": "failed",
+            "expected_value": "Denied",
+            "observed_value": {
+                "kind": "value",
+                "value": "Approved"
+            },
+            "details": {}
+        },
+        {
+            "test_run": "example:oracle-severity:test-run",
+            "test_sequence": "example:oracle-severity:sequence:1",
+            "name": "Loan status is Denied",
+            "oracle": {
+                "id": "example:oracle-severity:oracle"
+            },
+            "oracle_target": {
+                "kind": "widget_property",
+                "observation": "example:oracle-severity:observation:1",
+                "widget": "status",
+                "property": "ui.text"
+            },
+            "oracle_status": "failed",
+            "expected_value": "Denied",
+            "observed_value": {
+                "kind": "value",
+                "value": "Approved"
+            },
+            "details": {},
+            "oracle_severity": {
+                "label": "warning"
+            }
+        },
+        {
+            "test_run": "example:oracle-severity:test-run",
+            "test_sequence": "example:oracle-severity:sequence:1",
+            "name": "Loan status is Denied",
+            "oracle": {
+                "id": "example:oracle-severity:oracle"
+            },
+            "oracle_target": {
+                "kind": "widget_property",
+                "observation": "example:oracle-severity:observation:1",
+                "widget": "status",
+                "property": "ui.text"
+            },
+            "oracle_status": "failed",
+            "expected_value": "Denied",
+            "observed_value": {
+                "kind": "value",
+                "value": "Approved"
+            },
+            "details": {},
+            "oracle_severity": {
+                "label": "critical",
+                "value": 0.9
+            }
+        },
+        {
+            "test_run": "example:oracle-severity:test-run",
+            "test_sequence": "example:oracle-severity:sequence:1",
+            "name": "Loan status is Denied",
+            "oracle": {
+                "id": "example:oracle-severity:oracle"
+            },
+            "oracle_target": {
+                "kind": "widget_property",
+                "observation": "example:oracle-severity:observation:1",
+                "widget": "status",
+                "property": "ui.text"
+            },
+            "oracle_status": "failed",
+            "expected_value": "Denied",
+            "observed_value": {
+                "kind": "value",
+                "value": "Approved"
+            },
+            "details": {},
+            "oracle_severity": {
+                "label": "Priority équipe",
+                "value": 25
+            }
+        }
+    ],
+    "recorded_states": [
+        "example:oracle-severity:state:1"
+    ]
+}

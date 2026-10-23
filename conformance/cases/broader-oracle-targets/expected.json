@@ -1,0 +1,231 @@
+{
+    "status": "accepted",
+    "counts": {
+        "evidence_events": 16,
+        "test_runs": 1,
+        "test_sequences": 1,
+        "observations": 2,
+        "action_descriptions": 1,
+        "action_executions": 1,
+        "recorded_transitions": 1,
+        "oracle_results": 6,
+        "artifact_references": 0,
+        "recorded_states": 2
+    },
+    "test_runs": [
+        {
+            "id": "example:broader-check-targets:run:1:test-run",
+            "status": "finished"
+        }
+    ],
+    "test_sequences": [
+        {
+            "id": "example:broader-check-targets:run:1",
+            "test_run": "example:broader-check-targets:run:1:test-run",
+            "sequence_index": 1,
+            "status": "finished"
+        }
+    ],
+    "observations": [
+        {
+            "id": "example:broader-check-targets:observation:1",
+            "test_sequence": "example:broader-check-targets:run:1",
+            "observation_index": 1,
+            "recorded_state": "example:broader-check-targets:snapshot:1",
+            "capture": "complete",
+            "available_action_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "available_actions": [
+                {
+                    "action_description": "example:broader-check-targets:activate",
+                    "target_widget": "next"
+                }
+            ],
+            "artifact_ids": []
+        },
+        {
+            "id": "example:broader-check-targets:observation:2",
+            "test_sequence": "example:broader-check-targets:run:1",
+            "observation_index": 2,
+            "recorded_state": "example:broader-check-targets:snapshot:2",
+            "capture": "complete",
+            "available_action_scope": "generated",
+            "widget_ids": [
+                "next",
+                "status",
+                "image-help"
+            ],
+            "available_actions": [
+                {
+                    "action_description": "example:broader-check-targets:activate",
+                    "target_widget": "next"
+                }
+            ],
+            "artifact_ids": []
+        }
+    ],
+    "action_descriptions": [
+        {
+            "id": "example:broader-check-targets:activate",
+            "kind": "activate"
+        }
+    ],
+    "action_executions": [
+        {
+            "action_execution": {
+                "id": "example:broader-check-targets:execution:1",
+                "parameters": {},
+                "test_sequence": "example:broader-check-targets:run:1",
+                "source_observation": "example:broader-check-targets:observation:1",
+                "action_description": "example:broader-check-targets:activate",
+                "target_widget": "next"
+            },
+            "status": "completed",
+            "execution_result": {
+                "action_execution": "example:broader-check-targets:execution:1",
+                "outcome": "returned",
+                "error": null
+            },
+            "resulting_observation": "example:broader-check-targets:observation:2"
+        }
+    ],
+    "recorded_transitions": [
+        {
+            "action_execution": "example:broader-check-targets:execution:1",
+            "test_sequence": "example:broader-check-targets:run:1",
+            "source_observation": "example:broader-check-targets:observation:1",
+            "resulting_observation": "example:broader-check-targets:observation:2",
+            "action_description": "example:broader-check-targets:activate",
+            "target_widget": "next"
+        }
+    ],
+    "oracle_results": [
+        {
+            "name": "Run actions completed",
+            "details": {},
+            "test_run": "example:broader-check-targets:run:1:test-run",
+            "test_sequence": "example:broader-check-targets:run:1",
+            "oracle": {
+                "id": "example:actions-complete",
+                "version": "1"
+            },
+            "oracle_status": "passed",
+            "observed_value": {
+                "kind": "value",
+                "value": {
+                    "completed": 1
+                }
+            },
+            "oracle_target": {
+                "kind": "test_sequence"
+            }
+        },
+        {
+            "name": "Observation satisfies readiness condition",
+            "details": {
+                "reason": "Readiness evaluator had insufficient information"
+            },
+            "test_run": "example:broader-check-targets:run:1:test-run",
+            "test_sequence": "example:broader-check-targets:run:1",
+            "oracle": {
+                "id": "example:ready",
+                "version": "1"
+            },
+            "oracle_status": "unknown",
+            "observed_value": {
+                "kind": "unknown"
+            },
+            "oracle_target": {
+                "kind": "observation",
+                "observation": "example:broader-check-targets:observation:2"
+            }
+        },
+        {
+            "name": "State title identifies Step 2",
+            "details": {},
+            "test_run": "example:broader-check-targets:run:1:test-run",
+            "test_sequence": "example:broader-check-targets:run:1",
+            "oracle": {
+                "id": "example:equals",
+                "version": "1"
+            },
+            "oracle_status": "passed",
+            "expected_value": "Step 2",
+            "observed_value": {
+                "kind": "value",
+                "value": "Step 2"
+            },
+            "oracle_target": {
+                "kind": "state_property",
+                "observation": "example:broader-check-targets:observation:2",
+                "property": "ui.title"
+            }
+        },
+        {
+            "name": "Widget appearance satisfies condition",
+            "details": {
+                "reason": "Appearance evaluator encountered an error"
+            },
+            "test_run": "example:broader-check-targets:run:1:test-run",
+            "test_sequence": "example:broader-check-targets:run:1",
+            "oracle": {
+                "id": "example:appearance",
+                "version": "1"
+            },
+            "oracle_status": "error",
+            "observed_value": {
+                "kind": "unknown"
+            },
+            "oracle_target": {
+                "kind": "widget",
+                "observation": "example:broader-check-targets:observation:2",
+                "widget": "status"
+            }
+        },
+        {
+            "name": "Action has a resulting observation",
+            "details": {},
+            "test_run": "example:broader-check-targets:run:1:test-run",
+            "test_sequence": "example:broader-check-targets:run:1",
+            "oracle": {
+                "id": "example:has-result",
+                "version": "1"
+            },
+            "oracle_status": "passed",
+            "observed_value": {
+                "kind": "value",
+                "value": "example:broader-check-targets:observation:2"
+            },
+            "oracle_target": {
+                "kind": "action_execution",
+                "action_execution": "example:broader-check-targets:execution:1"
+            }
+        },
+        {
+            "name": "Sequence evaluation awaits completion",
+            "details": {
+                "reason": "Evaluation is pending"
+            },
+            "test_run": "example:broader-check-targets:run:1:test-run",
+            "test_sequence": "example:broader-check-targets:run:1",
+            "oracle": {
+                "id": "example:sequence-condition",
+                "version": "1"
+            },
+            "oracle_status": "pending",
+            "oracle_target": {
+                "kind": "observation_range",
+                "first_observation": "example:broader-check-targets:observation:1",
+                "last_observation": "example:broader-check-targets:observation:2"
+            }
+        }
+    ],
+    "recorded_states": [
+        "example:broader-check-targets:snapshot:1",
+        "example:broader-check-targets:snapshot:2"
+    ]
+}

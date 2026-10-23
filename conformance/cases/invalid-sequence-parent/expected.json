@@ -1,0 +1,36 @@
+{
+    "status": "rejected",
+    "error": {
+        "code": "invalid_reference",
+        "event": "example:invalid-sequence-parent:event:2",
+        "field": "test_run"
+    },
+    "accepted_prefix": {
+        "status": "accepted",
+        "counts": {
+            "evidence_events": 1,
+            "test_runs": 1,
+            "test_sequences": 0,
+            "observations": 0,
+            "action_descriptions": 0,
+            "action_executions": 0,
+            "recorded_transitions": 0,
+            "oracle_results": 0,
+            "artifact_references": 0,
+            "recorded_states": 0
+        },
+        "test_runs": [
+            {
+                "id": "example:invalid-sequence-parent:test-run",
+                "status": "running"
+            }
+        ],
+        "test_sequences": [],
+        "observations": [],
+        "action_descriptions": [],
+        "action_executions": [],
+        "recorded_transitions": [],
+        "oracle_results": [],
+        "recorded_states": []
+    }
+}

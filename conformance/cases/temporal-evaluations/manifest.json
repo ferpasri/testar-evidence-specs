@@ -1,4 +1,4 @@
 {
-    "schema_version": 2,
-    "model": "example:temporal-evaluations"
+    "schema_version": 3,
+    "evidence_id": "example:temporal-evaluations"
 }

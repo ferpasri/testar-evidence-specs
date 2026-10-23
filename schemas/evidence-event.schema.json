@@ -1,0 +1,831 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "TESTAR Evidence Event",
+    "type": "object",
+    "properties": {
+        "schema_version": {
+            "const": 3
+        },
+        "id": {
+            "$ref": "#/$defs/identifier"
+        },
+        "event": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "test_run_started"
+                        },
+                        "data": {
+                            "$ref": "#/$defs/test_run_started"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "data"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "test_sequence_started"
+                        },
+                        "data": {
+                            "$ref": "#/$defs/test_sequence_started"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "data"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "action_described"
+                        },
+                        "data": {
+                            "$ref": "#/$defs/action_described"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "data"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "observation_recorded"
+                        },
+                        "data": {
+                            "$ref": "#/$defs/observation_recorded"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "data"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "action_selected"
+                        },
+                        "data": {
+                            "$ref": "#/$defs/action_selected"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "data"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "action_execution_reported"
+                        },
+                        "data": {
+                            "$ref": "#/$defs/action_execution_reported"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "data"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "transition_recorded"
+                        },
+                        "data": {
+                            "$ref": "#/$defs/transition_recorded"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "data"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "oracle_result_recorded"
+                        },
+                        "data": {
+                            "$ref": "#/$defs/oracle_result_recorded"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "data"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "test_sequence_finished"
+                        },
+                        "data": {
+                            "$ref": "#/$defs/test_sequence_finished"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "data"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "test_run_finished"
+                        },
+                        "data": {
+                            "$ref": "#/$defs/test_run_finished"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "data"
+                    ],
+                    "additionalProperties": false
+                }
+            ]
+        }
+    },
+    "required": [
+        "schema_version",
+        "id",
+        "event"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+        "identifier": {
+            "type": "string",
+            "pattern": "^(?=.*\\S)[^\\u0000-\\u001f\\u007f]+$"
+        },
+        "u64": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18446744073709551615
+        },
+        "properties": {
+            "type": "object",
+            "propertyNames": {
+                "$ref": "#/$defs/identifier"
+            },
+            "additionalProperties": true
+        },
+        "widget": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "parent": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/identifier"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/$defs/properties"
+                }
+            },
+            "required": [
+                "id",
+                "parent",
+                "properties"
+            ],
+            "additionalProperties": false
+        },
+        "recorded_state": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "properties": {
+                    "$ref": "#/$defs/properties"
+                },
+                "widgets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/widget"
+                    }
+                },
+                "capture": {
+                    "enum": [
+                        "complete",
+                        "filtered",
+                        "unavailable"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "properties",
+                "widgets",
+                "capture"
+            ],
+            "additionalProperties": false
+        },
+        "available_action": {
+            "type": "object",
+            "properties": {
+                "action_description": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "target_widget": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/identifier"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "action_description",
+                "target_widget"
+            ],
+            "additionalProperties": false
+        },
+        "artifact": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "path": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "media_type": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                },
+                "width": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/u64"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "height": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/u64"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "path",
+                "media_type",
+                "sha256"
+            ],
+            "additionalProperties": false
+        },
+        "oracle": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "version": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "parameters": {
+                    "$ref": "#/$defs/properties"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "additionalProperties": false
+        },
+        "oracle_severity": {
+            "type": "object",
+            "properties": {
+                "label": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "label"
+            ],
+            "additionalProperties": false
+        },
+        "observed_value": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "value"
+                        },
+                        "value": {}
+                    },
+                    "required": [
+                        "kind",
+                        "value"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "absent"
+                        }
+                    },
+                    "required": [
+                        "kind"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "unknown"
+                        }
+                    },
+                    "required": [
+                        "kind"
+                    ],
+                    "additionalProperties": false
+                }
+            ]
+        },
+        "oracle_target": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "test_run"
+                        }
+                    },
+                    "required": [
+                        "kind"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "test_sequence"
+                        }
+                    },
+                    "required": [
+                        "kind"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "observation"
+                        },
+                        "observation": {
+                            "$ref": "#/$defs/identifier"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "observation"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "state_property"
+                        },
+                        "observation": {
+                            "$ref": "#/$defs/identifier"
+                        },
+                        "property": {
+                            "$ref": "#/$defs/identifier"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "observation",
+                        "property"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "widget"
+                        },
+                        "observation": {
+                            "$ref": "#/$defs/identifier"
+                        },
+                        "widget": {
+                            "$ref": "#/$defs/identifier"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "observation",
+                        "widget"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "widget_property"
+                        },
+                        "observation": {
+                            "$ref": "#/$defs/identifier"
+                        },
+                        "widget": {
+                            "$ref": "#/$defs/identifier"
+                        },
+                        "property": {
+                            "$ref": "#/$defs/identifier"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "observation",
+                        "widget",
+                        "property"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "action_execution"
+                        },
+                        "action_execution": {
+                            "$ref": "#/$defs/identifier"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "action_execution"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "const": "observation_range"
+                        },
+                        "first_observation": {
+                            "$ref": "#/$defs/identifier"
+                        },
+                        "last_observation": {
+                            "$ref": "#/$defs/identifier"
+                        }
+                    },
+                    "required": [
+                        "kind",
+                        "first_observation",
+                        "last_observation"
+                    ],
+                    "additionalProperties": false
+                }
+            ]
+        },
+        "test_run_started": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "producer": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "source_run": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "properties": {
+                    "$ref": "#/$defs/properties"
+                }
+            },
+            "required": [
+                "id",
+                "producer",
+                "source_run",
+                "properties"
+            ],
+            "additionalProperties": false
+        },
+        "test_sequence_started": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "test_run": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "sequence_index": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 18446744073709551615
+                },
+                "source_sequence": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "properties": {
+                    "$ref": "#/$defs/properties"
+                }
+            },
+            "required": [
+                "id",
+                "test_run",
+                "sequence_index",
+                "source_sequence",
+                "properties"
+            ],
+            "additionalProperties": false
+        },
+        "action_described": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "kind": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "properties": {
+                    "$ref": "#/$defs/properties"
+                }
+            },
+            "required": [
+                "id",
+                "kind",
+                "properties"
+            ],
+            "additionalProperties": false
+        },
+        "observation_recorded": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "test_sequence": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "observation_index": {
+                    "$ref": "#/$defs/u64"
+                },
+                "timestamp_micros": {
+                    "$ref": "#/$defs/u64"
+                },
+                "recorded_state": {
+                    "$ref": "#/$defs/recorded_state"
+                },
+                "available_action_scope": {
+                    "enum": [
+                        "generated",
+                        "eligible",
+                        "unknown"
+                    ]
+                },
+                "available_actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/available_action"
+                    }
+                },
+                "artifacts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/artifact"
+                    }
+                }
+            },
+            "required": [
+                "id",
+                "test_sequence",
+                "observation_index",
+                "timestamp_micros",
+                "recorded_state",
+                "available_action_scope",
+                "available_actions",
+                "artifacts"
+            ],
+            "additionalProperties": false
+        },
+        "action_selected": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "test_sequence": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "source_observation": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "action_description": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "target_widget": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/identifier"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "parameters": {
+                    "$ref": "#/$defs/properties"
+                }
+            },
+            "required": [
+                "id",
+                "test_sequence",
+                "source_observation",
+                "action_description",
+                "target_widget",
+                "parameters"
+            ],
+            "additionalProperties": false
+        },
+        "action_execution_reported": {
+            "type": "object",
+            "properties": {
+                "action_execution": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "outcome": {
+                    "enum": [
+                        "returned",
+                        "error"
+                    ]
+                },
+                "error": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "action_execution",
+                "outcome",
+                "error"
+            ],
+            "additionalProperties": false
+        },
+        "transition_recorded": {
+            "type": "object",
+            "properties": {
+                "action_execution": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "resulting_observation": {
+                    "$ref": "#/$defs/identifier"
+                }
+            },
+            "required": [
+                "action_execution",
+                "resulting_observation"
+            ],
+            "additionalProperties": false
+        },
+        "oracle_result_recorded": {
+            "type": "object",
+            "properties": {
+                "test_run": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "test_sequence": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "name": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "oracle": {
+                    "$ref": "#/$defs/oracle"
+                },
+                "oracle_target": {
+                    "$ref": "#/$defs/oracle_target"
+                },
+                "oracle_status": {
+                    "enum": [
+                        "passed",
+                        "failed",
+                        "pending",
+                        "unknown",
+                        "error"
+                    ]
+                },
+                "expected_value": {},
+                "observed_value": {
+                    "$ref": "#/$defs/observed_value"
+                },
+                "oracle_severity": {
+                    "$ref": "#/$defs/oracle_severity"
+                },
+                "details": {
+                    "$ref": "#/$defs/properties"
+                }
+            },
+            "required": [
+                "test_run",
+                "name",
+                "oracle",
+                "oracle_target",
+                "oracle_status",
+                "details"
+            ],
+            "additionalProperties": false
+        },
+        "test_sequence_finished": {
+            "type": "object",
+            "properties": {
+                "test_sequence": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "reason": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "test_sequence",
+                "reason"
+            ],
+            "additionalProperties": false
+        },
+        "test_run_finished": {
+            "type": "object",
+            "properties": {
+                "test_run": {
+                    "$ref": "#/$defs/identifier"
+                },
+                "reason": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "test_run",
+                "reason"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

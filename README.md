@@ -1,6 +1,6 @@
 # TESTAR Evidence Specifications
 
-This repository defines how testing tools record GUI execution evidence in a shared format. An observation records what a tool captured at one moment; an execution trace connects observations through the actions performed between them.
+This repository defines how testing tools record GUI execution evidence in a shared format. A test run can contain several test sequences. Each sequence preserves observations, recorded states, available actions, action executions, recorded transitions, and oracle results.
 
 ```text
 testar-evidence-specs
@@ -11,30 +11,31 @@ testar-evidence-specs
     +-- other language implementations
                 |
                 v
-        Generic concrete traces
+        Portable recorded evidence
 ```
 
-A tool-specific adapter translates its tool's UI data into generic records. A language implementation validates, stores, and reads those records. Every visit remains a separate observation, even when the same screen is visited again. Each completed action connects its before and resulting observations, forming a state-action-state execution trace.
+Adapters translate tool or framework data. Language libraries validate, save, and read it. Consumers inspect traces or use abstraction rules to build abstract states, actions, and transitions. An abstract model retains references to the evidence supporting it; abstraction is separate from trace recording.
 
-Observations retain discovered candidate actions, including those never selected. Executions identify the selections and their recorded outcomes. `candidate_scope` says whether the tool supplied generated actions, actions eligible for selection, or a list whose origin is unknown.
+A tool can capture every available widget while saving only selected properties. Capture descriptions identify the collected information and explain known exclusions or limits. Missing capture, established absence, and no recorded oracle evaluation remain different facts.
 
-Capture descriptions explain which widgets and properties were collected, any selection rules or limits, and known omissions. A tool can capture every available widget while saving only selected properties. The capture description identifies which properties are collected and, if known, explains exclusions or limitations. Property names preserve what was actually read; adapters verify a source property's meaning before adding a common name.
-
-Captured properties and recorded evaluations are separate evidence. A check result records the outcome and evidence from a test oracle's evaluation: the rule, target, status, and any reported reading. Property targets identify the particular observation and widget, so consumers can see which properties have recorded evaluations. A result about several visits identifies the whole run or the first and last observations it concerns.
-
-Recording a trace does not require deciding which screens should count as equivalent. An optional abstraction component can group observations later, or while a test is running. Different testing objectives can produce different models from the same saved evidence. A viewer can display concrete traces, derived models, or both.
-
-Releases use `0.X.Y`. The `0.X` series is shared with language implementations and related state-model projects; each project can advance its patch version `Y` independently. Release tags identify published specifications and cases, while `schema_version` identifies the evidence format. A release can add explanations and test cases while keeping the same evidence format.
+Oracle results identify what was evaluated and retain reported statuses, expected and observed values, and optional source-defined severity. A failed condition and the importance assigned to its finding are separate information.
 
 ## Documents
 
-- [Architecture](docs/testar_state_model_architecture.md): responsibilities, capture limits, and data flow.
-- [Adapter gaps and considerations](docs/adapter_gaps_and_considerations.md): integration gaps, possible solutions, and implementer responsibilities.
-- [Recorded evidence](docs/model-semantics.md): records, action links, captured property meanings, and optional derived views.
-- [Run metadata](docs/run-metadata.md): optional origin, test objective, and adapter descriptions.
-- [Capture and properties](docs/capture-evidence.md): captured areas, property selection, limits, omissions, and aliases.
-- [Evaluations and check results](docs/check-evaluations.md): terminology, targets, rules, outcomes, readings, and temporal assessments.
-- [Conformance](conformance/README.md): shared inputs and expected results.
-- [TODO](TODO.md): specification, fixture, and implementation work still required.
+- [Terminology](docs/terminology.md): shared terms and examples.
+- [Architecture](docs/architecture.md): responsibilities and data flow.
+- [Recorded evidence](docs/evidence-semantics.md): state, action, property, and abstraction meanings.
+- [Evidence format](docs/evidence-format.md): fields, event order, references, and lifecycle.
+- [Oracle results](docs/oracle-results.md): oracle targets, observed values, severity, and temporal results.
+- [Run metadata](docs/run-metadata.md): optional source, test objective, and adapter descriptions.
+- [Capture and properties](docs/capture-evidence.md): capture scope, selections, omissions, and aliases.
+- [Adapter integration](docs/adapter_gaps_and_considerations.md): gaps and implementer responsibilities.
+- [JSON Schemas](schemas/README.md): machine-readable record shapes.
+- [Conformance](conformance/README.md): shared input traces and expected results.
+- [TODO](TODO.md): remaining work.
 
-The contract and shared test data belong here. Language libraries, tool adapters, abstraction algorithms, services, and viewers belong in their respective implementation projects.
+## Versions
+
+The format uses `schema_version: 3`. Release tags identify published documents, schemas, and conformance cases. The terminology and hierarchy changes are prepared for the `0.3` release series. Related projects share `0.X`; each project can advance its patch `Y` independently. Consumers check schema compatibility separately from application release versions.
+
+The contract and generic cases belong here. Implementations, adapters, abstraction algorithms, and viewers live in their own projects. Reading these specifications does not require a particular implementation language.

@@ -1,36 +1,46 @@
 {
     "status": "accepted",
     "counts": {
-        "events": 3,
-        "runs": 1,
+        "evidence_events": 4,
+        "test_runs": 1,
+        "test_sequences": 1,
         "observations": 1,
-        "actions": 1,
-        "executions": 0,
-        "checks": 0,
+        "action_descriptions": 1,
+        "action_executions": 0,
+        "recorded_transitions": 0,
+        "oracle_results": 0,
         "artifact_references": 1,
-        "concrete_states": 1
+        "recorded_states": 1
     },
-    "runs": [
+    "test_runs": [
+        {
+            "id": "example:run:1:test-run",
+            "status": "running"
+        }
+    ],
+    "test_sequences": [
         {
             "id": "example:run:1",
+            "test_run": "example:run:1:test-run",
+            "sequence_index": 1,
             "status": "running"
         }
     ],
     "observations": [
         {
             "id": "example:observation:1",
-            "run": "example:run:1",
-            "sequence": 1,
-            "concrete_state": "example:snapshot:1",
+            "test_sequence": "example:run:1",
+            "observation_index": 1,
+            "recorded_state": "example:snapshot:1",
             "capture": "filtered",
-            "candidate_scope": "generated",
+            "available_action_scope": "generated",
             "widget_ids": [
                 "login"
             ],
-            "candidates": [
+            "available_actions": [
                 {
-                    "action": "example:activate",
-                    "target": "login"
+                    "action_description": "example:activate",
+                    "target_widget": "login"
                 }
             ],
             "artifact_ids": [
@@ -38,15 +48,16 @@
             ]
         }
     ],
-    "actions": [
+    "action_descriptions": [
         {
             "id": "example:activate",
             "kind": "activate"
         }
     ],
-    "executions": [],
-    "checks": [],
-    "concrete_states": [
+    "action_executions": [],
+    "recorded_transitions": [],
+    "oracle_results": [],
+    "recorded_states": [
         "example:snapshot:1"
     ]
 }

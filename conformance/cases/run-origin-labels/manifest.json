@@ -1,4 +1,4 @@
 {
-    "schema_version": 2,
-    "model": "run-origin-labels"
+    "schema_version": 3,
+    "evidence_id": "run-origin-labels"
 }

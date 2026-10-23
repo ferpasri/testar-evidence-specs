@@ -9,7 +9,7 @@ This guide explains where those gaps can appear, how to reduce them, and what wo
 | Part | What it does |
 | --- | --- |
 | Testing tool | Interacts with the application, captures its UI, and runs test oracles. |
-| Adapter | Takes the information reported by the tool and translates it into state-model records. |
+| Adapter | Takes the information reported by the tool and translates it into evidence records. |
 | State-model library | Validates, saves, and reads the supplied records and screenshot files. |
 | Dashboard | Shows the recorded evidence and supports analysis of it. |
 
@@ -17,7 +17,7 @@ The specifications define the shared meaning of those records. The library and d
 
 ## Recording scripted and exploratory actions
 
-A scripted test follows steps chosen by its author. An exploratory or scriptless tool discovers possible actions and selects what to do while testing. Both can produce the same kinds of evidence: observations, candidate actions, and executed actions.
+A scripted test follows steps chosen by its author. An exploratory or scriptless tool discovers possible actions and selects what to do while testing. Both can produce the same kinds of evidence: observations, available actions, and executed actions.
 
 For example, a script signs in by entering a username, entering a password, and clicking Login. If the tool reports these operations separately and captures the UI between them, the trace can show:
 
@@ -29,13 +29,13 @@ Observation 3 -> Click Login    -> Observation 4
 
 If a helper reports only one "Sign in" action, the recording contains that one execution. Recording its internal steps requires the tool to report them and capture any intermediate observations.
 
-An exploratory tool might discover five actions on a page and select one. The adapter preserves all five reported candidates, including the four that were not selected. It also records whether the list came from action generation, selection rules, or an unknown stage. Those candidates describe what the tool discovered.
+An exploratory tool might discover five actions on a page and select one. The adapter preserves all five reported available actions, including the four that were not selected. It also records whether the list came from action generation, selection rules, or an unknown stage. Those available actions describe what the tool discovered.
 
 **Where gaps appear:** An adapter may record the main exploration loop but miss scripted login, cleanup, direct driver calls, or custom methods. Even an exploratory test may use a script to reach its starting screen.
 
 **Integration approach:** Connect recording to shared methods through which actions are executed. Start recording before the interactions that should appear in the trace.
 
-**Work for implementers:** Find the execution paths used by the tool and its extensions. Connect missing paths, decide how detailed action recording should be, and test actions rejected by the tool's execution mechanism, retries, and interrupted runs.
+**Work for implementers:** Find the execution paths used by the tool and its extensions. Connect missing paths, decide how detailed action recording should be, and test actions rejected by the tool's execution mechanism, retries, and interrupted test sequences.
 
 ## Choosing which properties to save
 
@@ -57,7 +57,7 @@ A widget can have text, a role, an enabled flag, and additional tool-specific pr
 
 "All properties" needs a clear boundary. Capturing every property exposed by the tool still depends on what that tool collected from the application. A complete widget capture means complete within its stated area, such as the current document.
 
-Where available, use the [common state-property names](model-semantics.md#common-descriptive-properties) for the captured full address and page, screen, or window title. Read the state title from the page, screen, or window's title information. For widgets, preserve the actual source property: visible text, an accessible name, and a title attribute are different properties. A tool property called `Title` is not enough to establish that it contains an actual widget title.
+Where available, use the [common state-property names](evidence-semantics.md#common-descriptive-properties) for the captured full address and page, screen, or window title. Read the state title from the page, screen, or window's title information. For widgets, preserve the actual source property: visible text, an accessible name, and a title attribute are different properties. A tool property called `Title` is not enough to establish that it contains an actual widget title.
 
 Use the [capture conventions](capture-evidence.md) to describe the captured area, widget and property selection, limits, known omissions, and duplicated aliases. Preserve nested values, and use an addressable property key when an oracle reports an evaluation of one particular value.
 
@@ -65,7 +65,7 @@ Use the [capture conventions](capture-evidence.md) to describe the captured area
 
 ## Recording what test oracles evaluated
 
-A test oracle decides whether a condition is satisfied. An evaluation is one application of that oracle; a check result records its outcome.
+A test oracle decides whether a condition is satisfied. An evaluation is one application of that oracle; a oracle result records its outcome.
 
 Consider two examples:
 
@@ -76,13 +76,13 @@ Both successful and failed evaluations matter. Capturing a widget property does 
 
 **Where gaps appear:** Detailed reporting may exist for only one oracle. Other oracles may produce only messages such as "page validation failed." Such a message does not identify every evaluated widget, property, or successful result. Collecting all messages centrally still leaves that detail unavailable.
 
-**Integration approach:** Give the tool a shared way to report evaluation details. Oracles or common assertion helpers supply the rule, target, outcome, and available expected/actual values. The adapter translates those reports into check results. An oracle evaluating a whole page keeps that broader target.
+**Integration approach:** Give the tool a shared way to report evaluation details. Oracles or common assertion helpers supply the oracle, target, outcome, and available expected/actual values. The adapter translates those reports into oracle results. An oracle evaluating a whole page keeps that broader target.
 
 **Work for implementers:** Connect the shared reporting mechanism and update oracle code or assertion helpers where details are missing. This initial work cannot always be automated: the adapter cannot reliably reconstruct evaluations from message text.
 
-A property missing from saved data may have been excluded during capture. Record absence when the oracle established absence. Preserve unknown or pending results as reported, including when the run ends.
+A property missing from saved data may have been excluded during capture. Record absence when the oracle established absence. Preserve unknown or pending results as reported, including when the test sequence ends.
 
-Temporal oracles report a condition over several visits. Preserve that scope, the rule's interpretation of time, and any end-of-run assessment described in the [evaluation contract](check-evaluations.md). Producing those assessments belongs to the testing tool and its oracle; the adapter translates the reports they supply.
+Temporal oracles report a condition over several visits. Preserve that scope, the oracle's interpretation of time, and any end-of-run assessment described in the [evaluation contract](oracle-results.md). Producing those assessments belongs to the testing tool and its oracle; the adapter translates the reports they supply.
 
 ## Keeping observations and screenshots together
 
@@ -98,10 +98,10 @@ After clicking Submit, the application may show a loading indicator before displ
 
 Shared conformance tests check whether supplied evidence follows the format. Adapter tests check whether the expected evidence was collected.
 
-Use small scripted and exploratory tests to verify the examples above: login steps, unselected candidates, nested properties, multiple oracle types, passed and failed evaluations, and matching screenshots. Also test missing captures, limits, errors, and custom execution paths.
+Use small scripted and exploratory tests to verify the examples above: login steps, unselected available actions, nested properties, multiple oracle types, passed and failed evaluations, and matching screenshots. Also test missing captures, limits, errors, and custom execution paths.
 
 Implementing an adapter therefore includes understanding the source tool, connecting its action and oracle reporting, converting data, testing real flows, and maintaining those connections. Shared hooks reduce repeated work as new actions and oracles are added.
 
 Each adapter should briefly explain what it captures and its known gaps. Tool-specific code and tests stay with that adapter. Shared data requirements belong in these specifications.
 
-See the [architecture](testar_state_model_architecture.md), [model semantics](model-semantics.md), and [evaluation contract](check-evaluations.md) for the record definitions.
+See the [architecture](architecture.md), [model semantics](evidence-semantics.md), and [evaluation contract](oracle-results.md) for the record definitions.

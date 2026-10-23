@@ -1,6 +1,6 @@
 # Capture and property evidence
 
-A snapshot records what a testing tool and its adapter collected at one observation. Its widget list, properties, and capture description help a reader understand how much of the application is represented.
+A recorded state records what a testing tool and its adapter collected at one observation. Its widget list, properties, and capture description help a reader understand how much of the application is represented.
 
 ## Widget capture and property capture
 
@@ -14,13 +14,13 @@ The state's `capture` field describes the widget tree:
 
 A tool can capture every available widget while saving only selected properties. The capture description identifies which properties are collected and, if known, explains exclusions or limitations.
 
-The capture configuration chooses which available properties to save. Their names keep their source meanings, and their values come from the application or the source API. Common names are added only when the adapter has verified that they mean the same thing as the original property. See [captured property meanings](model-semantics.md#common-descriptive-properties).
+The capture configuration chooses which available properties to save. Their names keep their source meanings, and their values come from the application or the source API. Common names are added only when the adapter has verified that they mean the same thing as the original property. See [captured property meanings](evidence-semantics.md#common-descriptive-properties).
 
 Captured JSON values include empty strings, nulls, booleans, numbers, objects, and lists.
 
 ## Describing the capture
 
-The following optional properties provide a common way to describe capture decisions. They belong in the existing properties maps and are preserved as JSON values by state-model implementations.
+The following optional properties provide a common way to describe capture decisions. They belong in the existing properties maps and are preserved as JSON values by evidence implementations.
 
 A state's `evidence.capture` property contains:
 
@@ -44,7 +44,7 @@ A state or widget can describe omitted properties in `evidence.omitted_propertie
 | `limit` | A capture limit prevented retaining this property. |
 | `redacted` | The producer intentionally removed the property to protect sensitive information. |
 
-These entries describe known omissions. Producers can describe a broad selection in `evidence.capture` without listing every possible excluded property. A known omission leaves the property's value or presence unknown in the captured data. A test oracle can separately establish absence and report an `absent` reading.
+These entries describe known omissions. Producers can describe a broad selection in `evidence.capture` without listing every possible excluded property. A known omission leaves the property's value or presence unknown in the captured data. A test oracle can separately establish absence and report an `absent` observed value.
 
 ## Property keys, nested values, and aliases
 
@@ -64,14 +64,14 @@ The optional `evidence.property_aliases` object maps an additional name to the o
 }
 ```
 
-Here, the adapter declares `ui.alt` as another name for `source.alt` on this one image. It is not declaring that properties or widgets from different tools match. A viewer or analysis tool makes cross-source comparisons using its explicit matching rules.
+Here, the adapter declares `ui.alt` as another name for `source.alt` on this one image. It is not declaring that properties or widgets from different tools match. A viewer or analysis tool makes cross-source comparisons using its explicit abstraction rules.
 
 Check results keep the property key that was actually evaluated. Recording an alias does not create another evaluation.
 
 ## Reading capture and evaluation counts
 
-A captured property without a matching check result has no recorded evaluation. Descriptive capture properties are metadata about the evidence; they do not represent additional application features evaluated by a test oracle.
+A captured property without a matching oracle result has no recorded evaluation. Descriptive capture properties are metadata about the evidence; they do not represent additional application features evaluated by a test oracle.
 
 Raw counts of top-level keys depend on how producers represent their data. A nested object counts once, and an original property plus its alias creates two keys describing one value. A consumer comparing capture or evaluation coverage states how it treats metadata, aliases, and nested values, and retains access to the original records.
 
-[Capture properties](../conformance/cases/capture-properties/README.md) demonstrates these distinctions with a complete tree, a limited tree, and unavailable widget data. [Evaluations and check results](check-evaluations.md) explains readings and target-level coverage.
+[Capture properties](../conformance/cases/capture-properties/README.md) demonstrates these distinctions with a complete tree, a limited tree, and unavailable widget data. [Oracle results](oracle-results.md) explains observed values and target-level coverage.

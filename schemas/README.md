@@ -1,6 +1,6 @@
 # Evidence schemas
 
-The JSON Schemas use Draft 2020-12 and describe schema-version-3 record shapes:
+The JSON Schemas use Draft 2020-12 and describe the record shapes defined in [the evidence format](../docs/evidence-format.md):
 
 - [Manifest](manifest.schema.json): collection identity and format version.
 - [Evidence Event](evidence-event.schema.json): event identity, event type, payloads, and record types.

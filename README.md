@@ -30,12 +30,13 @@ Oracle results identify what was evaluated and retain reported statuses, expecte
 - [Run metadata](docs/run-metadata.md): optional source, test objective, and adapter descriptions.
 - [Capture and properties](docs/capture-evidence.md): capture scope, selections, omissions, and aliases.
 - [Adapter integration](docs/adapter_gaps_and_considerations.md): gaps and implementer responsibilities.
+- [Examples](docs/examples.md): worked capture, metadata, and oracle-result illustrations.
 - [JSON Schemas](schemas/README.md): machine-readable record shapes.
 - [Conformance](conformance/README.md): shared input traces and expected results.
 - [TODO](TODO.md): remaining work.
 
 ## Versions
 
-The format uses `schema_version: 3`. Release tags identify published documents, schemas, and conformance cases. The terminology and hierarchy changes are prepared for the `0.3` release series. Related projects share `0.X`; each project can advance its patch `Y` independently. Consumers check schema compatibility separately from application release versions.
+Release tags identify published documents, schemas, and conformance cases. The [evidence format](docs/evidence-format.md) identifies the supported `schema_version`. Related projects share the first two release numbers; each project can advance its patch independently. Consumers check schema compatibility separately from software release versions.
 
 The contract and generic cases belong here. Implementations, adapters, abstraction algorithms, and viewers live in their own projects. Reading these specifications does not require a particular implementation language.

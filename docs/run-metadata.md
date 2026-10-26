@@ -13,23 +13,9 @@ A test run describes one invocation of testing. A test sequence identifies one o
 
 All four are optional. Supplied values are strings containing a non-whitespace character; preserve original Unicode, spacing, and capitalization. Omitted properties stay absent. A consumer can display a run description as context for its sequences, but does not copy that value into sequence records. Describe APIs as `test_objective` using the language's naming convention.
 
-The required run `producer` identifies the producing component. Optional origin describes the caller, while adapter information describes the translator. One origin can execute predefined preparation and exploratory actions. Candidate-list scope explains the reported choices separately from origin.
+The required run `producer` identifies the producing component. Optional origin describes the caller, while adapter information describes the translator. One origin can execute predefined preparation and exploratory actions. Available-action scope explains the reported choices separately from origin.
 
-## Example
-
-```json
-{
-    "id": "example:test-run:1",
-    "producer": "example-browser-adapter",
-    "source_run": "source-invocation:42",
-    "properties": {
-        "evidence.origin": "Example explorer",
-        "evidence.test_objective": "Explore the request loan feature",
-        "evidence.adapter": "example-browser-adapter",
-        "evidence.adapter_version": "0.3.0"
-    }
-}
-```
+See the [optional run-descriptions example](examples.md#optional-run-descriptions) for a payload using these properties.
 
 Each sequence names that run through `test_run`, has its own `id`, `source_sequence`, and increasing `sequence_index`, and retains its own properties. The invocation can contain several sequences without linking their observation histories. Source identifiers and descriptions do not replace the shared record IDs.
 

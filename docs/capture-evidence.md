@@ -18,6 +18,18 @@ The capture configuration chooses which available properties to save. Their name
 
 Captured JSON values include empty strings, nulls, booleans, numbers, objects, and lists.
 
+## Captured widgets and visibility
+
+A widget can be present in the captured data while hidden on screen. Its presence records what the source collected, rather than whether it was shown to the user.
+
+CSS `display` and `visibility` describe different aspects of rendering. An element with `display: none` does not generate a layout box, and its descendants are not shown. A child can report `visibility: visible` while an ancestor with `display: none` still hides it. A widget's own style values alone therefore do not establish whether it is shown.
+
+Keep captured styles under their source property names, such as `source.style.display` and `source.style.visibility`, and retain the widget parents. A visible flag reported by a source API keeps that API's meaning. Describe how it is obtained: it may consider ancestor styles and element size while saying nothing about whether the element is inside the viewport or covered by another window or element. Missing visibility information remains unknown.
+
+Comparing captured styles is different from filtering hidden widgets out of an abstraction. See the [hidden result-panel example](examples.md#hidden-result-panel).
+
+The capture description states whether hidden elements are included and which style properties or visibility readings are collected. Adapters retain those readings; abstraction rules decide which captured differences matter for a testing objective.
+
 ## Describing the capture
 
 The following optional properties provide a common way to describe capture decisions. They belong in the existing properties maps and are preserved as JSON values by evidence implementations.

@@ -41,7 +41,7 @@ Each accepted result contains `status: accepted` and these fields:
 
 A sequence's observation order is independent from another sequence's. Artifact-reference counts count references, even when image bytes are reused. Oracle-result counts include repeated assessments and all statuses. Preserve each history's finish reason in complete-payload comparisons, as well as descriptions, parents, properties, aliases, omissions, action parameters, oracle configurations, and observed values.
 
-JSON object key order and formatting are insignificant; numeric values retain their exact JSON meaning. Verify artifact hashes and bytes. Retry each accepted event with identical identity and content and confirm that it does not change the result. Reopen or replay saved evidence and repeat the comparison.
+JSON object key order and formatting are insignificant; numeric values retain their exact JSON meaning. Verify artifact hashes and bytes. Retry each accepted event with identical identity and content and confirm that it does not change the result. Reopen saved evidence and repeat the comparison.
 
 ## Rejected summary
 

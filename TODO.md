@@ -2,10 +2,10 @@
 
 ## Release and implementation alignment
 
-- [ ] Review and publish schema 3, JSON Schemas, documents, and shared cases as v0.3.0.
-- [ ] Align Rust, Java, and Python public APIs, readers, and writers with the shared contract and verify the released cases.
+- [x] Publish the shared contract, JSON Schemas, documents, and conformance cases.
+- [x] Align Rust, Java, and Python public APIs, readers, and writers with the shared contract and verify the released cases.
 - [ ] Align adapter dependencies and recording calls, retaining source-tool behavior and capture meanings.
-- [ ] Align dashboard import, labels, severity inspection, evaluation coverage, and abstract-model views.
+- [x] Align dashboard import, labels, severity inspection, evaluation coverage, and abstract-model views.
 - [ ] Decide how consumers handle historical evidence formats and define explicit conversion where required.
 - [ ] Automate cross-implementation reading of generated evidence, including artifacts, metadata, and oracle results.
 
@@ -20,7 +20,7 @@
 - [ ] Add more lifecycle cases for interleaved sequences, duplicate sequence indexes, repeated finish events, and attempts after a history finishes.
 - [ ] Add recorded-transition self-loops, multiple outcomes, and repeated-event cases.
 - [ ] Add invalid property-target shapes, action-execution references, and observation-range endpoints.
-- [ ] Add replay conflicts, invalid schema versions, and missing or corrupted artifacts.
+- [ ] Add conflicting repeated-event cases, invalid schema versions, and missing or corrupted artifacts.
 - [ ] Define consistent parser resource limits while retaining exact numeric values.
 - [ ] Establish stable compatibility and migration rules before publishing a stable format.
 

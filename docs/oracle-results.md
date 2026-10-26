@@ -1,6 +1,6 @@
 # Oracle results
 
-A test oracle determines whether a condition holds. Running a test oracle once against a particular target is an oracle evaluation. Its recorded outcome and supporting evidence form an oracle result. For example, a loan-status oracle expects `Denied`; applying it after a particular loan request produces a result for that captured moment.
+A test oracle determines whether a condition holds. Running a test oracle once against a particular target is an oracle evaluation. Its recorded outcome and supporting evidence form an oracle result.
 
 ## Result fields
 
@@ -52,28 +52,7 @@ The `value_status` field distinguishes a reported value, established absence, an
 
 Omitting `observed_value` means none was supplied. Missing captured data alone does not establish application-level absence. Oracle readings and state capture can happen at different moments; retain both without replacing one with the other.
 
-## Example
-
-The oracle checks whether an image has alternative text. It establishes absence and reports failed, with source severity warning:
-
-```json
-{
-    "test_run": "example:test-run:1",
-    "test_sequence": "example:test-sequence:1",
-    "name": "Alternative-text property is present",
-    "oracle": {"id": "example:alt-present", "version": "1"},
-    "oracle_target": {
-        "target_type": "widget_property",
-        "observation": "example:observation:1",
-        "widget": "image-help",
-        "property": "ui.alt"
-    },
-    "oracle_status": "failed",
-    "observed_value": {"value_status": "absent"},
-    "oracle_severity": {"label": "warning", "value": 0.4},
-    "oracle_details": {}
-}
-```
+See the [property-oracle example](examples.md#property-oracle-result) for a complete result payload.
 
 ## Conditions over time
 

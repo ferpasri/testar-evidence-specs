@@ -21,6 +21,8 @@ A widget's actual title attribute, visible text, and accessible name have differ
 
 Properties can retain source prefixes such as `source.fingerprint` or `source.selector`. These identify where the information came from; consumers preserve unfamiliar properties. Adapters can declare an alias for the same captured property within one record. Equal values alone do not establish an alias or cross-tool equivalence. See [capture and properties](capture-evidence.md).
 
+A captured widget is not necessarily shown on screen. Its own CSS visibility value can say `visible` while an ancestor hides it with `display: none`. Preserve the source meanings and widget hierarchy when interpreting these properties. See [captured widgets and visibility](capture-evidence.md#captured-widgets-and-visibility).
+
 ## Available actions and execution
 
 An observation retains all the available actions reported by the producer, including those never selected. Available-action scope identifies generated, eligible, or unspecified lists. Ten reported choices and one selected execution remain ten choices and one occurrence. Comparing exploration at different observations requires explicit rules for relating states and actions.
@@ -47,4 +49,4 @@ One trace can produce different abstract models under different rules. The recor
 
 The manifest identifies the evidence collection; JSONL preserves Evidence Events, and artifacts retain referenced bytes. Reading events rebuilds their records and recorded transitions in memory. This reconstruction supports validation and inspection; abstraction is a separate operation. Repeated identical event identities do not duplicate evidence, while conflicting content is rejected.
 
-Examples can reserve directories named `<sut>_<test_objective>_trace-<local timestamp>`, including milliseconds. Sanitize filename labels, retain supplied original descriptions in metadata, and add a numeric suffix on collision. Directory names do not establish record identity or state equivalence. Explicit output directories remain caller choices.
+Directory names do not establish record identity or state equivalence. See the [trace-directory example](examples.md#trace-directories) for a naming convention.

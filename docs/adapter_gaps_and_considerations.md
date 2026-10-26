@@ -1,6 +1,6 @@
 # Adapter gaps and considerations
 
-The state model can only contain evidence that the testing tool and its adapter provide. A recording may follow the shared format correctly while still missing useful actions, widget properties, or test results.
+An evidence trace can only contain evidence that the testing tool and its adapter provide. A recording may follow the shared format correctly while still missing useful actions, widget properties, or test results.
 
 This guide explains where those gaps can appear, how to reduce them, and what work remains for people or agents implementing adapters.
 
@@ -63,9 +63,11 @@ Use the [capture conventions](capture-evidence.md) to describe the captured area
 
 **Work for implementers:** Check the meaning of each source property before assigning a common name. Document where its value comes from and any conversion. Keep the original names and values, and leave unavailable properties unknown. Review these mappings when the source tool changes.
 
+For visibility, verify both a widget's own properties and the source API's treatment of hidden parents. Test a result panel hidden by `display: none` whose child still reports `visibility: visible`, then show the panel and capture its result text. Retain hidden widgets when they belong to the stated capture area; explain any filtering. See [visibility meanings](capture-evidence.md#captured-widgets-and-visibility).
+
 ## Recording what test oracles evaluated
 
-A test oracle decides whether a condition is satisfied. An evaluation is one application of that oracle; a oracle result records its outcome.
+A tool reports an oracle evaluation and its result as defined in the [oracle-result contract](oracle-results.md).
 
 Consider two examples:
 
